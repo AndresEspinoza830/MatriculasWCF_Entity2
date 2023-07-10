@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCF_Matriculas" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCF_Matriculas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCuotaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CuotaDC" nillable="true" type="tns:CuotaDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCuotaDC" nillable="true" type="tns:ArrayOfCuotaDC" />
+  <xs:complexType name="CuotaDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Est_cuota" type="xs:int" />
+      <xs:element minOccurs="0" name="EstadoCuota" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fecha_pago" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id_alum" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_cuota" type="xs:int" />
+      <xs:element minOccurs="0" name="Ndoc_cuota" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NombreCompleto" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Precio_cuota" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Tip_cuota" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoCuota" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vencimiento" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CuotaDC" nillable="true" type="tns:CuotaDC" />
+  <xs:complexType name="ArrayOfMatriculadoDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MatriculadoDC" nillable="true" type="tns:MatriculadoDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMatriculadoDC" nillable="true" type="tns:ArrayOfMatriculadoDC" />
+  <xs:complexType name="MatriculadoDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ape_Alum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Departamento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Des_semestre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dir_alum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dni_alum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email_alum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fec_Ult_Mod" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Fec_nac" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Fec_reg" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id_Ubigeo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_alum" type="xs:int" />
+      <xs:element minOccurs="0" name="Nom_alum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nom_carrera" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Provincia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tel_alum" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usu_Registro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usu_Ult_Mod" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MatriculadoDC" nillable="true" type="tns:MatriculadoDC" />
+  <xs:complexType name="ArrayOfBloqueDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BloqueDC" nillable="true" type="tns:BloqueDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBloqueDC" nillable="true" type="tns:ArrayOfBloqueDC" />
+  <xs:complexType name="BloqueDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Horario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_bloque" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre_Profesor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tip_Bloque" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Total_matriculados" type="xs:short" />
+      <xs:element minOccurs="0" name="Vacantes" type="xs:short" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BloqueDC" nillable="true" type="tns:BloqueDC" />
+</xs:schema>

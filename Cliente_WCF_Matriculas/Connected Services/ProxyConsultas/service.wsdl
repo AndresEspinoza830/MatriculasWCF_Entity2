@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="ServicioConsultas" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/WCF_Matriculas" />
+      <xsd:import />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioConsultas_ListarCuotasPendientesAlumnos_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCuotasPendientesAlumnos" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsultas_ListarCuotasPendientesAlumnos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCuotasPendientesAlumnosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsultas_ListarMatriculadosFechas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarMatriculadosFechas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsultas_ListarMatriculadosFechas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarMatriculadosFechasResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsultas_ListarAlumnosCarrera_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlumnosCarrera" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsultas_ListarAlumnosCarrera_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarAlumnosCarreraResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsultas_ListarBloquesVacantes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarBloquesVacantes" />
+  </wsdl:message>
+  <wsdl:message name="IServicioConsultas_ListarBloquesVacantes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarBloquesVacantesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioConsultas">
+    <wsdl:operation name="ListarCuotasPendientesAlumnos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioConsultas/ListarCuotasPendientesAlumnos" message="tns:IServicioConsultas_ListarCuotasPendientesAlumnos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioConsultas/ListarCuotasPendientesAlumnosResponse" message="tns:IServicioConsultas_ListarCuotasPendientesAlumnos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarMatriculadosFechas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioConsultas/ListarMatriculadosFechas" message="tns:IServicioConsultas_ListarMatriculadosFechas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioConsultas/ListarMatriculadosFechasResponse" message="tns:IServicioConsultas_ListarMatriculadosFechas_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarAlumnosCarrera">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioConsultas/ListarAlumnosCarrera" message="tns:IServicioConsultas_ListarAlumnosCarrera_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioConsultas/ListarAlumnosCarreraResponse" message="tns:IServicioConsultas_ListarAlumnosCarrera_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarBloquesVacantes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioConsultas/ListarBloquesVacantes" message="tns:IServicioConsultas_ListarBloquesVacantes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioConsultas/ListarBloquesVacantesResponse" message="tns:IServicioConsultas_ListarBloquesVacantes_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioConsultas" type="tns:IServicioConsultas">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarCuotasPendientesAlumnos">
+      <soap:operation soapAction="http://tempuri.org/IServicioConsultas/ListarCuotasPendientesAlumnos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMatriculadosFechas">
+      <soap:operation soapAction="http://tempuri.org/IServicioConsultas/ListarMatriculadosFechas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarAlumnosCarrera">
+      <soap:operation soapAction="http://tempuri.org/IServicioConsultas/ListarAlumnosCarrera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListarBloquesVacantes">
+      <soap:operation soapAction="http://tempuri.org/IServicioConsultas/ListarBloquesVacantes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioConsultas">
+    <wsdl:port name="BasicHttpBinding_IServicioConsultas" binding="tns:BasicHttpBinding_IServicioConsultas">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/WCF_Matriculas/ServicioConsultas/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

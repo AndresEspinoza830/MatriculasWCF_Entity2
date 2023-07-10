@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCF_Matriculas" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCF_Matriculas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ProfesorDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ape_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Departamento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Des_esp" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dni_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Fec_Ult_Mod" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Fec_reg" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id_Ubigeo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_esp" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_profe" type="xs:int" />
+      <xs:element minOccurs="0" name="Nom_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Provincia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tel_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usu_Registro" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usu_Ult_Mod" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProfesorDC" nillable="true" type="tns:ProfesorDC" />
+  <xs:complexType name="ArrayOfProfesorDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProfesorDC" nillable="true" type="tns:ProfesorDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProfesorDC" nillable="true" type="tns:ArrayOfProfesorDC" />
+  <xs:complexType name="ProfesorDCINSERTS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ape_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dni_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Est_prof" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Ubigeo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_esp" type="xs:int" />
+      <xs:element minOccurs="0" name="Nom_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tel_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usu_Registro" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProfesorDCINSERTS" nillable="true" type="tns:ProfesorDCINSERTS" />
+  <xs:complexType name="ProfesorDCUPDATES">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ape_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dni_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Est_prof" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_Ubigeo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id_esp" type="xs:int" />
+      <xs:element minOccurs="0" name="Id_profe" type="xs:int" />
+      <xs:element minOccurs="0" name="Nom_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tel_profe" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Usu_Ult_Mod" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProfesorDCUPDATES" nillable="true" type="tns:ProfesorDCUPDATES" />
+</xs:schema>

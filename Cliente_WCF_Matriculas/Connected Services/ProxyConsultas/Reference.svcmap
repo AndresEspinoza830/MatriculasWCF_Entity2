@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="d6a34f79-d86d-4281-b5dc-3e032c6cdd4e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WCF_Matriculas/ServicioConsultas/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="cd129383-2b77-4b7b-a2d5-a6394499d00d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Matriculas/ServicioConsultas/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="0e6506f0-4b60-4bc8-8973-43bfc13fd6ab" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Matriculas/ServicioConsultas/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="f5879ca8-6885-4802-981c-467d6f227806" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Matriculas/ServicioConsultas/mex" />
+    <MetadataFile FileName="WCF_Matriculas.xsd" MetadataType="Schema" ID="5f30bcca-3df1-4d08-b29f-3e036aa731ba" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Matriculas/ServicioConsultas/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="5fb9b420-a03c-4175-a066-94003b969311" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WCF_Matriculas/ServicioConsultas/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
