@@ -48,6 +48,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActualizarAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizarAlumno.designer.cs">
+      <DependentUpon>ActualizarAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgregarAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarAlumno.designer.cs">
+      <DependentUpon>AgregarAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AlumnoMan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlumnoMan.designer.cs">
+      <DependentUpon>AlumnoMan.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ProxyAlumno\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -98,6 +116,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ActualizarAlumno.resx">
+      <DependentUpon>ActualizarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgregarAlumno.resx">
+      <DependentUpon>AgregarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AlumnoMan.resx">
+      <DependentUpon>AlumnoMan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProfesorMan01.resx">
       <DependentUpon>ProfesorMan01.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +139,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Connected Services\ProxyAlumno\Cliente_WCF_Matriculas.ProxyAlumno.AlumnoDC.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -301,6 +329,10 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Img\defaultUser.jpeg" />
+    <None Include="Resources\defaultUser.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

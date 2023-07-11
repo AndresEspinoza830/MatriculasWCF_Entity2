@@ -18,7 +18,7 @@ namespace WCF_Matriculas
         List<AlumnoDC> ListarAlumnos();
 
         [OperationContract]
-        Boolean ActualizarAlumno(AlumnoDCUPDATES objAlumnoDC);
+        Boolean ActualizarAlumno(AlumnoDC objAlumnoDC);
 
         [OperationContract]
         Boolean EliminarAlumno(int id);
@@ -50,9 +50,13 @@ namespace WCF_Matriculas
         [DataMember]
         public String Tel_alum { get; set; }
         [DataMember]
+        public int Est_alum { get; set; }
+        [DataMember]
         public String Estado { get; set; }
-        
 
+        //IMG
+        [DataMember]
+        public byte[] Foto_alum { get; set; }
 
 
         //UBIGEO
@@ -104,6 +108,10 @@ namespace WCF_Matriculas
         [DataMember]
         public int Est_alum { get; set; }
 
+        //IMG
+        [DataMember]
+        public byte[] Foto_alum { get; set; }
+
         //AUDITORIA
         [DataMember]
         public String Usu_Registro { get; set; }
@@ -137,6 +145,9 @@ namespace WCF_Matriculas
         [DataMember]
         public int Est_alum { get; set; }
 
+        //IMG
+        [DataMember]
+        public byte[] Foto_alum { get; set; }
 
         //AUDITORIA
         [DataMember]
