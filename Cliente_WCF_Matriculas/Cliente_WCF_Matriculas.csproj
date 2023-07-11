@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarCurso.Designer.cs">
+      <DependentUpon>AgregarCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ProxyAlumno\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -67,6 +73,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="CursoMan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CursoMan.Designer.cs">
+      <DependentUpon>CursoMan.cs</DependentUpon>
     </Compile>
     <Compile Include="ProfesorMan01.cs">
       <SubType>Form</SubType>
@@ -88,6 +100,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AgregarCurso.resx">
+      <DependentUpon>AgregarCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CursoMan.resx">
+      <DependentUpon>CursoMan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ProfesorMan01.resx">
       <DependentUpon>ProfesorMan01.cs</DependentUpon>
     </EmbeddedResource>

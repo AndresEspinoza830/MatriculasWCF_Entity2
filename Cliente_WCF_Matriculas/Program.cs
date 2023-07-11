@@ -16,7 +16,7 @@ namespace Cliente_WCF_Matriculas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ProfesorMan01());
+            Application.Run(new CursoMan());
         }
     }
 }
