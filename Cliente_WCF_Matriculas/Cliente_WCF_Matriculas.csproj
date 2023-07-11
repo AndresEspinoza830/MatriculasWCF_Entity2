@@ -63,7 +63,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ProxyEspecialidad\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ProxyProfesor\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\proxyUbigeo\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -90,6 +100,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ProfesorMan01.resx">
       <DependentUpon>ProfesorMan01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfesorMan02.resx">
+      <DependentUpon>ProfesorMan02.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -148,6 +161,19 @@
     <None Include="Connected Services\ProxyCurso\WCF_Matriculas.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ProxyEspecialidad\Cliente_WCF_Matriculas.ProxyEspecialidad.EspecialidadDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyEspecialidad\service.wsdl" />
+    <None Include="Connected Services\ProxyEspecialidad\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyEspecialidad\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyEspecialidad\WCF_Matriculas.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ProxyProfesor\Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -159,6 +185,25 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProxyProfesor\WCF_Matriculas.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\proxyUbigeo\Cliente_WCF_Matriculas.proxyUbigeo.UbigeoDepartamentoDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\proxyUbigeo\Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_DistritosProvinciaDepartamentoDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\proxyUbigeo\Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_ProvinciasDepartamentoDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\proxyUbigeo\service.wsdl" />
+    <None Include="Connected Services\proxyUbigeo\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\proxyUbigeo\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\proxyUbigeo\WCF_Matriculas.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -181,7 +226,9 @@
     <WCFMetadataStorage Include="Connected Services\ProxyAlumno\" />
     <WCFMetadataStorage Include="Connected Services\ProxyConsultas\" />
     <WCFMetadataStorage Include="Connected Services\ProxyCurso\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyEspecialidad\" />
     <WCFMetadataStorage Include="Connected Services\ProxyProfesor\" />
+    <WCFMetadataStorage Include="Connected Services\proxyUbigeo\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ProxyProfesor\configuration91.svcinfo" />
@@ -227,6 +274,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ProxyConsultas\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyEspecialidad\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyEspecialidad\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ProxyEspecialidad\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\proxyUbigeo\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\proxyUbigeo\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\proxyUbigeo\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

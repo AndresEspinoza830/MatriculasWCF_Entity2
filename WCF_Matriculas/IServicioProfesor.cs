@@ -25,6 +25,7 @@ namespace WCF_Matriculas
 
         [OperationContract]
         Boolean ActualizarProfesor(ProfesorDCUPDATES objProfesorDC);
+
     }
 
     [DataContract]

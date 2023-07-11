@@ -59,6 +59,13 @@
           <Property Name="Id_matricula" Type="int" Nullable="false" />
           <Property Name="Id_bloque" Type="nvarchar" MaxLength="4" Nullable="false" />
         </EntityType>
+        <EntityType Name="Tb_ESPECIALIDAD">
+          <Key>
+            <PropertyRef Name="Id_esp" />
+          </Key>
+          <Property Name="Id_esp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Des_esp" Type="nvarchar" MaxLength="60" />
+        </EntityType>
         <EntityType Name="Tb_MATRICULA">
           <Key>
             <PropertyRef Name="Id_matricula" />
@@ -251,6 +258,18 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="fk_profesor_especialidad">
+          <End Role="Tb_ESPECIALIDAD" Type="Self.Tb_ESPECIALIDAD" Multiplicity="1" />
+          <End Role="Tb_PROFESOR" Type="Self.Tb_PROFESOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_ESPECIALIDAD">
+              <PropertyRef Name="Id_esp" />
+            </Principal>
+            <Dependent Role="Tb_PROFESOR">
+              <PropertyRef Name="Id_esp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="fk_profesor_ubigeo">
           <End Role="Tb_Ubigeo" Type="Self.Tb_Ubigeo" Multiplicity="1" />
           <End Role="Tb_PROFESOR" Type="Self.Tb_PROFESOR" Multiplicity="*" />
@@ -326,11 +345,20 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
           <Parameter Name="Est_prof" Type="int" Mode="In" />
         </Function>
         <Function Name="usp_listar_cuota" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_listar_especialidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ListarAlumnosCarrera" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id_carrera" Type="int" Mode="In" />
         </Function>
         <Function Name="usp_ListarBloquesVacantes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="vacantes" Type="smallint" Mode="In" />
+        </Function>
+        <Function Name="usp_Ubigeo_Departamentos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_Ubigeo_DistritosProvinciaDepartamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDepartamento" Type="char" Mode="In" />
+          <Parameter Name="IdProvincia" Type="char" Mode="In" />
+        </Function>
+        <Function Name="usp_Ubigeo_ProvinciasDepartamento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdDepartamento" Type="char" Mode="In" />
         </Function>
         <Function Name="usp_update_alumno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_alumno" Type="int" Mode="In" />
@@ -383,6 +411,7 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
           <EntitySet Name="Tb_CUOTA" EntityType="Self.Tb_CUOTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_CURSO" EntityType="Self.Tb_CURSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_DETMATRICULA" EntityType="Self.Tb_DETMATRICULA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_ESPECIALIDAD" EntityType="Self.Tb_ESPECIALIDAD" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_MATRICULA" EntityType="Self.Tb_MATRICULA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_PROFESOR" EntityType="Self.Tb_PROFESOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_Ubigeo" EntityType="Self.Tb_Ubigeo" Schema="dbo" store:Type="Tables" />
@@ -476,6 +505,10 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
             <End Role="Tb_ALUMNO" EntitySet="Tb_ALUMNO" />
             <End Role="Tb_MATRICULA" EntitySet="Tb_MATRICULA" />
           </AssociationSet>
+          <AssociationSet Name="fk_profesor_especialidad" Association="Self.fk_profesor_especialidad">
+            <End Role="Tb_ESPECIALIDAD" EntitySet="Tb_ESPECIALIDAD" />
+            <End Role="Tb_PROFESOR" EntitySet="Tb_PROFESOR" />
+          </AssociationSet>
           <AssociationSet Name="fk_profesor_ubigeo" Association="Self.fk_profesor_ubigeo">
             <End Role="Tb_Ubigeo" EntitySet="Tb_Ubigeo" />
             <End Role="Tb_PROFESOR" EntitySet="Tb_PROFESOR" />
@@ -554,6 +587,7 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
           <Property Name="Est_prof" Type="Int32" Nullable="false" />
           <Property Name="Sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <NavigationProperty Name="Tb_Ubigeo" Relationship="Self.fk_profesor_ubigeo" FromRole="Tb_PROFESOR" ToRole="Tb_Ubigeo" />
+          <NavigationProperty Name="Tb_ESPECIALIDAD" Relationship="SISTEMA_MATRICULASModel.fk_profesor_especialidad" FromRole="Tb_PROFESOR" ToRole="Tb_ESPECIALIDAD" />
         </EntityType>
         <EntityType Name="Tb_Ubigeo">
           <Key>
@@ -765,6 +799,20 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
             <Parameter Name="Fec_Ult_Mod" Mode="In" Type="DateTime" />
             <Parameter Name="Est_curso" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="usp_listar_especialidad" ReturnType="Collection(SISTEMA_MATRICULASModel.usp_listar_especialidad_Result)" />
+          <FunctionImport Name="usp_Ubigeo_Departamentos" ReturnType="Collection(SISTEMA_MATRICULASModel.usp_Ubigeo_Departamentos_Result)" />
+          <FunctionImport Name="usp_Ubigeo_DistritosProvinciaDepartamento" ReturnType="Collection(SISTEMA_MATRICULASModel.usp_Ubigeo_DistritosProvinciaDepartamento_Result)">
+            <Parameter Name="IdDepartamento" Mode="In" Type="String" />
+            <Parameter Name="IdProvincia" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Ubigeo_ProvinciasDepartamento" ReturnType="Collection(SISTEMA_MATRICULASModel.usp_Ubigeo_ProvinciasDepartamento_Result)">
+          <Parameter Name="IdDepartamento" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Tb_ESPECIALIDAD" EntityType="SISTEMA_MATRICULASModel.Tb_ESPECIALIDAD" />
+          <AssociationSet Name="fk_profesor_especialidad" Association="SISTEMA_MATRICULASModel.fk_profesor_especialidad">
+            <End Role="Tb_ESPECIALIDAD" EntitySet="Tb_ESPECIALIDAD" />
+            <End Role="Tb_PROFESOR" EntitySet="Tb_PROFESOR" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Tb_CUOTA">
           <Key>
@@ -992,6 +1040,42 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
           <Property Type="DateTime" Name="Fec_Ult_Mod" Nullable="true" Precision="23" />
           <Property Type="String" Name="Estado" Nullable="true" MaxLength="8" />
         </ComplexType>
+        <ComplexType Name="usp_listar_especialidad_Result">
+          <Property Type="Int32" Name="Id_esp" Nullable="false" />
+          <Property Type="String" Name="Des_esp" Nullable="true" MaxLength="60" />
+        </ComplexType>
+        <ComplexType Name="usp_Ubigeo_Departamentos_Result">
+          <Property Type="String" Name="IDDEPA" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="DEPARTAMENTO" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_Ubigeo_DistritosProvinciaDepartamento_Result">
+          <Property Type="String" Name="IDDIST" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="DISTRITO" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_Ubigeo_ProvinciasDepartamento_Result">
+          <Property Type="String" Name="IDPROV" Nullable="true" MaxLength="255" />
+          <Property Type="String" Name="PROVINCIA" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <EntityType Name="Tb_ESPECIALIDAD">
+          <Key>
+            <PropertyRef Name="Id_esp" />
+          </Key>
+          <Property Name="Id_esp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Des_esp" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Tb_PROFESOR" Relationship="SISTEMA_MATRICULASModel.fk_profesor_especialidad" FromRole="Tb_ESPECIALIDAD" ToRole="Tb_PROFESOR" />
+        </EntityType>
+        <Association Name="fk_profesor_especialidad">
+          <End Type="SISTEMA_MATRICULASModel.Tb_ESPECIALIDAD" Role="Tb_ESPECIALIDAD" Multiplicity="1" />
+          <End Type="SISTEMA_MATRICULASModel.Tb_PROFESOR" Role="Tb_PROFESOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_ESPECIALIDAD">
+              <PropertyRef Name="Id_esp" />
+            </Principal>
+            <Dependent Role="Tb_PROFESOR">
+              <PropertyRef Name="Id_esp" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1322,6 +1406,46 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
           <FunctionImportMapping FunctionImportName="usp_delete_curso" FunctionName="SISTEMA_MATRICULASModel.Store.usp_delete_curso" />
           <FunctionImportMapping FunctionImportName="usp_insert_curso" FunctionName="SISTEMA_MATRICULASModel.Store.usp_insert_curso" />
           <FunctionImportMapping FunctionImportName="usp_update_curso" FunctionName="SISTEMA_MATRICULASModel.Store.usp_update_curso" />
+          <FunctionImportMapping FunctionImportName="usp_listar_especialidad" FunctionName="SISTEMA_MATRICULASModel.Store.usp_listar_especialidad">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SISTEMA_MATRICULASModel.usp_listar_especialidad_Result">
+                <ScalarProperty Name="Id_esp" ColumnName="Id_esp" />
+                <ScalarProperty Name="Des_esp" ColumnName="Des_esp" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Ubigeo_Departamentos" FunctionName="SISTEMA_MATRICULASModel.Store.usp_Ubigeo_Departamentos">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SISTEMA_MATRICULASModel.usp_Ubigeo_Departamentos_Result">
+                <ScalarProperty Name="IDDEPA" ColumnName="IDDEPA" />
+                <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Ubigeo_DistritosProvinciaDepartamento" FunctionName="SISTEMA_MATRICULASModel.Store.usp_Ubigeo_DistritosProvinciaDepartamento">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SISTEMA_MATRICULASModel.usp_Ubigeo_DistritosProvinciaDepartamento_Result">
+                <ScalarProperty Name="IDDIST" ColumnName="IDDIST" />
+                <ScalarProperty Name="DISTRITO" ColumnName="DISTRITO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Ubigeo_ProvinciasDepartamento" FunctionName="SISTEMA_MATRICULASModel.Store.usp_Ubigeo_ProvinciasDepartamento">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SISTEMA_MATRICULASModel.usp_Ubigeo_ProvinciasDepartamento_Result">
+                <ScalarProperty Name="IDPROV" ColumnName="IDPROV" />
+                <ScalarProperty Name="PROVINCIA" ColumnName="PROVINCIA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Tb_ESPECIALIDAD">
+            <EntityTypeMapping TypeName="SISTEMA_MATRICULASModel.Tb_ESPECIALIDAD">
+              <MappingFragment StoreEntitySet="Tb_ESPECIALIDAD">
+                <ScalarProperty Name="Des_esp" ColumnName="Des_esp" />
+                <ScalarProperty Name="Id_esp" ColumnName="Id_esp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

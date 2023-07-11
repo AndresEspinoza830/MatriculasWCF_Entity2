@@ -15,22 +15,27 @@ namespace WCF_Matriculas
 using System;
     using System.Collections.Generic;
     
-public partial class Tb_CURSO
+public partial class Tb_ESPECIALIDAD
 {
 
-    public int Id_curso { get; set; }
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+    public Tb_ESPECIALIDAD()
+    {
 
-    public string Des_curso { get; set; }
+        this.Tb_PROFESOR = new HashSet<Tb_PROFESOR>();
 
-    public string Usu_Registro { get; set; }
+    }
 
-    public Nullable<System.DateTime> Fec_reg { get; set; }
 
-    public string Usu_Ult_Mod { get; set; }
+    public int Id_esp { get; set; }
 
-    public Nullable<System.DateTime> Fec_Ult_Mod { get; set; }
+    public string Des_esp { get; set; }
 
-    public Nullable<int> Est_curso { get; set; }
+
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<Tb_PROFESOR> Tb_PROFESOR { get; set; }
 
 }
 

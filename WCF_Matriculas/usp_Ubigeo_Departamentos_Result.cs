@@ -13,24 +13,13 @@ namespace WCF_Matriculas
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class Tb_CURSO
+public partial class usp_Ubigeo_Departamentos_Result
 {
 
-    public int Id_curso { get; set; }
+    public string IDDEPA { get; set; }
 
-    public string Des_curso { get; set; }
-
-    public string Usu_Registro { get; set; }
-
-    public Nullable<System.DateTime> Fec_reg { get; set; }
-
-    public string Usu_Ult_Mod { get; set; }
-
-    public Nullable<System.DateTime> Fec_Ult_Mod { get; set; }
-
-    public Nullable<int> Est_curso { get; set; }
+    public string DEPARTAMENTO { get; set; }
 
 }
 

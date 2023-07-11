@@ -21,6 +21,8 @@
         <EntityTypeShape EntityType="SISTEMA_MATRICULASModel.vw_VistaProfesores" Width="1.5" PointX="9.75" PointY="5.75" />
         <EntityTypeShape EntityType="SISTEMA_MATRICULASModel.vw_VistaCuotas" Width="1.5" PointX="10.375" PointY="0.75" />
         <EntityTypeShape EntityType="SISTEMA_MATRICULASModel.vw_VistaCursos" Width="1.5" PointX="0.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SISTEMA_MATRICULASModel.Tb_ESPECIALIDAD" Width="1.5" PointX="3.375" PointY="11.875" />
+        <AssociationConnector Association="SISTEMA_MATRICULASModel.fk_profesor_especialidad" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -56,12 +56,16 @@
     <Compile Include="IServicioAlumno.cs" />
     <Compile Include="IServicioConsultas.cs" />
     <Compile Include="IServicioCurso.cs" />
+    <Compile Include="IServicioEspecialidad.cs" />
     <Compile Include="IServicioProfesor.cs" />
+    <Compile Include="IServicioUbigeo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicioAlumno.cs" />
     <Compile Include="ServicioConsultas.cs" />
     <Compile Include="ServicioCurso.cs" />
+    <Compile Include="ServicioEspecialidad.cs" />
     <Compile Include="ServicioProfesor.cs" />
+    <Compile Include="ServicioUbigeo.cs" />
     <Compile Include="SistemaMatriculas.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +93,9 @@
     <Compile Include="Tb_DETMATRICULA.cs">
       <DependentUpon>SistemaMatriculas.tt</DependentUpon>
     </Compile>
+    <Compile Include="Tb_ESPECIALIDAD.cs">
+      <DependentUpon>SistemaMatriculas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Tb_MATRICULA.cs">
       <DependentUpon>SistemaMatriculas.tt</DependentUpon>
     </Compile>
@@ -114,6 +121,18 @@
       <DependentUpon>SistemaMatriculas.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_listar_cuota_Result.cs">
+      <DependentUpon>SistemaMatriculas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_listar_especialidad_Result.cs">
+      <DependentUpon>SistemaMatriculas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_Ubigeo_Departamentos_Result.cs">
+      <DependentUpon>SistemaMatriculas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_Ubigeo_DistritosProvinciaDepartamento_Result.cs">
+      <DependentUpon>SistemaMatriculas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_Ubigeo_ProvinciasDepartamento_Result.cs">
       <DependentUpon>SistemaMatriculas.tt</DependentUpon>
     </Compile>
     <Compile Include="vw_VistaAlumnos.cs">
