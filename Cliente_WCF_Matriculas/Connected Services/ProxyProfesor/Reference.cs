@@ -41,6 +41,9 @@ namespace Cliente_WCF_Matriculas.ProxyProfesor {
         private string Email_profeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Est_profField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EstadoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -48,6 +51,9 @@ namespace Cliente_WCF_Matriculas.ProxyProfesor {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime Fec_regField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] Foto_profeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Id_UbigeoField;
@@ -165,6 +171,19 @@ namespace Cliente_WCF_Matriculas.ProxyProfesor {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Est_prof {
+            get {
+                return this.Est_profField;
+            }
+            set {
+                if ((this.Est_profField.Equals(value) != true)) {
+                    this.Est_profField = value;
+                    this.RaisePropertyChanged("Est_prof");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Estado {
             get {
                 return this.EstadoField;
@@ -199,6 +218,19 @@ namespace Cliente_WCF_Matriculas.ProxyProfesor {
                 if ((this.Fec_regField.Equals(value) != true)) {
                     this.Fec_regField = value;
                     this.RaisePropertyChanged("Fec_reg");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Foto_profe {
+            get {
+                return this.Foto_profeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Foto_profeField, value) != true)) {
+                    this.Foto_profeField = value;
+                    this.RaisePropertyChanged("Foto_profe");
                 }
             }
         }
@@ -330,400 +362,6 @@ namespace Cliente_WCF_Matriculas.ProxyProfesor {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProfesorDCINSERTS", Namespace="http://schemas.datacontract.org/2004/07/WCF_Matriculas")]
-    [System.SerializableAttribute()]
-    public partial class ProfesorDCINSERTS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Ape_profeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Dni_profeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Email_profeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Est_profField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Id_UbigeoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_espField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Nom_profeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SexoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Tel_profeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Usu_RegistroField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ape_profe {
-            get {
-                return this.Ape_profeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Ape_profeField, value) != true)) {
-                    this.Ape_profeField = value;
-                    this.RaisePropertyChanged("Ape_profe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Dni_profe {
-            get {
-                return this.Dni_profeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Dni_profeField, value) != true)) {
-                    this.Dni_profeField = value;
-                    this.RaisePropertyChanged("Dni_profe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email_profe {
-            get {
-                return this.Email_profeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Email_profeField, value) != true)) {
-                    this.Email_profeField = value;
-                    this.RaisePropertyChanged("Email_profe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Est_prof {
-            get {
-                return this.Est_profField;
-            }
-            set {
-                if ((this.Est_profField.Equals(value) != true)) {
-                    this.Est_profField = value;
-                    this.RaisePropertyChanged("Est_prof");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Ubigeo {
-            get {
-                return this.Id_UbigeoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_UbigeoField, value) != true)) {
-                    this.Id_UbigeoField = value;
-                    this.RaisePropertyChanged("Id_Ubigeo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_esp {
-            get {
-                return this.Id_espField;
-            }
-            set {
-                if ((this.Id_espField.Equals(value) != true)) {
-                    this.Id_espField = value;
-                    this.RaisePropertyChanged("Id_esp");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nom_profe {
-            get {
-                return this.Nom_profeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Nom_profeField, value) != true)) {
-                    this.Nom_profeField = value;
-                    this.RaisePropertyChanged("Nom_profe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Sexo {
-            get {
-                return this.SexoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SexoField, value) != true)) {
-                    this.SexoField = value;
-                    this.RaisePropertyChanged("Sexo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tel_profe {
-            get {
-                return this.Tel_profeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Tel_profeField, value) != true)) {
-                    this.Tel_profeField = value;
-                    this.RaisePropertyChanged("Tel_profe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Usu_Registro {
-            get {
-                return this.Usu_RegistroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Usu_RegistroField, value) != true)) {
-                    this.Usu_RegistroField = value;
-                    this.RaisePropertyChanged("Usu_Registro");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProfesorDCUPDATES", Namespace="http://schemas.datacontract.org/2004/07/WCF_Matriculas")]
-    [System.SerializableAttribute()]
-    public partial class ProfesorDCUPDATES : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Ape_profeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Dni_profeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Email_profeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Est_profField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Id_UbigeoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_espField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Id_profeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Nom_profeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SexoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Tel_profeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Usu_Ult_ModField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ape_profe {
-            get {
-                return this.Ape_profeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Ape_profeField, value) != true)) {
-                    this.Ape_profeField = value;
-                    this.RaisePropertyChanged("Ape_profe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Dni_profe {
-            get {
-                return this.Dni_profeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Dni_profeField, value) != true)) {
-                    this.Dni_profeField = value;
-                    this.RaisePropertyChanged("Dni_profe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email_profe {
-            get {
-                return this.Email_profeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Email_profeField, value) != true)) {
-                    this.Email_profeField = value;
-                    this.RaisePropertyChanged("Email_profe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Est_prof {
-            get {
-                return this.Est_profField;
-            }
-            set {
-                if ((this.Est_profField.Equals(value) != true)) {
-                    this.Est_profField = value;
-                    this.RaisePropertyChanged("Est_prof");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Ubigeo {
-            get {
-                return this.Id_UbigeoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_UbigeoField, value) != true)) {
-                    this.Id_UbigeoField = value;
-                    this.RaisePropertyChanged("Id_Ubigeo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_esp {
-            get {
-                return this.Id_espField;
-            }
-            set {
-                if ((this.Id_espField.Equals(value) != true)) {
-                    this.Id_espField = value;
-                    this.RaisePropertyChanged("Id_esp");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id_profe {
-            get {
-                return this.Id_profeField;
-            }
-            set {
-                if ((this.Id_profeField.Equals(value) != true)) {
-                    this.Id_profeField = value;
-                    this.RaisePropertyChanged("Id_profe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nom_profe {
-            get {
-                return this.Nom_profeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Nom_profeField, value) != true)) {
-                    this.Nom_profeField = value;
-                    this.RaisePropertyChanged("Nom_profe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Sexo {
-            get {
-                return this.SexoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SexoField, value) != true)) {
-                    this.SexoField = value;
-                    this.RaisePropertyChanged("Sexo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tel_profe {
-            get {
-                return this.Tel_profeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Tel_profeField, value) != true)) {
-                    this.Tel_profeField = value;
-                    this.RaisePropertyChanged("Tel_profe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Usu_Ult_Mod {
-            get {
-                return this.Usu_Ult_ModField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Usu_Ult_ModField, value) != true)) {
-                    this.Usu_Ult_ModField = value;
-                    this.RaisePropertyChanged("Usu_Ult_Mod");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyProfesor.IServicioProfesor")]
     public interface IServicioProfesor {
@@ -735,10 +373,10 @@ namespace Cliente_WCF_Matriculas.ProxyProfesor {
         System.Threading.Tasks.Task<Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC> ConsultarProfesorAsync(int idProfe);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioProfesor/ListarProfesores", ReplyAction="http://tempuri.org/IServicioProfesor/ListarProfesoresResponse")]
-        Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC[] ListarProfesores();
+        System.Collections.Generic.List<Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC> ListarProfesores();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioProfesor/ListarProfesores", ReplyAction="http://tempuri.org/IServicioProfesor/ListarProfesoresResponse")]
-        System.Threading.Tasks.Task<Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC[]> ListarProfesoresAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC>> ListarProfesoresAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioProfesor/EliminarProfesor", ReplyAction="http://tempuri.org/IServicioProfesor/EliminarProfesorResponse")]
         bool EliminarProfesor(int idProfe);
@@ -747,16 +385,16 @@ namespace Cliente_WCF_Matriculas.ProxyProfesor {
         System.Threading.Tasks.Task<bool> EliminarProfesorAsync(int idProfe);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioProfesor/InsertarProfesor", ReplyAction="http://tempuri.org/IServicioProfesor/InsertarProfesorResponse")]
-        bool InsertarProfesor(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDCINSERTS objProfesorDC);
+        bool InsertarProfesor(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC objProfesorDC);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioProfesor/InsertarProfesor", ReplyAction="http://tempuri.org/IServicioProfesor/InsertarProfesorResponse")]
-        System.Threading.Tasks.Task<bool> InsertarProfesorAsync(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDCINSERTS objProfesorDC);
+        System.Threading.Tasks.Task<bool> InsertarProfesorAsync(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC objProfesorDC);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioProfesor/ActualizarProfesor", ReplyAction="http://tempuri.org/IServicioProfesor/ActualizarProfesorResponse")]
-        bool ActualizarProfesor(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDCUPDATES objProfesorDC);
+        bool ActualizarProfesor(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC objProfesorDC);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioProfesor/ActualizarProfesor", ReplyAction="http://tempuri.org/IServicioProfesor/ActualizarProfesorResponse")]
-        System.Threading.Tasks.Task<bool> ActualizarProfesorAsync(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDCUPDATES objProfesorDC);
+        System.Threading.Tasks.Task<bool> ActualizarProfesorAsync(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC objProfesorDC);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -794,11 +432,11 @@ namespace Cliente_WCF_Matriculas.ProxyProfesor {
             return base.Channel.ConsultarProfesorAsync(idProfe);
         }
         
-        public Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC[] ListarProfesores() {
+        public System.Collections.Generic.List<Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC> ListarProfesores() {
             return base.Channel.ListarProfesores();
         }
         
-        public System.Threading.Tasks.Task<Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC[]> ListarProfesoresAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC>> ListarProfesoresAsync() {
             return base.Channel.ListarProfesoresAsync();
         }
         
@@ -810,19 +448,19 @@ namespace Cliente_WCF_Matriculas.ProxyProfesor {
             return base.Channel.EliminarProfesorAsync(idProfe);
         }
         
-        public bool InsertarProfesor(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDCINSERTS objProfesorDC) {
+        public bool InsertarProfesor(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC objProfesorDC) {
             return base.Channel.InsertarProfesor(objProfesorDC);
         }
         
-        public System.Threading.Tasks.Task<bool> InsertarProfesorAsync(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDCINSERTS objProfesorDC) {
+        public System.Threading.Tasks.Task<bool> InsertarProfesorAsync(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC objProfesorDC) {
             return base.Channel.InsertarProfesorAsync(objProfesorDC);
         }
         
-        public bool ActualizarProfesor(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDCUPDATES objProfesorDC) {
+        public bool ActualizarProfesor(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC objProfesorDC) {
             return base.Channel.ActualizarProfesor(objProfesorDC);
         }
         
-        public System.Threading.Tasks.Task<bool> ActualizarProfesorAsync(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDCUPDATES objProfesorDC) {
+        public System.Threading.Tasks.Task<bool> ActualizarProfesorAsync(Cliente_WCF_Matriculas.ProxyProfesor.ProfesorDC objProfesorDC) {
             return base.Channel.ActualizarProfesorAsync(objProfesorDC);
         }
     }

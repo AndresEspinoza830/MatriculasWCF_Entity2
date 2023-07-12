@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.mskTelefono = new System.Windows.Forms.TextBox();
+            this.txtApeliido = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,6 +54,7 @@
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.mskDNI = new System.Windows.Forms.MaskedTextBox();
             this.mskTel = new System.Windows.Forms.MaskedTextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pctFotoProf)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,7 +72,7 @@
             this.txtNombre.Location = new System.Drawing.Point(127, 27);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(213, 20);
-            this.txtNombre.TabIndex = 1;
+            this.txtNombre.TabIndex = 0;
             // 
             // label2
             // 
@@ -82,12 +83,12 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Apellido:";
             // 
-            // mskTelefono
+            // txtApeliido
             // 
-            this.mskTelefono.Location = new System.Drawing.Point(127, 66);
-            this.mskTelefono.Name = "mskTelefono";
-            this.mskTelefono.Size = new System.Drawing.Size(213, 20);
-            this.mskTelefono.TabIndex = 1;
+            this.txtApeliido.Location = new System.Drawing.Point(127, 66);
+            this.txtApeliido.Name = "txtApeliido";
+            this.txtApeliido.Size = new System.Drawing.Size(213, 20);
+            this.txtApeliido.TabIndex = 1;
             // 
             // label3
             // 
@@ -121,7 +122,7 @@
             this.txtEmail.Location = new System.Drawing.Point(127, 213);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(213, 20);
-            this.txtEmail.TabIndex = 1;
+            this.txtEmail.TabIndex = 4;
             // 
             // label6
             // 
@@ -161,50 +162,57 @@
             // 
             // cmbEspecialidad
             // 
+            this.cmbEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEspecialidad.FormattingEnabled = true;
             this.cmbEspecialidad.Location = new System.Drawing.Point(127, 256);
             this.cmbEspecialidad.Name = "cmbEspecialidad";
-            this.cmbEspecialidad.Size = new System.Drawing.Size(213, 21);
-            this.cmbEspecialidad.TabIndex = 2;
+            this.cmbEspecialidad.Size = new System.Drawing.Size(196, 21);
+            this.cmbEspecialidad.TabIndex = 5;
             // 
             // cmbDepartamento
             // 
+            this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepartamento.FormattingEnabled = true;
             this.cmbDepartamento.Location = new System.Drawing.Point(127, 292);
             this.cmbDepartamento.Name = "cmbDepartamento";
             this.cmbDepartamento.Size = new System.Drawing.Size(196, 21);
-            this.cmbDepartamento.TabIndex = 2;
+            this.cmbDepartamento.TabIndex = 6;
             // 
             // cmbProvincia
             // 
+            this.cmbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProvincia.FormattingEnabled = true;
             this.cmbProvincia.Location = new System.Drawing.Point(127, 339);
             this.cmbProvincia.Name = "cmbProvincia";
             this.cmbProvincia.Size = new System.Drawing.Size(196, 21);
-            this.cmbProvincia.TabIndex = 2;
+            this.cmbProvincia.TabIndex = 7;
             // 
             // cmbDistrito
             // 
+            this.cmbDistrito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDistrito.FormattingEnabled = true;
             this.cmbDistrito.Location = new System.Drawing.Point(127, 384);
             this.cmbDistrito.Name = "cmbDistrito";
             this.cmbDistrito.Size = new System.Drawing.Size(196, 21);
-            this.cmbDistrito.TabIndex = 2;
+            this.cmbDistrito.TabIndex = 8;
             // 
             // btnCargarFoto
             // 
             this.btnCargarFoto.Location = new System.Drawing.Point(397, 30);
             this.btnCargarFoto.Name = "btnCargarFoto";
             this.btnCargarFoto.Size = new System.Drawing.Size(104, 23);
-            this.btnCargarFoto.TabIndex = 3;
-            this.btnCargarFoto.Text = "button1";
+            this.btnCargarFoto.TabIndex = 9;
+            this.btnCargarFoto.Text = "Cargar";
             this.btnCargarFoto.UseVisualStyleBackColor = true;
+            this.btnCargarFoto.Click += new System.EventHandler(this.btnCargarFoto_Click);
             // 
             // pctFotoProf
             // 
+            this.pctFotoProf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pctFotoProf.Location = new System.Drawing.Point(397, 77);
             this.pctFotoProf.Name = "pctFotoProf";
             this.pctFotoProf.Size = new System.Drawing.Size(221, 195);
+            this.pctFotoProf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pctFotoProf.TabIndex = 4;
             this.pctFotoProf.TabStop = false;
             // 
@@ -228,19 +236,29 @@
             // 
             // cmbSexo
             // 
+            this.cmbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSexo.FormattingEnabled = true;
+            this.cmbSexo.Items.AddRange(new object[] {
+            "-Seleccione-",
+            "Masculino",
+            "Femenino"});
             this.cmbSexo.Location = new System.Drawing.Point(460, 319);
             this.cmbSexo.Name = "cmbSexo";
             this.cmbSexo.Size = new System.Drawing.Size(138, 21);
-            this.cmbSexo.TabIndex = 2;
+            this.cmbSexo.TabIndex = 10;
             // 
             // cmbEstado
             // 
+            this.cmbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "-Seleccione-",
+            "Activo",
+            "Inactivo"});
             this.cmbEstado.Location = new System.Drawing.Point(460, 355);
             this.cmbEstado.Name = "cmbEstado";
             this.cmbEstado.Size = new System.Drawing.Size(138, 21);
-            this.cmbEstado.TabIndex = 2;
+            this.cmbEstado.TabIndex = 11;
             // 
             // btnCancelar
             // 
@@ -256,23 +274,31 @@
             this.btnConfirmar.Location = new System.Drawing.Point(480, 447);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(118, 25);
-            this.btnConfirmar.TabIndex = 5;
+            this.btnConfirmar.TabIndex = 2;
             this.btnConfirmar.Text = "Grabar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // mskDNI
             // 
+            this.mskDNI.Cursor = System.Windows.Forms.Cursors.Default;
             this.mskDNI.Location = new System.Drawing.Point(127, 108);
+            this.mskDNI.Mask = "99999999";
             this.mskDNI.Name = "mskDNI";
             this.mskDNI.Size = new System.Drawing.Size(213, 20);
-            this.mskDNI.TabIndex = 6;
+            this.mskDNI.TabIndex = 2;
             // 
             // mskTel
             // 
             this.mskTel.Location = new System.Drawing.Point(127, 155);
+            this.mskTel.Mask = "999999999";
             this.mskTel.Name = "mskTel";
             this.mskTel.Size = new System.Drawing.Size(213, 20);
-            this.mskTel.TabIndex = 6;
+            this.mskTel.TabIndex = 3;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // ProfesorMan02
             // 
@@ -301,7 +327,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.mskTelefono);
+            this.Controls.Add(this.txtApeliido);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
@@ -322,7 +348,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox mskTelefono;
+        private System.Windows.Forms.TextBox txtApeliido;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -345,5 +371,6 @@
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.MaskedTextBox mskDNI;
         private System.Windows.Forms.MaskedTextBox mskTel;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

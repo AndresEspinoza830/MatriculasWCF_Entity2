@@ -104,6 +104,9 @@
     <EmbeddedResource Include="ProfesorMan02.resx">
       <DependentUpon>ProfesorMan02.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProfesorMan03.resx">
+      <DependentUpon>ProfesorMan03.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -301,6 +304,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Img\defaultUser.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

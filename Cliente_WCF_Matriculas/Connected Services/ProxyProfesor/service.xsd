@@ -44,7 +44,7 @@
   <xs:element name="InsertarProfesor">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCF_Matriculas" minOccurs="0" name="objProfesorDC" nillable="true" type="q3:ProfesorDCINSERTS" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCF_Matriculas" minOccurs="0" name="objProfesorDC" nillable="true" type="q3:ProfesorDC" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -58,7 +58,7 @@
   <xs:element name="ActualizarProfesor">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCF_Matriculas" minOccurs="0" name="objProfesorDC" nillable="true" type="q4:ProfesorDCUPDATES" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCF_Matriculas" minOccurs="0" name="objProfesorDC" nillable="true" type="q4:ProfesorDC" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
