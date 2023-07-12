@@ -26,24 +26,26 @@ namespace WCF_Matriculas
                 //Cargamos la instania ProfesorDC
                 objProfesorDC.Id_profe = objConsulta.Id_profe;
                 objProfesorDC.Id_Ubigeo = objConsulta.Id_Ubigeo;
-                objProfesorDC.Id_esp = objConsulta.Id_esp;
-                objProfesorDC.Des_esp = objConsulta.Des_esp;
-                objProfesorDC.Sexo= objConsulta.Sexo;
-                objProfesorDC.Dni_profe = objConsulta.Dni_profe;
                 objProfesorDC.Nom_profe = objConsulta.Nom_profe;
                 objProfesorDC.Ape_profe = objConsulta.Ape_profe;
+                objProfesorDC.Sexo = objConsulta.Sexo;
+                objProfesorDC.Id_esp = objConsulta.Id_esp;
+                objProfesorDC.Des_esp = objConsulta.Des_esp;
+                objProfesorDC.Foto_profe = objConsulta.Foto_profe;
+                objProfesorDC.Dni_profe = objConsulta.Dni_profe;
                 objProfesorDC.Tel_profe = objConsulta.Tel_profe;
                 objProfesorDC.Email_profe = objConsulta.Email_profe;
+                objProfesorDC.Fec_reg = Convert.ToDateTime(objConsulta.Fec_reg);
+                objProfesorDC.Usu_Registro = objConsulta.Usu_Registro;
+                objProfesorDC.Fec_Ult_Mod = Convert.ToDateTime(objConsulta.Fec_Ult_Mod);
+                objProfesorDC.Usu_Ult_Mod = objConsulta.Usu_Ult_Mod;
+                objProfesorDC.Est_prof = objConsulta.Est_prof;
                 objProfesorDC.Estado = objConsulta.Estado;
-
                 objProfesorDC.Provincia = objConsulta.Provincia;
                 objProfesorDC.Distrito = objConsulta.Distrito;
                 objProfesorDC.Departamento = objConsulta.Departamento;
 
-                objProfesorDC.Usu_Registro = objConsulta.Usu_Registro;
-                objProfesorDC.Fec_reg = Convert.ToDateTime(objConsulta.Fec_reg);
-                objProfesorDC.Usu_Ult_Mod = objConsulta.Usu_Ult_Mod;
-                objProfesorDC.Fec_Ult_Mod = Convert.ToDateTime(objConsulta.Fec_Ult_Mod);
+
 
                 return objProfesorDC;
 
@@ -72,24 +74,23 @@ namespace WCF_Matriculas
 
                     objProfesorDC.Id_profe = objConsulta.Id_profe;
                     objProfesorDC.Id_Ubigeo = objConsulta.Id_Ubigeo;
-                    objProfesorDC.Id_esp = objConsulta.Id_esp;
-                    objProfesorDC.Des_esp = objConsulta.Des_esp;
-                    objProfesorDC.Sexo = objConsulta.Sexo;
-                    objProfesorDC.Dni_profe = objConsulta.Dni_profe;
                     objProfesorDC.Nom_profe = objConsulta.Nom_profe;
                     objProfesorDC.Ape_profe = objConsulta.Ape_profe;
+                    objProfesorDC.Sexo = objConsulta.Sexo;
+                    objProfesorDC.Id_esp = objConsulta.Id_esp;
+                    objProfesorDC.Des_esp = objConsulta.Des_esp;
+                    objProfesorDC.Foto_profe = objConsulta.Foto_profe;
+                    objProfesorDC.Dni_profe = objConsulta.Dni_profe;
                     objProfesorDC.Tel_profe = objConsulta.Tel_profe;
                     objProfesorDC.Email_profe = objConsulta.Email_profe;
+                    objProfesorDC.Fec_reg = Convert.ToDateTime(objConsulta.Fec_reg);
+                    objProfesorDC.Usu_Registro = objConsulta.Usu_Registro;
+                    objProfesorDC.Fec_Ult_Mod = Convert.ToDateTime(objConsulta.Fec_Ult_Mod);
+                    objProfesorDC.Usu_Ult_Mod = objConsulta.Usu_Ult_Mod;
                     objProfesorDC.Estado = objConsulta.Estado;
-
                     objProfesorDC.Provincia = objConsulta.Provincia;
                     objProfesorDC.Distrito = objConsulta.Distrito;
                     objProfesorDC.Departamento = objConsulta.Departamento;
-
-                    objProfesorDC.Usu_Registro = objConsulta.Usu_Registro;
-                    objProfesorDC.Fec_reg = Convert.ToDateTime(objConsulta.Fec_reg);
-                    objProfesorDC.Usu_Ult_Mod = objConsulta.Usu_Ult_Mod;
-                    objProfesorDC.Fec_Ult_Mod = Convert.ToDateTime(objConsulta.Fec_Ult_Mod);
 
                     objLista.Add(objProfesorDC);
                 }
@@ -116,37 +117,43 @@ namespace WCF_Matriculas
             }
         }
 
-        public Boolean InsertarProfesor(ProfesorDCINSERTS objProfesorDC)
+        public Boolean InsertarProfesor(ProfesorDC objProfesorDC)
         {
             try
             {
                 SISTEMA_MATRICULASEntities MisMatriculas = new SISTEMA_MATRICULASEntities();
                 MisMatriculas.usp_insert_profesor(objProfesorDC.Id_Ubigeo, objProfesorDC.Id_esp, objProfesorDC.Sexo,
-                    null, objProfesorDC.Dni_profe, objProfesorDC.Nom_profe, objProfesorDC.Ape_profe, objProfesorDC.Tel_profe,
+                    objProfesorDC.Foto_profe, objProfesorDC.Dni_profe, objProfesorDC.Nom_profe, objProfesorDC.Ape_profe, objProfesorDC.Tel_profe,
                     objProfesorDC.Email_profe, objProfesorDC.Usu_Registro, objProfesorDC.Est_prof
                     );
                 return true;
             }
             catch (EntityException ex)
             {
+                Console.WriteLine("Error Message: " + ex.Message);
+                Console.WriteLine("Stack Trace: " + ex.StackTrace);
                 throw new Exception(ex.Message);
+                
             }
         }
 
-        public Boolean ActualizarProfesor(ProfesorDCUPDATES objProfesorDC)
+        public Boolean ActualizarProfesor(ProfesorDC objProfesorDC)
         {
             try
             {
                 SISTEMA_MATRICULASEntities MisMatriculas = new SISTEMA_MATRICULASEntities();
                 MisMatriculas.usp_update_profesor(objProfesorDC.Id_profe, objProfesorDC.Id_Ubigeo, objProfesorDC.Id_esp,
-                    objProfesorDC.Sexo,null, objProfesorDC.Dni_profe, objProfesorDC.Nom_profe, objProfesorDC.Ape_profe, objProfesorDC.Tel_profe,
+                    objProfesorDC.Sexo, objProfesorDC.Foto_profe, objProfesorDC.Dni_profe, objProfesorDC.Nom_profe, objProfesorDC.Ape_profe, objProfesorDC.Tel_profe,
                     objProfesorDC.Email_profe,objProfesorDC.Usu_Ult_Mod,objProfesorDC.Est_prof
                     );
                 return true;
             }
             catch (EntityException ex)
             {
+                Console.WriteLine("Error Message: " + ex.Message);
+                Console.WriteLine("Stack Trace: " + ex.StackTrace);
                 throw new Exception(ex.Message);
+
             }
         }
 

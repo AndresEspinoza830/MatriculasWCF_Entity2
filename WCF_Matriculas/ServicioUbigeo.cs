@@ -48,7 +48,7 @@ namespace WCF_Matriculas
 
                 var query = (from miUbigeo in MisMatriculas.Tb_Ubigeo
                              where miUbigeo.IdDepa == strIdDepartamento
-                             orderby miUbigeo.Provincia
+                             orderby miUbigeo.IdProv
                              select new Ubigeo_ProvinciasDepartamentoDC
                              {
                                  IdProv = miUbigeo.IdProv,
@@ -82,7 +82,7 @@ namespace WCF_Matriculas
                              {
                                  IdDis = miUbigeo.IdDist,
                                  Distrito = miUbigeo.Distrito
-                             }).ToList();
+                             }).Distinct().ToList();
 
                 foreach (var objConsulta in query)
                 {

@@ -201,22 +201,22 @@ namespace Cliente_WCF_Matriculas.proxyUbigeo {
     public interface IServicioUbigeo {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUbigeo/Ubigeo_Departamentos", ReplyAction="http://tempuri.org/IServicioUbigeo/Ubigeo_DepartamentosResponse")]
-        Cliente_WCF_Matriculas.proxyUbigeo.UbigeoDepartamentoDC[] Ubigeo_Departamentos();
+        System.Collections.Generic.List<Cliente_WCF_Matriculas.proxyUbigeo.UbigeoDepartamentoDC> Ubigeo_Departamentos();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUbigeo/Ubigeo_Departamentos", ReplyAction="http://tempuri.org/IServicioUbigeo/Ubigeo_DepartamentosResponse")]
-        System.Threading.Tasks.Task<Cliente_WCF_Matriculas.proxyUbigeo.UbigeoDepartamentoDC[]> Ubigeo_DepartamentosAsync();
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Cliente_WCF_Matriculas.proxyUbigeo.UbigeoDepartamentoDC>> Ubigeo_DepartamentosAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUbigeo/Ubigeo_ProvinciasDepartamento", ReplyAction="http://tempuri.org/IServicioUbigeo/Ubigeo_ProvinciasDepartamentoResponse")]
-        Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_ProvinciasDepartamentoDC[] Ubigeo_ProvinciasDepartamento(string strIdDepartamento);
+        System.Collections.Generic.List<Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_ProvinciasDepartamentoDC> Ubigeo_ProvinciasDepartamento(string strIdDepartamento);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUbigeo/Ubigeo_ProvinciasDepartamento", ReplyAction="http://tempuri.org/IServicioUbigeo/Ubigeo_ProvinciasDepartamentoResponse")]
-        System.Threading.Tasks.Task<Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_ProvinciasDepartamentoDC[]> Ubigeo_ProvinciasDepartamentoAsync(string strIdDepartamento);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_ProvinciasDepartamentoDC>> Ubigeo_ProvinciasDepartamentoAsync(string strIdDepartamento);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUbigeo/Ubigeo_DistritosProvinciaDepartamento", ReplyAction="http://tempuri.org/IServicioUbigeo/Ubigeo_DistritosProvinciaDepartamentoResponse")]
-        Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_DistritosProvinciaDepartamentoDC[] Ubigeo_DistritosProvinciaDepartamento(string strIdDepartamento, string strIdProvincia);
+        System.Collections.Generic.List<Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_DistritosProvinciaDepartamentoDC> Ubigeo_DistritosProvinciaDepartamento(string strIdDepartamento, string strIdProvincia);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioUbigeo/Ubigeo_DistritosProvinciaDepartamento", ReplyAction="http://tempuri.org/IServicioUbigeo/Ubigeo_DistritosProvinciaDepartamentoResponse")]
-        System.Threading.Tasks.Task<Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_DistritosProvinciaDepartamentoDC[]> Ubigeo_DistritosProvinciaDepartamentoAsync(string strIdDepartamento, string strIdProvincia);
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_DistritosProvinciaDepartamentoDC>> Ubigeo_DistritosProvinciaDepartamentoAsync(string strIdDepartamento, string strIdProvincia);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -246,27 +246,27 @@ namespace Cliente_WCF_Matriculas.proxyUbigeo {
                 base(binding, remoteAddress) {
         }
         
-        public Cliente_WCF_Matriculas.proxyUbigeo.UbigeoDepartamentoDC[] Ubigeo_Departamentos() {
+        public System.Collections.Generic.List<Cliente_WCF_Matriculas.proxyUbigeo.UbigeoDepartamentoDC> Ubigeo_Departamentos() {
             return base.Channel.Ubigeo_Departamentos();
         }
         
-        public System.Threading.Tasks.Task<Cliente_WCF_Matriculas.proxyUbigeo.UbigeoDepartamentoDC[]> Ubigeo_DepartamentosAsync() {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Cliente_WCF_Matriculas.proxyUbigeo.UbigeoDepartamentoDC>> Ubigeo_DepartamentosAsync() {
             return base.Channel.Ubigeo_DepartamentosAsync();
         }
         
-        public Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_ProvinciasDepartamentoDC[] Ubigeo_ProvinciasDepartamento(string strIdDepartamento) {
+        public System.Collections.Generic.List<Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_ProvinciasDepartamentoDC> Ubigeo_ProvinciasDepartamento(string strIdDepartamento) {
             return base.Channel.Ubigeo_ProvinciasDepartamento(strIdDepartamento);
         }
         
-        public System.Threading.Tasks.Task<Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_ProvinciasDepartamentoDC[]> Ubigeo_ProvinciasDepartamentoAsync(string strIdDepartamento) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_ProvinciasDepartamentoDC>> Ubigeo_ProvinciasDepartamentoAsync(string strIdDepartamento) {
             return base.Channel.Ubigeo_ProvinciasDepartamentoAsync(strIdDepartamento);
         }
         
-        public Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_DistritosProvinciaDepartamentoDC[] Ubigeo_DistritosProvinciaDepartamento(string strIdDepartamento, string strIdProvincia) {
+        public System.Collections.Generic.List<Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_DistritosProvinciaDepartamentoDC> Ubigeo_DistritosProvinciaDepartamento(string strIdDepartamento, string strIdProvincia) {
             return base.Channel.Ubigeo_DistritosProvinciaDepartamento(strIdDepartamento, strIdProvincia);
         }
         
-        public System.Threading.Tasks.Task<Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_DistritosProvinciaDepartamentoDC[]> Ubigeo_DistritosProvinciaDepartamentoAsync(string strIdDepartamento, string strIdProvincia) {
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Cliente_WCF_Matriculas.proxyUbigeo.Ubigeo_DistritosProvinciaDepartamentoDC>> Ubigeo_DistritosProvinciaDepartamentoAsync(string strIdDepartamento, string strIdProvincia) {
             return base.Channel.Ubigeo_DistritosProvinciaDepartamentoAsync(strIdDepartamento, strIdProvincia);
         }
     }

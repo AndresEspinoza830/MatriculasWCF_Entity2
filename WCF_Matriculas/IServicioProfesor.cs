@@ -21,10 +21,10 @@ namespace WCF_Matriculas
         Boolean EliminarProfesor(int idProfe);
 
         [OperationContract]
-        Boolean InsertarProfesor(ProfesorDCINSERTS objProfesorDC);
+        Boolean InsertarProfesor(ProfesorDC objProfesorDC);
 
         [OperationContract]
-        Boolean ActualizarProfesor(ProfesorDCUPDATES objProfesorDC);
+        Boolean ActualizarProfesor(ProfesorDC objProfesorDC);
 
     }
 
@@ -51,6 +51,11 @@ namespace WCF_Matriculas
         public String Tel_profe { get; set; }
         [DataMember]
         public String Email_profe { get; set; }
+        [DataMember]
+        public int Est_prof { get; set; }
+        [DataMember]
+        public Byte[] Foto_profe { get; set; }
+
         [DataMember]
         public String Estado { get; set; }
 
