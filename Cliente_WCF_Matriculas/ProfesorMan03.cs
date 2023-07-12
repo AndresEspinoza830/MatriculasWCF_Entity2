@@ -17,7 +17,7 @@ namespace Cliente_WCF_Matriculas
     public partial class ProfesorMan03 : Form
     {
         ProxyProfesor.ServicioProfesorClient objServiceProfesor = new ProxyProfesor.ServicioProfesorClient();
-        ProxyEspecialidad.ServicioEspecialidadClient objServiceEspecialidad = new ProxyEspecialidad.ServicioEspecialidadClient();   
+        ProxyEspecialidad.ServicioEspecialidadClient objServiceEspecialidad = new ProxyEspecialidad.ServicioEspecialidadClient();
         ProxyProfesor.ProfesorDC objProfesorDC = new ProxyProfesor.ProfesorDC();
         proxyUbigeo.ServicioUbigeoClient objServiceUbigeo = new proxyUbigeo.ServicioUbigeoClient();
         DataTable dtProfesores;
@@ -35,7 +35,7 @@ namespace Cliente_WCF_Matriculas
         private void ProfesorMan03_Load(object sender, EventArgs e)
         {
             try
-            {             
+            {
                 objProfesorDC = objServiceProfesor.ConsultarProfesor(this.ID);
                 Console.WriteLine(objProfesorDC.Distrito);
                 Console.WriteLine(objProfesorDC.Provincia);
@@ -53,7 +53,7 @@ namespace Cliente_WCF_Matriculas
                 {
                     cmbEstado.SelectedItem = "Activo";
                 }
-                else if(objProfesorDC.Est_prof == 0)
+                else if (objProfesorDC.Est_prof == 0)
                 {
                     cmbEstado.SelectedItem = "Inactivo";
                 }
@@ -109,7 +109,7 @@ namespace Cliente_WCF_Matriculas
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-          
+
 
         }
 
@@ -185,7 +185,10 @@ namespace Cliente_WCF_Matriculas
         }
 
 
-
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
 
         private void cboDepartamento_SelectionChangeCommitted(object sender, EventArgs e)
@@ -259,7 +262,7 @@ namespace Cliente_WCF_Matriculas
                 objProfesorDC.Email_profe = txtEmail.Text.Trim();
                 objProfesorDC.Id_esp = Convert.ToInt16(cmbEspecialidad.SelectedValue);
 
-                objProfesorDC.Usu_Ult_Mod = null;
+                objProfesorDC.Usu_Ult_Mod = "ADMIN";
 
 
 
