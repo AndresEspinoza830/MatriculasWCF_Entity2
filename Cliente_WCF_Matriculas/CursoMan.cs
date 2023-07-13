@@ -54,5 +54,14 @@ namespace Cliente_WCF_Matriculas
 			addCourseModal.ShowDialog();
 			getCourses("");
 		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			ActualizarCurso actualizarModal = new ActualizarCurso();
+            if (dtgCourses.CurrentRow != null)
+                actualizarModal.IdCurso = Convert.ToInt16(dtgCourses.CurrentRow.Cells[0].Value);
+            actualizarModal.ShowDialog();
+            getCourses("");
+        }
 	}
 }

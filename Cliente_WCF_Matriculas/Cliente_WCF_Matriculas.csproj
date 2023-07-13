@@ -54,6 +54,12 @@
     <Compile Include="ActualizarAlumno.designer.cs">
       <DependentUpon>ActualizarAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="ActualizarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActualizarCurso.Designer.cs">
+      <DependentUpon>ActualizarCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="AgregarAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +142,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ActualizarAlumno.resx">
       <DependentUpon>ActualizarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActualizarCurso.resx">
+      <DependentUpon>ActualizarCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AgregarAlumno.resx">
       <DependentUpon>AgregarAlumno.cs</DependentUpon>
