@@ -38,6 +38,7 @@ namespace Cliente_WCF_Matriculas
                 }
                 ProxyCurso.CursoDC course = new ProxyCurso.CursoDC();
 
+                course.Id_curso = IdCurso;
                 course.Est_curso = 1;
                 course.Des_curso = txtDescCurso.Text;
                 course.Usu_Ult_Mod = "ADMIN";
@@ -65,6 +66,7 @@ namespace Cliente_WCF_Matriculas
         {
             ProxyCurso.CursoDC objCurso = courseService.ConsultarCurso(IdCurso);
             txtDescCurso.Text = objCurso.Des_curso;
+            
         }
     }
 }
