@@ -26,7 +26,6 @@ namespace Cliente_WCF_Matriculas
 
 			courses = courses.Where(c => c.Des_curso.IndexOf(q, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
 
-
 			dtgCourses.DataSource = courses;
 			lblTotal.Text = courses.Count.ToString();
 		}
@@ -63,5 +62,10 @@ namespace Cliente_WCF_Matriculas
             actualizarModal.ShowDialog();
             getCourses("");
         }
+
+		private void btnCerrarModal_Click(object sender, EventArgs e)
+		{
+			this.Close();
+		}
 	}
 }
