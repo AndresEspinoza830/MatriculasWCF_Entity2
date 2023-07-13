@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace Cliente_WCF_Matriculas
 {
     public partial class ActualizarCurso : Form
-    {        
+    {
         ProxyCurso.ServicioCursoClient courseService = new ProxyCurso.ServicioCursoClient();
         ProxyCurso.CursoDC objCursoDC = new ProxyCurso.CursoDC();
 
@@ -46,7 +46,7 @@ namespace Cliente_WCF_Matriculas
 
                 if (courseService.ActualizarCurso(course))
                 {
-                    MessageBox.Show("Curso agregado correctamente", "Success", MessageBoxButtons.OK);
+                    MessageBox.Show("Curso actualizado correctamente", "Success", MessageBoxButtons.OK);
                     this.Close();
                 }
 
@@ -66,7 +66,7 @@ namespace Cliente_WCF_Matriculas
         {
             ProxyCurso.CursoDC objCurso = courseService.ConsultarCurso(IdCurso);
             txtDescCurso.Text = objCurso.Des_curso;
-            
+
         }
     }
 }
