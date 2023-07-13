@@ -30,7 +30,7 @@ namespace Cliente_WCF_Matriculas
             try
             {
                 // Cargamos los combos
-               var especialidades = objServiceEspecialidad.ListarEspecialidad();
+                var especialidades = objServiceEspecialidad.ListarEspecialidad();
                 DataTable dt = ConvertToDataTable(especialidades);
 
                 DataRow dr;
@@ -45,9 +45,9 @@ namespace Cliente_WCF_Matriculas
 
                 cmbEstado.SelectedItem = "-Seleccione-";
                 cmbSexo.SelectedItem = "-Seleccione-";
-                
-               
-                CargarUbigeo("01", "01", "01"); 
+
+
+                CargarUbigeo("14", "01", "01");
             }
             catch (Exception ex)
             {
@@ -75,7 +75,7 @@ namespace Cliente_WCF_Matriculas
                 table.Rows.Add(row);
             }
 
-            return table; 
+            return table;
         }
 
         private void CargarUbigeo(String IdDepa, String IdProv, String IdDist)
@@ -84,7 +84,7 @@ namespace Cliente_WCF_Matriculas
             cmbDepartamento.DataSource = departamentos;
             cmbDepartamento.DisplayMember = "Departamento";
             cmbDepartamento.ValueMember = "IdDepa";
-            cmbDepartamento.SelectedValue= IdDepa;
+            cmbDepartamento.SelectedValue = IdDepa;
 
             var provincias = objServiceUbigeo.Ubigeo_ProvinciasDepartamento(IdDepa);
             cmbProvincia.DataSource = provincias;
@@ -176,7 +176,10 @@ namespace Cliente_WCF_Matriculas
                 }
 
                 //  objProfesorDC.Usu_Registro = UsuarioCredenciales.Usuario;
-                objProfesorDC.Usu_Registro = null;
+                objProfesorDC.Usu_Registro = "ADMIN";
+
+                string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                string filePath = Path.Combine(basePath, @"..\..\Img\defaultUser.jpeg");
 
                 //Foto
                 if (pctFotoProf.Image != null)
@@ -185,7 +188,7 @@ namespace Cliente_WCF_Matriculas
                 }
                 else
                 {
-                    objProfesorDC.Foto_profe = File.ReadAllBytes(@".\Img\defaultUser.jpg");
+                    objProfesorDC.Foto_profe = File.ReadAllBytes(filePath);
                 }
 
                 //Combinacion de valores para el ID_UBIGEO
@@ -207,6 +210,11 @@ namespace Cliente_WCF_Matriculas
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void cboDepartamento_SelectionChangeCommitted(object sender, EventArgs e)
@@ -238,7 +246,7 @@ namespace Cliente_WCF_Matriculas
 
 
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message); ;
             }

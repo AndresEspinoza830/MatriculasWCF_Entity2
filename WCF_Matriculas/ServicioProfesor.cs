@@ -19,8 +19,8 @@ namespace WCF_Matriculas
                 ProfesorDC objProfesorDC = new ProfesorDC();
 
                 vw_VistaProfesores objConsulta = (from MiProfesor in MisMatriculas.vw_VistaProfesores
-                                           where MiProfesor.Id_profe == idProfe
-                                           select MiProfesor
+                                                  where MiProfesor.Id_profe == idProfe
+                                                  select MiProfesor
                                            ).FirstOrDefault();
 
                 //Cargamos la instania ProfesorDC
@@ -68,7 +68,8 @@ namespace WCF_Matriculas
                              select miProfesor
                              );
 
-                foreach( var objConsulta in query ) { 
+                foreach (var objConsulta in query)
+                {
 
                     ProfesorDC objProfesorDC = new ProfesorDC();
 
@@ -133,7 +134,7 @@ namespace WCF_Matriculas
                 Console.WriteLine("Error Message: " + ex.Message);
                 Console.WriteLine("Stack Trace: " + ex.StackTrace);
                 throw new Exception(ex.Message);
-                
+
             }
         }
 
@@ -144,7 +145,7 @@ namespace WCF_Matriculas
                 SISTEMA_MATRICULASEntities MisMatriculas = new SISTEMA_MATRICULASEntities();
                 MisMatriculas.usp_update_profesor(objProfesorDC.Id_profe, objProfesorDC.Id_Ubigeo, objProfesorDC.Id_esp,
                     objProfesorDC.Sexo, objProfesorDC.Foto_profe, objProfesorDC.Dni_profe, objProfesorDC.Nom_profe, objProfesorDC.Ape_profe, objProfesorDC.Tel_profe,
-                    objProfesorDC.Email_profe,objProfesorDC.Usu_Ult_Mod,objProfesorDC.Est_prof
+                    objProfesorDC.Email_profe, objProfesorDC.Usu_Ult_Mod, objProfesorDC.Est_prof
                     );
                 return true;
             }
@@ -157,6 +158,6 @@ namespace WCF_Matriculas
             }
         }
 
-     
+
     }
 }
