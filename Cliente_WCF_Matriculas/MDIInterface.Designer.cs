@@ -33,13 +33,17 @@
             this.alumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarCuotasPendientesAlumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarMatriculadosFechasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mantenimientosToolStripMenuItem});
+            this.mantenimientosToolStripMenuItem,
+            this.consultasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1058, 24);
@@ -77,6 +81,29 @@
             this.cursosToolStripMenuItem.Text = "Cursos";
             this.cursosToolStripMenuItem.Click += new System.EventHandler(this.cursosToolStripMenuItem_Click);
             // 
+            // consultasToolStripMenuItem
+            // 
+            this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listarCuotasPendientesAlumnosToolStripMenuItem,
+            this.listarMatriculadosFechasToolStripMenuItem});
+            this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.consultasToolStripMenuItem.Text = "Consultas";
+            // 
+            // listarCuotasPendientesAlumnosToolStripMenuItem
+            // 
+            this.listarCuotasPendientesAlumnosToolStripMenuItem.Name = "listarCuotasPendientesAlumnosToolStripMenuItem";
+            this.listarCuotasPendientesAlumnosToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.listarCuotasPendientesAlumnosToolStripMenuItem.Text = "ListarCuotasPendientesAlumnos";
+            this.listarCuotasPendientesAlumnosToolStripMenuItem.Click += new System.EventHandler(this.listarCuotasPendientesAlumnosToolStripMenuItem_Click);
+            // 
+            // listarMatriculadosFechasToolStripMenuItem
+            // 
+            this.listarMatriculadosFechasToolStripMenuItem.Name = "listarMatriculadosFechasToolStripMenuItem";
+            this.listarMatriculadosFechasToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.listarMatriculadosFechasToolStripMenuItem.Text = "ListarMatriculadosFechas";
+            this.listarMatriculadosFechasToolStripMenuItem.Click += new System.EventHandler(this.listarMatriculadosFechasToolStripMenuItem_Click);
+            // 
             // MDIInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -103,5 +130,8 @@
         private System.Windows.Forms.ToolStripMenuItem alumnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem profesoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cursosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarCuotasPendientesAlumnosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarMatriculadosFechasToolStripMenuItem;
     }
 }

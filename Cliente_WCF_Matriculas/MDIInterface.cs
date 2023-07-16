@@ -38,5 +38,19 @@ namespace Cliente_WCF_Matriculas
             cursoView.MdiParent = this;
             cursoView.Show();
         }
+
+        private void listarCuotasPendientesAlumnosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consulta1 consulta1 = new Consulta1();
+            consulta1.MdiParent = this;
+            consulta1.Show();
+        }
+
+        private void listarMatriculadosFechasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consulta2 consulta2 = new Consulta2();
+            consulta2.MdiParent = this;
+            consulta2.Show();
+        }
     }
 }
