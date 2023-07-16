@@ -356,6 +356,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label1);
             this.Name = "ProfesorMan03";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProfesorMan03";
             this.Load += new System.EventHandler(this.ProfesorMan03_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pctFotoProf)).EndInit();

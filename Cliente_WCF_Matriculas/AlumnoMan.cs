@@ -24,7 +24,7 @@ namespace Cliente_WCF_Matriculas
         {
             List<ProxyAlumno.AlumnoDC> alumnos = objServiceAlumno.ListarAlumnos().ToList();
 
-            alumnos = alumnos.Where(a => a.Nom_alum.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            alumnos = alumnos.Where(a => a.Ape_Alum.IndexOf(query, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
 
             //DataTable table = new DataTable();
             //dtv = new DataView(objServiceAlumno.ListarAlumnos());

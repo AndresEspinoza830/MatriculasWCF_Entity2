@@ -51,8 +51,8 @@
             // 
             this.dtgAlumno.AllowUserToAddRows = false;
             this.dtgAlumno.AllowUserToDeleteRows = false;
-            this.dtgAlumno.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dtgAlumno.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtgAlumno.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtgAlumno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -65,13 +65,13 @@
             this.Email_alum,
             this.Estado,
             this.Distrito});
-            this.dtgAlumno.Location = new System.Drawing.Point(12, 58);
+            this.dtgAlumno.Location = new System.Drawing.Point(10, 50);
             this.dtgAlumno.Name = "dtgAlumno";
             this.dtgAlumno.ReadOnly = true;
             this.dtgAlumno.RowHeadersVisible = false;
             this.dtgAlumno.RowTemplate.Height = 25;
             this.dtgAlumno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgAlumno.Size = new System.Drawing.Size(1143, 369);
+            this.dtgAlumno.Size = new System.Drawing.Size(980, 320);
             this.dtgAlumno.TabIndex = 1;
             // 
             // Id_alum
@@ -137,9 +137,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(873, 494);
+            this.button1.Location = new System.Drawing.Point(748, 428);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(64, 20);
             this.button1.TabIndex = 2;
             this.button1.Text = "Agregar";
             this.button1.UseVisualStyleBackColor = true;
@@ -147,9 +147,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(977, 494);
+            this.button2.Location = new System.Drawing.Point(837, 428);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(64, 20);
             this.button2.TabIndex = 3;
             this.button2.Text = "Editar";
             this.button2.UseVisualStyleBackColor = true;
@@ -157,26 +157,26 @@
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(203, 21);
+            this.txtFiltro.Location = new System.Drawing.Point(174, 18);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(253, 23);
+            this.txtFiltro.Size = new System.Drawing.Size(217, 20);
             this.txtFiltro.TabIndex = 0;
             this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 24);
+            this.label1.Location = new System.Drawing.Point(13, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(165, 15);
+            this.label1.Size = new System.Drawing.Size(149, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Busca un alumno por nombre";
+            this.label1.Text = "Busca un alumno por apellido:";
             // 
             // btnEliminarAlumno
             // 
-            this.btnEliminarAlumno.Location = new System.Drawing.Point(1080, 494);
+            this.btnEliminarAlumno.Location = new System.Drawing.Point(926, 428);
             this.btnEliminarAlumno.Name = "btnEliminarAlumno";
-            this.btnEliminarAlumno.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminarAlumno.Size = new System.Drawing.Size(64, 20);
             this.btnEliminarAlumno.TabIndex = 4;
             this.btnEliminarAlumno.Text = "Cerrar";
             this.btnEliminarAlumno.UseVisualStyleBackColor = true;
@@ -185,25 +185,25 @@
             // lblRegistros
             // 
             this.lblRegistros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRegistros.Location = new System.Drawing.Point(1076, 449);
+            this.lblRegistros.Location = new System.Drawing.Point(922, 389);
             this.lblRegistros.Name = "lblRegistros";
-            this.lblRegistros.Size = new System.Drawing.Size(79, 23);
+            this.lblRegistros.Size = new System.Drawing.Size(68, 20);
             this.lblRegistros.TabIndex = 8;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(994, 450);
+            this.label2.Location = new System.Drawing.Point(852, 390);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 15);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Registros:";
             // 
             // AlumnoMan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1185, 543);
+            this.ClientSize = new System.Drawing.Size(1016, 471);
             this.Controls.Add(this.lblRegistros);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnEliminarAlumno);
