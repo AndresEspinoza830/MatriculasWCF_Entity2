@@ -12,27 +12,19 @@ namespace WCF_Matriculas
     using System;
     using System.Collections.Generic;
     
-    public partial class Tb_MATRICULA
+    public partial class Tb_CARRERA
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tb_MATRICULA()
+        public Tb_CARRERA()
         {
-            this.Tb_DETMATRICULA = new HashSet<Tb_DETMATRICULA>();
+            this.Tb_MATRICULA = new HashSet<Tb_MATRICULA>();
         }
     
-        public int Id_matricula { get; set; }
-        public int Id_semestre { get; set; }
         public int Id_carrera { get; set; }
-        public int Id_alum { get; set; }
-        public string Usu_Registro { get; set; }
-        public System.DateTime Fec_reg { get; set; }
-        public string Usu_Ult_Mod { get; set; }
-        public Nullable<System.DateTime> Fec_Ult_Mod { get; set; }
-        public Nullable<int> Est_matricula { get; set; }
+        public string Nom_carrera { get; set; }
+        public Nullable<decimal> Precio_carrera { get; set; }
     
-        public virtual Tb_ALUMNO Tb_ALUMNO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tb_DETMATRICULA> Tb_DETMATRICULA { get; set; }
-        public virtual Tb_CARRERA Tb_CARRERA { get; set; }
+        public virtual ICollection<Tb_MATRICULA> Tb_MATRICULA { get; set; }
     }
 }

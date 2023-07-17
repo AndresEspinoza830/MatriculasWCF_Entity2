@@ -171,6 +171,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDescCourse);
             this.Controls.Add(this.dtgCourses);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CursoMan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de curso";

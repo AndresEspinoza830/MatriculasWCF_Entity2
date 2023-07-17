@@ -83,6 +83,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ProxyCarrera\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ProxyConsultas\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,6 +112,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Consulta4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consulta4.Designer.cs">
+      <DependentUpon>Consulta4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consulta3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consulta3.Designer.cs">
+      <DependentUpon>Consulta3.cs</DependentUpon>
     </Compile>
     <Compile Include="Consulta1.cs">
       <SubType>Form</SubType>
@@ -167,6 +184,12 @@
     <EmbeddedResource Include="AgregarCurso.resx">
       <DependentUpon>AgregarCurso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Consulta4.resx">
+      <DependentUpon>Consulta4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consulta3.resx">
+      <DependentUpon>Consulta3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consulta1.resx">
       <DependentUpon>Consulta1.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,6 +233,19 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProxyAlumno\WCF_Matriculas.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyCarrera\Cliente_WCF_Matriculas.ProxyCarrera.CarreraDC.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ProxyCarrera\service.wsdl" />
+    <None Include="Connected Services\ProxyCarrera\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyCarrera\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyCarrera\WCF_Matriculas.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\ProxyConsultas\Cliente_WCF_Matriculas.ProxyConsultas.BloqueDC.datasource">
@@ -310,6 +346,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\ProxyAlumno\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyCarrera\" />
     <WCFMetadataStorage Include="Connected Services\ProxyConsultas\" />
     <WCFMetadataStorage Include="Connected Services\ProxyCurso\" />
     <WCFMetadataStorage Include="Connected Services\ProxyEspecialidad\" />
@@ -389,6 +426,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\ProxyCarrera\configuration91.svcinfo" />
+    <None Include="Connected Services\ProxyCarrera\configuration.svcinfo" />
+    <None Include="Connected Services\ProxyCarrera\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Img\defaultUser.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

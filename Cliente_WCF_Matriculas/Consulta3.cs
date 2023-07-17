@@ -10,28 +10,28 @@ using System.Windows.Forms;
 
 namespace Cliente_WCF_Matriculas
 {
-    public partial class Consulta1 : Form
+    public partial class Consulta3 : Form
     {
         ProxyConsultas.ServicioConsultasClient objProxyConsultas = new ProxyConsultas.ServicioConsultasClient();
 
-        public Consulta1()
+        public Consulta3()
         {
             InitializeComponent();
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            if (txtIdAlumno.Text.Trim() != "")
+            if (txtVacantes.Text.Trim() != "")
             {
                 try
                 {
-                    dtgResultados.DataSource = objProxyConsultas.ListarCuotasPendientesAlumnos(Convert.ToInt32(txtIdAlumno.Text.Trim()));
+                    dtgResultados.DataSource = objProxyConsultas.ListarBloquesVacantes(Convert.ToInt16(txtVacantes.Text.Trim()));
 
                 }
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show("Error:" + ex.Message);
+                    MessageBox.Show("Error:" + ex.Message, "Error");
                 }
             }
             else
@@ -40,7 +40,7 @@ namespace Cliente_WCF_Matriculas
             }
         }
 
-        private void Consulta1_Load(object sender, EventArgs e)
+        private void Consulta3_Load(object sender, EventArgs e)
         {
             dtgResultados.AutoGenerateColumns = false;
         }
@@ -50,7 +50,7 @@ namespace Cliente_WCF_Matriculas
             this.Close();
         }
 
-        private void txtIdAlumno_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtVacantes_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
                 (e.KeyChar != '.'))

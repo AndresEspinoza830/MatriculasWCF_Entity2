@@ -10,28 +10,30 @@ using System.Windows.Forms;
 
 namespace Cliente_WCF_Matriculas
 {
-    public partial class Consulta1 : Form
+    public partial class Consulta4 : Form
     {
         ProxyConsultas.ServicioConsultasClient objProxyConsultas = new ProxyConsultas.ServicioConsultasClient();
+        ProxyCarrera.ServicioCarreraClient objProxyCarrera = new ProxyCarrera.ServicioCarreraClient();
 
-        public Consulta1()
+        public Consulta4()
         {
             InitializeComponent();
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            if (txtIdAlumno.Text.Trim() != "")
+            if (cmbCarrera.Text != "-Seleccione-")
             {
                 try
                 {
-                    dtgResultados.DataSource = objProxyConsultas.ListarCuotasPendientesAlumnos(Convert.ToInt32(txtIdAlumno.Text.Trim()));
+                    List<ProxyConsultas.MatriculadoDC> alumnos = objProxyConsultas.ListarAlumnosCarrera(Convert.ToInt16(cmbCarrera.SelectedValue)).ToList();
+                    dtgResultados.DataSource = alumnos;
 
                 }
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show("Error:" + ex.Message);
+                    MessageBox.Show("Error:" + ex.Message, "Error");
                 }
             }
             else
@@ -40,9 +42,16 @@ namespace Cliente_WCF_Matriculas
             }
         }
 
-        private void Consulta1_Load(object sender, EventArgs e)
+        private void Consulta4_Load(object sender, EventArgs e)
         {
             dtgResultados.AutoGenerateColumns = false;
+            var carreras = objProxyCarrera.ListarCarrera();
+
+            cmbCarrera.DataSource = carreras;
+            cmbCarrera.ValueMember = "Id_carrera";
+            cmbCarrera.DisplayMember = "Nom_carrera";
+
+            cmbCarrera.SelectedIndex = 0;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -50,7 +59,7 @@ namespace Cliente_WCF_Matriculas
             this.Close();
         }
 
-        private void txtIdAlumno_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtVacantes_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
                 (e.KeyChar != '.'))

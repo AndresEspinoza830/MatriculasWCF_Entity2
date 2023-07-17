@@ -200,6 +200,8 @@
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dtpFecFin);
             this.Controls.Add(this.dtpFecInicio);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Consulta2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListarMatriculadosFechas";
