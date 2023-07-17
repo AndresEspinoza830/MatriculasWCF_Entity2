@@ -44,11 +44,22 @@ namespace Cliente_WCF_Matriculas
                 course.Usu_Ult_Mod = "ADMIN";
                 course.Fec_Ult_Mod = DateTime.Now;
 
+                String selectedState = cmbEstado.SelectedItem.ToString();
+                if (selectedState == "Inactivo")
+                {
+                    course.Est_curso = 0;
+                }
+                else
+                {
+                    course.Est_curso = 1;
+                }
+
                 if (courseService.ActualizarCurso(course))
                 {
                     MessageBox.Show("Curso actualizado correctamente", "Success", MessageBoxButtons.OK);
                     this.Close();
                 }
+
 
             }
             catch (Exception ex)
@@ -65,7 +76,21 @@ namespace Cliente_WCF_Matriculas
         private void ActualizarCurso_Load(object sender, EventArgs e)
         {
             ProxyCurso.CursoDC objCurso = courseService.ConsultarCurso(IdCurso);
+            lblID.Text =Convert.ToString(IdCurso);
+            if (objCurso.Est_curso == 1)
+            {
+                cmbEstado.SelectedItem = "Activo";
+            }
+            else
+            {
+                cmbEstado.SelectedItem = "Inactivo";
+            }
             txtDescCurso.Text = objCurso.Des_curso;
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }
