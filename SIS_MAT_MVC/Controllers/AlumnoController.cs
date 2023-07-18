@@ -8,29 +8,22 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SIS_MAT_MVC.Models;
 
 namespace SIS_MAT_MVC.Controllers
 {
     public class AlumnoController : Controller
     {
-		    ProxyAlumno.ServicioAlumnoClient alumnoService = new ProxyAlumno.ServicioAlumnoClient();
+        ProxyAlumno.ServicioAlumnoClient alumnoService = new ProxyAlumno.ServicioAlumnoClient();
         ProxyUbigeo.ServicioUbigeoClient ubigeoService = new ProxyUbigeo.ServicioUbigeoClient();
-		    ProxyAlumno.AlumnoDCINSERTS alumnoToInsert = new ProxyAlumno.AlumnoDCINSERTS();
+        ProxyAlumno.AlumnoDCINSERTS alumnoToInsert = new ProxyAlumno.AlumnoDCINSERTS();
 
-
-
-		    public ActionResult Alumnos()
+        public ActionResult Alumnos()
         {
-			    List<ProxyAlumno.AlumnoDC> alumnos = alumnoService.ListarAlumnos().ToList();
+            List<ProxyAlumno.AlumnoDC> alumnos = alumnoService.ListarAlumnos().ToList();
 
 
-			Console.WriteLine("aaaaaaaaaaaaa");
-			Trace.WriteLine("trace");
-
-
-			Debug.WriteLine("debuggg");
-
-			return View(alumnos);
+            return View(alumnos);
         }
 
         // GET: Alumno/Details/5
@@ -50,69 +43,61 @@ namespace SIS_MAT_MVC.Controllers
             ubigeo.Distritos = ubigeoService.Ubigeo_DistritosProvinciaDepartamento("14", "01").ToList();
 
 
-            AlumnoModel alumno = new AlumnoModel
-            {
-              Alumno = new ProxyAlumno.AlumnoDCINSERTS(),
-              Ubigeo = ubigeo
-            };
+            AlumnoModel model = new AlumnoModel();
+            model.Alumno = new AlumnoDCINSERTS();
 
-            return View(alumno);
+            return View(model);
         }
 
 
 
 
-		// POST: Alumno/Create
-		[HttpPost]
-        public ActionResult Create(FormCollection collection)
+        // POST: Alumno/Create
+        [HttpPost]
+        public ActionResult Create(AlumnoModel model, HttpPostedFileBase foto)
         {
             try
             {
-				/*
-						AlumnoDCINSERTS alumno = new AlumnoDCINSERTS();
-						alumno.Ape_Alum = collection["Ape_alum"];
-						alumno.Nom_alum = collection["Nom_alum"];
-						alumno.Dir_alum = collection["Dir_alum"];
-						alumno.Id_Ubigeo = collection["IdDepa"] + collection["IdProv"] + collection["IdDis"];
-						alumno.Dni_alum = collection["Dni_alum"];
-						alumno.Foto_alum = null;
-						alumno.Fec_nac = Convert.ToDateTime(alumno.Fec_nac);
-						alumno.Sexo = collection["Sexo"];
-						alumno.Tel_alum = collection["Tel_alum"];
-						alumno.Email_alum = collection["Email_alum"];
-						alumno.Usu_Registro = "ADMIN";
-						alumno.Est_alum = 1; */
+                FormCollection collection = new FormCollection();
+                if (ModelState.IsValid)
+                {
+                    //model.Alumno.Id_Ubigeo = collection["IdDepa"] + collection["IdProv"] + collection["IdDis"];
+                    model.Alumno.Id_Ubigeo = "010114";
+                    //Foto
+                    if (foto != null && foto.ContentLength > 0)
+                    {
+                        using (var binaryReader = new BinaryReader(foto.InputStream))
+                        {
+                            model.Alumno.Foto_alum = binaryReader.ReadBytes(foto.ContentLength);
+                        }
+                    }
+                    else
+                    {
+                        string basePath = AppDomain.CurrentDomain.BaseDirectory;
+                        string defaultImagePath = Path.Combine(basePath, @".\Img\defaultUser.jpeg");
+                        model.Alumno.Foto_alum = System.IO.File.ReadAllBytes(defaultImagePath);
+                    }
 
-				     AlumnoDCINSERTS alumno = new AlumnoDCINSERTS();
-				     alumno.Ape_Alum = "Apellido";
-				     alumno.Nom_alum = "Nombre";
-				     alumno.Dir_alum = "Dirección";
-				     alumno.Id_Ubigeo = "140101";
-            
-				     alumno.Dni_alum = "12345678";
+                    model.Alumno.Usu_Registro = "ADMIN";
 
-				
-				     alumno.Fec_nac = DateTime.Now; // Fecha actual
-				     alumno.Sexo = "M";
-				     alumno.Tel_alum = "123456789";
-				     alumno.Email_alum = "correo@example.com";
-				     alumno.Usu_Registro = "ADMIN";
-				     alumno.Est_alum = 1;
+                    bool isInserted = alumnoService.InsertarAlumno(model.Alumno);
 
 
-				string basePath = AppDomain.CurrentDomain.BaseDirectory;
-				string filePath = Path.Combine(basePath, @"..\Img\defaultUser.jpeg");
-
-				alumno.Foto_alum = System.IO.File.ReadAllBytes(filePath);
-
-				        alumnoService.InsertarAlumno(alumno);
-
-				        return RedirectToAction("Alumnos");
+                    if (isInserted)
+                    {
+                        return RedirectToAction("Alumnos");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Fallo al crear al alumno.");
+                    }
+                }
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                ModelState.AddModelError("Error", "Ocurrio un error al crear al Alumno: " + ex.Message);
             }
+            return View(model);
         }
 
         // GET: Alumno/Edit/5
