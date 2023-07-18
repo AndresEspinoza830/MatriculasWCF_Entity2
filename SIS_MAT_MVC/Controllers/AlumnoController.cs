@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 
@@ -68,46 +69,39 @@ namespace SIS_MAT_MVC.Controllers
         {
             try
             {
-				/*
-						AlumnoDCINSERTS alumno = new AlumnoDCINSERTS();
-						alumno.Ape_Alum = collection["Ape_alum"];
-						alumno.Nom_alum = collection["Nom_alum"];
-						alumno.Dir_alum = collection["Dir_alum"];
-						alumno.Id_Ubigeo = collection["IdDepa"] + collection["IdProv"] + collection["IdDis"];
-						alumno.Dni_alum = collection["Dni_alum"];
-						alumno.Foto_alum = null;
-						alumno.Fec_nac = Convert.ToDateTime(alumno.Fec_nac);
-						alumno.Sexo = collection["Sexo"];
-						alumno.Tel_alum = collection["Tel_alum"];
-						alumno.Email_alum = collection["Email_alum"];
-						alumno.Usu_Registro = "ADMIN";
-						alumno.Est_alum = 1; */
+						  AlumnoDCINSERTS alumno = new AlumnoDCINSERTS();
+				      string[] array = collection["Ubigeo"].Split(',');
 
-				     AlumnoDCINSERTS alumno = new AlumnoDCINSERTS();
-				     alumno.Ape_Alum = "Apellido";
-				     alumno.Nom_alum = "Nombre";
-				     alumno.Dir_alum = "Dirección";
-				     alumno.Id_Ubigeo = "140101";
-            
-				     alumno.Dni_alum = "12345678";
-
-				
-				     alumno.Fec_nac = DateTime.Now; // Fecha actual
-				     alumno.Sexo = "M";
-				     alumno.Tel_alum = "123456789";
-				     alumno.Email_alum = "correo@example.com";
-				     alumno.Usu_Registro = "ADMIN";
-				     alumno.Est_alum = 1;
+			        alumno.Ape_Alum = collection["Alumno.Ape_alum"];
+						  alumno.Nom_alum = collection["Alumno.Nom_alum"];
+						  alumno.Dir_alum = collection["Alumno.Dir_alum"];
+						  alumno.Id_Ubigeo = array[0] + array[1] + array[2];
+						  alumno.Dni_alum = collection["Alumno.Dni_alum"];
+						  alumno.Foto_alum = null;
+						  alumno.Fec_nac = Convert.ToDateTime(alumno.Fec_nac);
+						  alumno.Sexo = collection["Alumno.Sexo"];
+						  alumno.Tel_alum = collection["Alumno.Tel_alum"];
+						  alumno.Email_alum = collection["Alumno.Email_alum"];
+						  alumno.Usu_Registro = "ADMIN";
+						  alumno.Est_alum = 1;
 
 
-				string basePath = AppDomain.CurrentDomain.BaseDirectory;
-				string filePath = Path.Combine(basePath, @"..\Img\defaultUser.jpeg");
+				      HttpPostedFileBase file = Request.Files["Foto_alum"];
 
-				alumno.Foto_alum = System.IO.File.ReadAllBytes(filePath);
+              if (file != null && file.ContentLength > 0)
+              {
+                byte[] fotoBytes;
+                using (var binaryReader = new BinaryReader(file.InputStream))
+                {
+                  fotoBytes = binaryReader.ReadBytes(file.ContentLength);
+                }
 
-				        alumnoService.InsertarAlumno(alumno);
+                alumno.Foto_alum = fotoBytes;
+              }
 
-				        return RedirectToAction("Alumnos");
+					    alumnoService.InsertarAlumno(alumno);
+
+				      return RedirectToAction("Alumnos");
             }
             catch
             {
