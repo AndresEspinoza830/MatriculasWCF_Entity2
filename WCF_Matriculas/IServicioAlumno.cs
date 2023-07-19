@@ -24,7 +24,7 @@ namespace WCF_Matriculas
         Boolean EliminarAlumno(int id);
 
         [OperationContract]
-        Boolean InsertarAlumno(AlumnoDCINSERTS objAlumnoDC);
+        Boolean InsertarAlumno(AlumnoDC objAlumnoDC);
     }
 
     [DataContract]
@@ -79,79 +79,6 @@ namespace WCF_Matriculas
         public String Usu_Ult_Mod { get; set; }
         [DataMember]
         public DateTime Fec_Ult_Mod { get; set; }
-
-    }
-
-    [DataContract]
-    [Serializable]
-    public class AlumnoDCINSERTS
-    {
-        [DataMember]
-        public String Id_Ubigeo { get; set; }
-
-        [DataMember]
-        public String Nom_alum { get; set; }
-        [DataMember]
-        public String Ape_Alum { get; set; }
-        [DataMember]
-        public String Dni_alum { get; set; }
-        [DataMember]
-        public String Dir_alum { get; set; }
-        [DataMember]
-        public DateTime Fec_nac { get; set; }
-        [DataMember]
-        public String Email_alum { get; set; }
-        [DataMember]
-        public String Sexo { get; set; }
-        [DataMember]
-        public String Tel_alum { get; set; }
-        [DataMember]
-        public int Est_alum { get; set; }
-
-        //IMG
-        [DataMember]
-        public byte[] Foto_alum { get; set; }
-
-        //AUDITORIA
-        [DataMember]
-        public String Usu_Registro { get; set; }
-
-    }
-
-    [DataContract]
-    [Serializable]
-    public class AlumnoDCUPDATES
-    {
-        [DataMember]
-        public int Id_alum { get; set; }
-        [DataMember]
-        public String Id_Ubigeo { get; set; }
-        [DataMember]
-        public String Nom_alum { get; set; }
-        [DataMember]
-        public String Ape_Alum { get; set; }
-        [DataMember]
-        public String Dni_alum { get; set; }
-        [DataMember]
-        public String Dir_alum { get; set; }
-        [DataMember]
-        public DateTime Fec_nac { get; set; }
-        [DataMember]
-        public String Email_alum { get; set; }
-        [DataMember]
-        public String Sexo { get; set; }
-        [DataMember]
-        public String Tel_alum { get; set; }
-        [DataMember]
-        public int Est_alum { get; set; }
-
-        //IMG
-        [DataMember]
-        public byte[] Foto_alum { get; set; }
-
-        //AUDITORIA
-        [DataMember]
-        public String Usu_Ult_Mod { get; set; }
 
     }
 }

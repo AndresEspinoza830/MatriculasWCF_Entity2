@@ -113,7 +113,7 @@ namespace WCF_Matriculas
             }
         }
 
-        public Boolean InsertarAlumno(AlumnoDCINSERTS objAlumnoDC)
+        public Boolean InsertarAlumno(AlumnoDC objAlumnoDC)
         {
             try
             {

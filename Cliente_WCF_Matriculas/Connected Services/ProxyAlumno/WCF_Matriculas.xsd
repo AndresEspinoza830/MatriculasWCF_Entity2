@@ -31,21 +31,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfAlumnoDC" nillable="true" type="tns:ArrayOfAlumnoDC" />
-  <xs:complexType name="AlumnoDCINSERTS">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Ape_Alum" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Dir_alum" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Dni_alum" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Email_alum" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Est_alum" type="xs:int" />
-      <xs:element minOccurs="0" name="Fec_nac" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Foto_alum" nillable="true" type="xs:base64Binary" />
-      <xs:element minOccurs="0" name="Id_Ubigeo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Nom_alum" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Tel_alum" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Usu_Registro" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="AlumnoDCINSERTS" nillable="true" type="tns:AlumnoDCINSERTS" />
 </xs:schema>
