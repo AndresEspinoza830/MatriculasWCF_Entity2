@@ -113,6 +113,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ProxyUsuario\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Consulta4.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +148,12 @@
     <Compile Include="CursoMan.Designer.cs">
       <DependentUpon>CursoMan.cs</DependentUpon>
     </Compile>
+    <Compile Include="formLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formLogin.designer.cs">
+      <DependentUpon>formLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDIInterface.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +180,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioCredenciales.cs" />
     <EmbeddedResource Include="ActualizarAlumno.resx">
       <DependentUpon>ActualizarAlumno.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,6 +211,9 @@
     <EmbeddedResource Include="CursoMan.resx">
       <DependentUpon>CursoMan.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formLogin.resx">
+      <DependentUpon>formLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIInterface.resx">
       <DependentUpon>MDIInterface.cs</DependentUpon>
@@ -328,6 +343,13 @@
     <None Include="Connected Services\proxyUbigeo\WCF_Matriculas.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ProxyUsuario\service.wsdl" />
+    <None Include="Connected Services\ProxyUsuario\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyUsuario\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -352,6 +374,7 @@
     <WCFMetadataStorage Include="Connected Services\ProxyEspecialidad\" />
     <WCFMetadataStorage Include="Connected Services\ProxyProfesor\" />
     <WCFMetadataStorage Include="Connected Services\proxyUbigeo\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyUsuario\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ProxyProfesor\configuration91.svcinfo" />
@@ -429,6 +452,12 @@
     <None Include="Connected Services\ProxyCarrera\configuration91.svcinfo" />
     <None Include="Connected Services\ProxyCarrera\configuration.svcinfo" />
     <None Include="Connected Services\ProxyCarrera\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ProxyUsuario\configuration91.svcinfo" />
+    <None Include="Connected Services\ProxyUsuario\configuration.svcinfo" />
+    <None Include="Connected Services\ProxyUsuario\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

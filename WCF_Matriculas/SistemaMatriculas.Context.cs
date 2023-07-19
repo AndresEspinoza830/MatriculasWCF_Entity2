@@ -40,6 +40,7 @@ namespace WCF_Matriculas
         public virtual DbSet<vw_VistaCursos> vw_VistaCursos { get; set; }
         public virtual DbSet<Tb_ESPECIALIDAD> Tb_ESPECIALIDAD { get; set; }
         public virtual DbSet<Tb_CARRERA> Tb_CARRERA { get; set; }
+        public virtual DbSet<Tb_USUARIO_SISTEMA> Tb_USUARIO_SISTEMA { get; set; }
     
         public virtual int usp_delete_alumno(Nullable<int> id_alumno)
         {

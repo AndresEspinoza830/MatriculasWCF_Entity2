@@ -61,6 +61,7 @@
     <Compile Include="IServicioEspecialidad.cs" />
     <Compile Include="IServicioProfesor.cs" />
     <Compile Include="IServicioUbigeo.cs" />
+    <Compile Include="IServicioUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServicioAlumno.cs" />
     <Compile Include="ServicioCarrera.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="ServicioEspecialidad.cs" />
     <Compile Include="ServicioProfesor.cs" />
     <Compile Include="ServicioUbigeo.cs" />
+    <Compile Include="ServicioUsuario.cs" />
     <Compile Include="SistemaMatriculas.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,6 +111,9 @@
       <DependentUpon>SistemaMatriculas.tt</DependentUpon>
     </Compile>
     <Compile Include="Tb_Ubigeo.cs">
+      <DependentUpon>SistemaMatriculas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tb_USUARIO_SISTEMA.cs">
       <DependentUpon>SistemaMatriculas.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_ConsultarMatriculadosEntreFechas_Result.cs">

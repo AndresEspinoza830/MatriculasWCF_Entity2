@@ -121,6 +121,14 @@
           <Property Name="Distrito" Type="nvarchar" MaxLength="255" />
           <Property Name="Cod_Ven" Type="nchar" MaxLength="3" />
         </EntityType>
+        <EntityType Name="Tb_USUARIO_SISTEMA">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Est_usuario" Type="int" Nullable="false" />
+        </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaAlumnos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="vw_VistaAlumnos">
@@ -436,6 +444,7 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
           <EntitySet Name="Tb_MATRICULA" EntityType="Self.Tb_MATRICULA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_PROFESOR" EntityType="Self.Tb_PROFESOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_Ubigeo" EntityType="Self.Tb_Ubigeo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_USUARIO_SISTEMA" EntityType="Self.Tb_USUARIO_SISTEMA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vw_VistaAlumnos" EntityType="Self.vw_VistaAlumnos" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_VistaAlumnos].[Id_alum] AS [Id_alum], 
@@ -844,6 +853,7 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
             <End Role="Tb_CARRERA" EntitySet="Tb_CARRERA" />
             <End Role="Tb_MATRICULA" EntitySet="Tb_MATRICULA" />
           </AssociationSet>
+          <EntitySet Name="Tb_USUARIO_SISTEMA" EntityType="SISTEMA_MATRICULASModel.Tb_USUARIO_SISTEMA" />
         </EntityContainer>
         <EntityType Name="Tb_CUOTA">
           <Key>
@@ -1128,6 +1138,14 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Tb_USUARIO_SISTEMA">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Est_usuario" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1504,6 +1522,15 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
                 <ScalarProperty Name="Precio_carrera" ColumnName="Precio_carrera" />
                 <ScalarProperty Name="Nom_carrera" ColumnName="Nom_carrera" />
                 <ScalarProperty Name="Id_carrera" ColumnName="Id_carrera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_USUARIO_SISTEMA">
+            <EntityTypeMapping TypeName="SISTEMA_MATRICULASModel.Tb_USUARIO_SISTEMA">
+              <MappingFragment StoreEntitySet="Tb_USUARIO_SISTEMA">
+                <ScalarProperty Name="Est_usuario" ColumnName="Est_usuario" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
