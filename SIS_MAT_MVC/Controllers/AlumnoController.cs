@@ -9,29 +9,22 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using SIS_MAT_MVC.Models;
 
 namespace SIS_MAT_MVC.Controllers
 {
     public class AlumnoController : Controller
     {
-		    ProxyAlumno.ServicioAlumnoClient alumnoService = new ProxyAlumno.ServicioAlumnoClient();
+        ProxyAlumno.ServicioAlumnoClient alumnoService = new ProxyAlumno.ServicioAlumnoClient();
         ProxyUbigeo.ServicioUbigeoClient ubigeoService = new ProxyUbigeo.ServicioUbigeoClient();
-		    ProxyAlumno.AlumnoDCINSERTS alumnoToInsert = new ProxyAlumno.AlumnoDCINSERTS();
+        ProxyAlumno.AlumnoDCINSERTS alumnoToInsert = new ProxyAlumno.AlumnoDCINSERTS();
 
-
-
-		    public ActionResult Alumnos()
+        public ActionResult Alumnos()
         {
-			    List<ProxyAlumno.AlumnoDC> alumnos = alumnoService.ListarAlumnos().ToList();
+            List<ProxyAlumno.AlumnoDC> alumnos = alumnoService.ListarAlumnos().ToList();
 
 
-			Console.WriteLine("aaaaaaaaaaaaa");
-			Trace.WriteLine("trace");
-
-
-			Debug.WriteLine("debuggg");
-
-			return View(alumnos);
+            return View(alumnos);
         }
 
         // GET: Alumno/Details/5
@@ -51,21 +44,18 @@ namespace SIS_MAT_MVC.Controllers
             ubigeo.Distritos = ubigeoService.Ubigeo_DistritosProvinciaDepartamento("14", "01").ToList();
 
 
-            AlumnoModel alumno = new AlumnoModel
-            {
-              Alumno = new ProxyAlumno.AlumnoDCINSERTS(),
-              Ubigeo = ubigeo
-            };
+            AlumnoModel model = new AlumnoModel();
+            model.Alumno = new AlumnoDCINSERTS();
 
-            return View(alumno);
+            return View(model);
         }
 
 
 
 
-		// POST: Alumno/Create
-		[HttpPost]
-        public ActionResult Create(FormCollection collection)
+        // POST: Alumno/Create
+        [HttpPost]
+        public ActionResult Create(AlumnoModel model, HttpPostedFileBase foto)
         {
             try
             {
@@ -96,17 +86,17 @@ namespace SIS_MAT_MVC.Controllers
                   fotoBytes = binaryReader.ReadBytes(file.ContentLength);
                 }
 
-                alumno.Foto_alum = fotoBytes;
-              }
+				alumno.Foto_alum = System.IO.File.ReadAllBytes(filePath);
 
-					    alumnoService.InsertarAlumno(alumno);
+				        alumnoService.InsertarAlumno(alumno);
 
-				      return RedirectToAction("Alumnos");
+				        return RedirectToAction("Alumnos");
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("Error", "Ocurrio un error al crear al Alumno: " + ex.Message);
             }
+            return View(model);
         }
 
         // GET: Alumno/Edit/5
