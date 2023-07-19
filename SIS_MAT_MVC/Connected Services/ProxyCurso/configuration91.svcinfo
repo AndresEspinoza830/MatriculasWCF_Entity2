@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="Wtw8tz/IvHL6XzMRAkzxcmBnf/A8i7hX+MbXFaMV0bs=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="qseYwtvgBln2KBuuiRLjAgSQg4+ZvW8iMueka7E63HE=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IServicioCurso1">
       <properties>
@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IServicioCurso1" contract="ProxyCurso.IServicioCurso" bindingType="basicHttpBinding" address="http://localhost:8733/Design_Time_Addresses/WCF_Matriculas/ServicioCurso/" bindingConfiguration="BasicHttpBinding_IServicioCurso1">
+    <endpoint name="BasicHttpBinding_IServicioCurso" contract="ProxyCurso.IServicioCurso" bindingType="basicHttpBinding" address="http://localhost:8733/Design_Time_Addresses/WCF_Matriculas/ServicioCurso/" bindingConfiguration="BasicHttpBinding_IServicioCurso1">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost:8733/Design_Time_Addresses/WCF_Matriculas/ServicioCurso/</serializedValue>
@@ -187,7 +187,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>BasicHttpBinding_IServicioCurso1</serializedValue>
+          <serializedValue>BasicHttpBinding_IServicioCurso</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

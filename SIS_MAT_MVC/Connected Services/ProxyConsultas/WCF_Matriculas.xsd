@@ -41,6 +41,7 @@
       <xs:element minOccurs="0" name="Fec_Ult_Mod" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Fec_nac" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Fec_reg" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Foto_alum" nillable="true" type="xs:base64Binary" />
       <xs:element minOccurs="0" name="Id_Ubigeo" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id_alum" type="xs:int" />
       <xs:element minOccurs="0" name="Nom_alum" nillable="true" type="xs:string" />

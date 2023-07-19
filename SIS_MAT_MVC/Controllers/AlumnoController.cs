@@ -16,7 +16,6 @@ namespace SIS_MAT_MVC.Controllers
     {
         ProxyAlumno.ServicioAlumnoClient alumnoService = new ProxyAlumno.ServicioAlumnoClient();
         ProxyUbigeo.ServicioUbigeoClient ubigeoService = new ProxyUbigeo.ServicioUbigeoClient();
-        ProxyAlumno.AlumnoDCINSERTS alumnoToInsert = new ProxyAlumno.AlumnoDCINSERTS();
 
         public ActionResult Alumnos()
         {
@@ -44,7 +43,7 @@ namespace SIS_MAT_MVC.Controllers
 
 
             AlumnoModel model = new AlumnoModel();
-            model.Alumno = new AlumnoDCINSERTS();
+            model.Alumno = new AlumnoDC();
 
             return View(model);
         }
