@@ -10,6 +10,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cliente_WCF_Matriculas", "C
 		{C078FBDF-8F12-4F55-BD36-14BB491BE745} = {C078FBDF-8F12-4F55-BD36-14BB491BE745}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SIS_MAT_MVC", "SIS_MAT_MVC\SIS_MAT_MVC.csproj", "{BF0B5F5F-8B7C-4CDF-B811-E8B9EC7199DE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C078FBDF-8F12-4F55-BD36-14BB491BE745} = {C078FBDF-8F12-4F55-BD36-14BB491BE745}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +29,10 @@ Global
 		{5DD1E12D-BB38-4EB3-9ED0-958528620D98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DD1E12D-BB38-4EB3-9ED0-958528620D98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DD1E12D-BB38-4EB3-9ED0-958528620D98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF0B5F5F-8B7C-4CDF-B811-E8B9EC7199DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF0B5F5F-8B7C-4CDF-B811-E8B9EC7199DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF0B5F5F-8B7C-4CDF-B811-E8B9EC7199DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF0B5F5F-8B7C-4CDF-B811-E8B9EC7199DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

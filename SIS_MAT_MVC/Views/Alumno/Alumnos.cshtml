@@ -1,0 +1,107 @@
+﻿@model IEnumerable<SIS_MAT_MVC.ProxyAlumno.AlumnoDC>
+
+	@{
+		ViewBag.Title = "Alumnos";
+	}
+
+	<h2>Alumnos</h2>
+
+	<p>
+		@Html.ActionLink("Create New", "Create")
+	</p>
+	<table class="table">
+		<tr>
+			<th>
+				Foto
+			</th>
+			<th>
+				Nombre
+			</th>
+			<th>
+				Apellido
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Departamento)
+			</th>
+			<th>
+				Dirección
+			</th>
+			<th>
+				Distrito
+			</th>
+			<th>
+				DNI
+			</th>
+			<th>
+				Email
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Estado)
+			</th>
+			<th>
+				Birthday
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Sexo)
+			</th>
+			<th>
+				Telefono
+			</th>
+			<th></th>
+		</tr>
+
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@if (item.Foto_alum != null)
+					{
+						<img width="40" height="40" src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Foto_alum))" alt="Imagen">
+					}
+					else
+					{
+						<span>-</span>
+					}
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Nom_alum)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Ape_Alum)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Departamento)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Dir_alum)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Distrito)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Dni_alum)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Email_alum)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Estado)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Fec_nac)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Sexo)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Tel_alum)
+				</td>
+				<td>
+					@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+					@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+					@Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+				</td>
+			</tr>
+		}
+
+	</table>
