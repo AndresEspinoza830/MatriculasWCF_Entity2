@@ -149,9 +149,10 @@ namespace SIS_MAT_MVC.Controllers
 					alumno.Email_alum = model.Alumno.Email_alum;
 					alumno.Tel_alum = model.Alumno.Tel_alum;
 					alumno.Dni_alum = model.Alumno.Dni_alum;
+					alumno.Fec_nac = Convert.ToDateTime(model.Alumno.Fec_nac);
+					alumno.Id_Ubigeo = model.Ubigeo?.IdDepa + "" + model.Ubigeo?.IdProv + "" + model.Ubigeo?.IdDis;
 
-
-					if (foto != null && foto.ContentLength > 0)
+					if (foto != null && foto?.ContentLength > 0)
 					{
 						using (var binaryReader = new BinaryReader(foto.InputStream))
 						{

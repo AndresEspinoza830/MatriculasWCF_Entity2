@@ -9,7 +9,7 @@ namespace SIS_MAT_MVC.Models
 	public class Especialidad
 	{
 		public int Id_esp { get; set; }
-		public String Des_esp { get; set; }
+		public string Des_esp { get; set; }
 		
 
 		public List<EspecialidadDC> Especialidades { get; set; }
