@@ -6,9 +6,9 @@ using System.Web;
 
 namespace SIS_MAT_MVC.Models
 {
-	public class AlumnoModel
+	public class AlumnoInsertsModel
 	{
-		public AlumnoDC Alumno { get; set; }
+		public AlumnoDCINSERTS Alumno { get; set; }
 		public Ubigeo Ubigeo { get; set; }
 	}
 }
