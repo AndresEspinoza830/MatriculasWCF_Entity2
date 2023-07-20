@@ -1,7 +1,7 @@
 ﻿@model SIS_MAT_MVC.Models.ProfesorModel
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 @{
-	ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit";
 }
 
 <h2>Edit</h2>
@@ -9,119 +9,196 @@
 
 @using (Html.BeginForm("Edit", "Profesor", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-	@Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
 
-	<div class="form-horizontal">
-		<hr />
-		@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-		@Html.HiddenFor(model => model.Profesor.Id_profe)
-		<div class="form-group">
-			@Html.LabelFor(model => model.Profesor.Foto_profe, htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@if (Model.Profesor.Foto_profe != null)
-				{
-					<img src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Profesor.Foto_profe))" alt="Imagen" />
-				}
-				else
-				{
-					<span>-</span>
-				}
-			</div>
-		</div>
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Profesor.Id_profe)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Profesor.Foto_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @if (Model.Profesor.Foto_profe != null)
+                {
+                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Profesor.Foto_profe))" alt="Imagen" style="width: 200px; height: 200px;" />
+                }
+                else
+                {
+                    <span>-</span>
+                }
+            </div>
+        </div>
 
-		<div class="form-group">
-			@Html.LabelFor(model => model.Profesor.Nom_profe, htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.EditorFor(model => model.Profesor.Nom_profe, new { htmlAttributes = new { @class = "form-control" } })
-				@Html.ValidationMessageFor(model => model.Profesor.Nom_profe, "", new { @class = "text-danger" })
-			</div>
-		</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Profesor.Nom_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Profesor.Nom_profe, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Profesor.Nom_profe, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-		<div class="form-group">
-			@Html.LabelFor(model => model.Profesor.Ape_profe, htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.EditorFor(model => model.Profesor.Ape_profe, new { htmlAttributes = new { @class = "form-control" } })
-				@Html.ValidationMessageFor(model => model.Profesor.Ape_profe, "", new { @class = "text-danger" })
-			</div>
-		</div>
-		<div class="form-group">
-			@Html.LabelFor(model => model.Profesor.Dni_profe, htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.EditorFor(model => model.Profesor.Dni_profe, new { htmlAttributes = new { @class = "form-control" } })
-				@Html.ValidationMessageFor(model => model.Profesor.Dni_profe, "", new { @class = "text-danger" })
-			</div>
-		</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Profesor.Ape_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Profesor.Ape_profe, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Profesor.Ape_profe, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Profesor.Dni_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Profesor.Dni_profe, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Profesor.Dni_profe, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
-		<div class="form-group">
-			@Html.LabelFor(model => model.Profesor.Email_profe, htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.EditorFor(model => model.Profesor.Email_profe, new { htmlAttributes = new { @class = "form-control" } })
-				@Html.ValidationMessageFor(model => model.Profesor.Email_profe, "", new { @class = "text-danger" })
-			</div>
-		</div>
-
-
-		<div class="form-group">
-			@Html.LabelFor(model => model.Profesor.Est_prof, htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@{
-					var estado = Model?.Profesor?.Est_prof;
-				}
-				@Html.DropDownListFor(model => model.Profesor.Est_prof, new SelectList(new[]
-				{
-						new SelectListItem { Text = "Inactivo", Value = "0" },
-						new SelectListItem { Text = "Activo", Value = "1" }
-				}, "Value", "Text", estado), "-- Seleccione --", new { @class = "form-control" })
-			</div>
-		</div>
-
-		<div class="form-group">
-			@Html.LabelFor(model => model.Profesor.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@{
-					var sexoSeleccionado = Model?.Profesor?.Sexo;
-				}
-				@Html.DropDownListFor(model => model.Profesor.Sexo, new SelectList(new[]
-				{
-						new SelectListItem { Text = "Masculino", Value = "M" },
-						new SelectListItem { Text = "Femenino", Value = "F" }
-				}, "Value", "Text", sexoSeleccionado), "-- Seleccione --", new { @class = "form-control" })
-			</div>
-		</div>
-
-		<div class="form-group">
-			@Html.LabelFor(model => model.Profesor.Tel_profe, htmlAttributes: new { @class = "control-label col-md-2" })
-			<div class="col-md-10">
-				@Html.EditorFor(model => model.Profesor.Tel_profe, new { htmlAttributes = new { @class = "form-control" } })
-				@Html.ValidationMessageFor(model => model.Profesor.Tel_profe, "", new { @class = "text-danger" })
-			</div>
-		</div>
-
-		@Html.DropDownListFor(model => model.Ubigeo.IdDepa, new SelectList(Model.Ubigeo.Departamentos, "IdDepa", "Departamento", Model.Profesor?.Id_Ubigeo.Substring(0, 2)), "-- Seleccione Departamento --", new { @class = "form-control" })
-
-		@Html.DropDownListFor(model => model.Ubigeo.IdProv, new SelectList(Model.Ubigeo.Provincias, "IdProv", "Provincia", Model.Profesor?.Id_Ubigeo.Substring(2, 2)), "-- Seleccione Provincia --", new { @class = "form-control" })
-
-		@Html.DropDownListFor(model => model.Ubigeo.IdDis, new SelectList(Model.Ubigeo.Distritos, "IdDis", "Distrito", Model.Profesor?.Id_Ubigeo.Substring(4, 2)), "-- Seleccione Distrito --", new { @class = "form-control" })
-
-		<div>
-			Especialidad
-		</div>
-
-		@Html.DropDownListFor(model => model.Profesor.Id_esp, new SelectList(Model.Especialidad.Especialidades, "Id_esp", "Des_esp"), "-- Seleccione especialidad --", new { @class = "form-control" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Profesor.Email_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Profesor.Email_profe, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Profesor.Email_profe, "", new { @class = "text-danger" })
+            </div>
+        </div>
 
 
-		<div class="form-group">
-			<div class="col-md-offset-2 col-md-10">
-				<input type="submit" value="Save" class="btn btn-default" />
-			</div>
-		</div>
-	</div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Profesor.Est_prof, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    var estado = Model?.Profesor?.Est_prof;
+                }
+                @Html.DropDownListFor(model => model.Profesor.Est_prof, new SelectList(new[]
+                {
+                        new SelectListItem { Text = "Inactivo", Value = "0" },
+                        new SelectListItem { Text = "Activo", Value = "1" }
+                }, "Value", "Text", estado), "-- Seleccione --", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Profesor.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{
+                    var sexoSeleccionado = Model?.Profesor?.Sexo;
+                }
+                @Html.DropDownListFor(model => model.Profesor.Sexo, new SelectList(new[]
+                {
+                        new SelectListItem { Text = "Masculino", Value = "M" },
+                        new SelectListItem { Text = "Femenino", Value = "F" }
+                }, "Value", "Text", sexoSeleccionado), "-- Seleccione --", new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Profesor.Tel_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Profesor.Tel_profe, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Profesor.Tel_profe, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @Html.DropDownListFor(model => model.Ubigeo.IdDepa, new SelectList(Model.Ubigeo.Departamentos, "IdDepa", "Departamento", Model.Profesor?.Id_Ubigeo.Substring(0, 2)), "-- Seleccione Departamento --", new { @class = "form-control" })
+
+        @Html.DropDownListFor(model => model.Ubigeo.IdProv, new SelectList(Model.Ubigeo.Provincias, "IdProv", "Provincia", Model.Profesor?.Id_Ubigeo.Substring(2, 2)), "-- Seleccione Provincia --", new { @class = "form-control" })
+
+        @Html.DropDownListFor(model => model.Ubigeo.IdDis, new SelectList(Model.Ubigeo.Distritos, "IdDis", "Distrito", Model.Profesor?.Id_Ubigeo.Substring(4, 2)), "-- Seleccione Distrito --", new { @class = "form-control" })
+
+        <script>
+    $(document).ready(function () {
+        // Handle the change event for the Departamentos dropdown
+        $("#Ubigeo_IdDepa").change(function () {
+            var departamentoId = $(this).val();
+            var provinciaDropdown = $("#Ubigeo_IdProv");
+            var distritoDropdown = $("#Ubigeo_IdDis");
+
+            // Call a function to populate the Provincias dropdown based on the selected Departamento
+            populateProvincias(departamentoId, provinciaDropdown, distritoDropdown);
+        });
+
+        // Handle the change event for the Provincias dropdown
+        $("#Ubigeo_IdProv").change(function () {
+            var departamentoId = $("#Ubigeo_IdDepa").val();
+            var provinciaId = $(this).val();
+            var distritoDropdown = $("#Ubigeo_IdDis");
+
+            // Call a function to populate the Distritos dropdown based on the selected Departamento and Provincia
+            populateDistritos(departamentoId, provinciaId, distritoDropdown);
+        });
+
+        // Function to populate the Provincias dropdown based on the selected Departamento
+        function populateProvincias(departamentoId, provinciaDropdown, distritoDropdown) {
+            $.ajax({
+                url: "@Url.Action("Ubigeo_ProvinciasDepartamento", "Profesor")",
+                data: { strIdDepartamento: departamentoId },
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    // Populate the Provincias dropdown with the retrieved data
+                    provinciaDropdown.empty();
+                    $.each(data, function (index, item) {
+                        provinciaDropdown.append($("<option></option>").val(item.IdProv).html(item.Provincia));
+                    });
+
+                    // Add a default option
+                    provinciaDropdown.prepend($("<option></option>").val("").html("-- Seleccione Provincia --"));
+
+                    // Update the Distritos dropdown when the Provincias dropdown changes
+                    var provinciaId = provinciaDropdown.val();
+                    populateDistritos(departamentoId, provinciaId, distritoDropdown);
+                },
+                error: function (error) {
+                    console.log("Error: " + error.statusText);
+                }
+            });
+        }
+
+        // Function to populate the Distritos dropdown based on the selected Departamento and Provincia
+        function populateDistritos(departamentoId, provinciaId, distritoDropdown) {
+            $.ajax({
+                url: "@Url.Action("Ubigeo_DistritosProvinciaDepartamento", "Profesor")",
+                data: { strIdDepartamento: departamentoId, strIdProvincia: provinciaId },
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    // Populate the Distritos dropdown with the retrieved data
+                    distritoDropdown.empty();
+                    $.each(data, function (index, item) {
+                        distritoDropdown.append($("<option></option>").val(item.IdDis).html(item.Distrito));
+                    });
+
+                    // Add a default option
+                    distritoDropdown.prepend($("<option></option>").val("").html("-- Seleccione Distrito --"));
+                },
+                error: function (error) {
+                    console.log("Error: " + error.statusText);
+                }
+            });
+        }
+    });
+        </script>
+
+
+
+
+        <div>
+            Especialidad
+        </div>
+
+        @Html.DropDownListFor(model => model.Profesor.Id_esp, new SelectList(Model.Especialidad.Especialidades, "Id_esp", "Des_esp"), "-- Seleccione especialidad --", new { @class = "form-control" })
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
 }
 
 <div>
-	@Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
-	@Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryval")
 }

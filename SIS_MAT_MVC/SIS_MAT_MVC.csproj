@@ -164,7 +164,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Alumno.cs" />
-    <Compile Include="Models\AlumnoInserts.cs" />
     <Compile Include="Models\Especialidad.cs" />
     <Compile Include="Models\Profesor.cs" />
     <Compile Include="Models\Ubigeo.cs" />

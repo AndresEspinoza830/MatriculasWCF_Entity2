@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using SIS_MAT_MVC.Models;
+using System.Globalization;
 
 namespace SIS_MAT_MVC.Controllers
 {
@@ -48,6 +49,35 @@ namespace SIS_MAT_MVC.Controllers
 
 
 
+        public JsonResult Ubigeo_ProvinciasDepartamento(string strIdDepartamento)
+        {
+            try
+            {
+
+                List<Ubigeo_ProvinciasDepartamentoDC> provincias = ubigeoService.Ubigeo_ProvinciasDepartamento(strIdDepartamento).ToList();
+                return Json(provincias, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        public JsonResult Ubigeo_DistritosProvinciaDepartamento(string strIdDepartamento, string strIdProvincia)
+        {
+            try
+            {
+                List<Ubigeo_DistritosProvinciaDepartamentoDC> distritos = ubigeoService.Ubigeo_DistritosProvinciaDepartamento(strIdDepartamento, strIdProvincia).ToList();
+                return Json(distritos, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception ex)
+            {
+                return Json(new { error = ex.Message }, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+
+
         // GET: Alumno/Create
         public ActionResult Create()
         {
@@ -58,7 +88,6 @@ namespace SIS_MAT_MVC.Controllers
             ubigeo.Provincias = ubigeoService.Ubigeo_ProvinciasDepartamento("14").ToList();
             ubigeo.Distritos = ubigeoService.Ubigeo_DistritosProvinciaDepartamento("14", "01").ToList();
 
-
             AlumnoModel model = new AlumnoModel();
             model.Alumno = new AlumnoDC();
             model.Ubigeo = ubigeo;
@@ -68,13 +97,13 @@ namespace SIS_MAT_MVC.Controllers
 
         // POST: Alumno/Create
         [HttpPost]
-        public ActionResult Create(AlumnoInsertsModel model, HttpPostedFileBase foto, FormCollection collection)
+        public ActionResult Create(AlumnoModel model, HttpPostedFileBase foto, FormCollection collection)
         {
             try
             {
 
                 model.Alumno.Usu_Registro = "ADMIN";
-                model.Alumno.Id_Ubigeo = collection["Ubigeo.Departamentos"] + "" + collection["Ubigeo.Provincias"] + "" + collection["Ubigeo.Distritos"];
+                model.Alumno.Id_Ubigeo = Request.Form["Ubigeo.IdDepa"] + Request.Form["Ubigeo.IdProv"] + Request.Form["Ubigeo.IdDis"];
 
                 if (foto != null && foto.ContentLength > 0)
                 {
@@ -125,6 +154,8 @@ namespace SIS_MAT_MVC.Controllers
             ubigeo.IdDepa = alumno.Id_Ubigeo?.Substring(0, 2);
             ubigeo.IdProv = alumno.Id_Ubigeo?.Substring(2, 2);
             ubigeo.IdDis = alumno.Id_Ubigeo?.Substring(4, 2);
+
+
 
             model.Alumno = alumno;
             model.Ubigeo = ubigeo;
