@@ -70,7 +70,7 @@
                 @Html.DropDownListFor(model => model.Alumno.Est_alum, new SelectList(new[]
                 {
                         new SelectListItem { Text = "Activo", Value = "1" },
-                        new SelectListItem { Text = "Inactivo", Value = "2" }
+                        new SelectListItem { Text = "Inactivo", Value = "0" }
                 }, "Value", "Text", estadoSeleccionado), "-- Seleccione --", new { @class = "form-control" })
             </div>
         </div>
