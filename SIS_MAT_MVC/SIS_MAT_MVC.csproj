@@ -159,10 +159,14 @@
     </Compile>
     <Compile Include="Controllers\AlumnoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProfesorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Alumno.cs" />
+    <Compile Include="Models\AlumnoInserts.cs" />
+    <Compile Include="Models\Especialidad.cs" />
+    <Compile Include="Models\Profesor.cs" />
     <Compile Include="Models\Ubigeo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -362,6 +366,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Alumno\Alumnos.cshtml" />
     <Content Include="Views\Alumno\Create.cshtml" />
+    <Content Include="Views\Alumno\Edit.cshtml" />
+    <Content Include="Views\Alumno\Details.cshtml" />
+    <Content Include="Views\Profesor\Index.cshtml" />
+    <Content Include="Views\Profesor\Create.cshtml" />
+    <Content Include="Views\Profesor\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

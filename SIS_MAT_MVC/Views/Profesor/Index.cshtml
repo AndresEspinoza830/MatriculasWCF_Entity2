@@ -1,0 +1,154 @@
+﻿@model IEnumerable<SIS_MAT_MVC.ProxyProfesor.ProfesorDC>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+			  <th>
+				  @Html.DisplayNameFor(model => model.Foto_profe)
+			  </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ape_profe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Des_esp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distrito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dni_profe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email_profe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Est_prof)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fec_Ult_Mod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fec_reg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_Ubigeo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_esp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_profe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom_profe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Provincia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tel_profe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usu_Registro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Usu_Ult_Mod)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+		<tr>
+			<td>
+				@if (item.Foto_profe != null)
+				{
+					<img width="40" height="40" src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Foto_profe))" alt="Imagen">
+				}
+				else
+				{
+					<span>-</span>
+				}
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Ape_profe)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Departamento)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Des_esp)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Distrito)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Dni_profe)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Email_profe)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Est_prof)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Estado)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Fec_Ult_Mod)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Fec_reg)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Id_Ubigeo)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Id_esp)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Id_profe)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Nom_profe)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Provincia)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Sexo)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Tel_profe)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Usu_Registro)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Usu_Ult_Mod)
+			</td>
+			<td>
+				@Html.ActionLink("Edit", "Edit", new { id=item.Id_profe }) |
+				@Html.ActionLink("Details", "Details", new { id = item.Id_profe }) |
+				@Html.ActionLink("Delete", "Delete", new { id = item.Id_profe })
+			</td>
+		</tr>
+}
+
+</table>

@@ -1,0 +1,132 @@
+﻿@model SIS_MAT_MVC.Models.AlumnoModel
+
+@{
+	ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Edit", "Alumno", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+	@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+	<h4>AlumnoDC</h4>
+	<hr />
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	@Html.HiddenFor(model => model.Alumno.Id_alum)
+	<div class="form-group">
+		@Html.LabelFor(model => model.Alumno.Foto_alum, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@if (Model.Alumno.Foto_alum != null)
+			{
+				<img src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Alumno.Foto_alum))" alt="Imagen" />
+			}
+			else
+			{
+				<span>-</span>
+			}
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Alumno.Ape_Alum, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Alumno.Ape_Alum, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Alumno.Ape_Alum, "", new { @class = "text-danger" })
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(model => model.Alumno.Dir_alum, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Alumno.Dir_alum, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Alumno.Dir_alum, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Alumno.Dni_alum, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Alumno.Dni_alum, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Alumno.Dni_alum, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Alumno.Email_alum, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Alumno.Email_alum, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Alumno.Email_alum, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Alumno.Est_alum, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Alumno.Est_alum, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Alumno.Est_alum, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Alumno.Fec_nac, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.TextBoxFor(model => model.Alumno.Fec_nac, "{0:dd-MM-yyyy}", new { @class = "form-control", type = "date" })
+			@Html.ValidationMessageFor(model => model.Alumno.Fec_nac, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Alumno.Nom_alum, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Alumno.Nom_alum, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Alumno.Nom_alum, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Alumno.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@{
+				var sexoSeleccionado = Model?.Alumno?.Sexo;
+			}
+			@Html.DropDownListFor(model => model.Alumno.Sexo, new SelectList(new[]
+			{
+					new SelectListItem { Text = "Masculino", Value = "M" },
+					new SelectListItem { Text = "Femenino", Value = "F" }
+			}, "Value", "Text", sexoSeleccionado), "-- Seleccione --", new { @class = "form-control" })
+		</div>
+	</div>
+
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Alumno.Tel_alum, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Alumno.Tel_alum, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Alumno.Tel_alum, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	@Html.DropDownListFor(model => model.Ubigeo.IdDepa, new SelectList(Model.Ubigeo.Departamentos, "IdDepa", "Departamento", Model.Alumno?.Id_Ubigeo.Substring(0, 2)), "-- Seleccione Departamento --", new { @class = "form-control" })
+
+	@Html.DropDownListFor(model => model.Ubigeo.IdProv, new SelectList(Model.Ubigeo.Provincias, "IdProv", "Provincia", Model.Alumno?.Id_Ubigeo.Substring(2, 2)), "-- Seleccione Provincia --", new { @class = "form-control" })
+
+	@Html.DropDownListFor(model => model.Ubigeo.IdDis, new SelectList(Model.Ubigeo.Distritos, "IdDis", "Distrito", Model.Alumno?.Id_Ubigeo.Substring(4, 2)), "-- Seleccione Distrito --", new { @class = "form-control" })
+
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" value="Save" class="btn btn-default" />
+		</div>
+	</div>
+</div>
+}
+
+<div>
+	@Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+	@Scripts.Render("~/bundles/jqueryval")
+}

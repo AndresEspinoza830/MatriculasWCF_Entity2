@@ -1,0 +1,116 @@
+﻿@model SIS_MAT_MVC.Models.ProfesorModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+	<h4>ProfesorDC</h4>
+	<hr />
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	<div class="form-group">
+		@Html.LabelFor(model => model.Profesor.Ape_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Profesor.Ape_profe, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Profesor.Ape_profe, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Profesor.Nom_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Profesor.Nom_profe, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Profesor.Nom_profe, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Profesor.Foto_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			<input type="file" name="foto" id="foto" accept="image/*" capture />
+			@Html.ValidationMessageFor(model => model.Profesor.Foto_profe, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Profesor.Dni_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Profesor.Dni_profe, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Profesor.Dni_profe, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Profesor.Email_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Profesor.Email_profe, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Profesor.Email_profe, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Profesor.Est_prof, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.DropDownListFor(model => model.Profesor.Est_prof, new SelectList(new[]
+			{
+					new SelectListItem { Text = "Inactivo", Value = "0" },
+					new SelectListItem { Text = "Activo", Value = "1" }
+			}, "Value", "Text"), "-- Seleccione --", new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Profesor.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.DropDownListFor(model => model.Profesor.Sexo, new SelectList(new[]
+			{
+					new SelectListItem { Text = "Masculino", Value = "M" },
+					new SelectListItem { Text = "Femenino", Value = "F" }
+			}, "Value", "Text"), "-- Seleccione --", new { @class = "form-control" })
+		</div>
+	</div>
+
+	<div class="form-group">
+		@Html.LabelFor(model => model.Profesor.Tel_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+		<div class="col-md-10">
+			@Html.EditorFor(model => model.Profesor.Tel_profe, new { htmlAttributes = new { @class = "form-control" } })
+			@Html.ValidationMessageFor(model => model.Profesor.Tel_profe, "", new { @class = "text-danger" })
+		</div>
+	</div>
+
+
+	@Html.DropDownListFor(model => model.Ubigeo.Departamentos, new SelectList(Model.Ubigeo.Departamentos, "IdDepa", "Departamento"), "-- Seleccione Departamento --", new { @class = "form-control" })
+
+	@Html.DropDownListFor(model => model.Ubigeo.Provincias, new SelectList(Model.Ubigeo.Provincias, "IdProv", "Provincia"), "-- Seleccione Provincia --", new { @class = "form-control" })
+
+	@Html.DropDownListFor(model => model.Ubigeo.Distritos, new SelectList(Model.Ubigeo.Distritos, "IdDis", "Distrito"), "-- Seleccione Distrito --", new { @class = "form-control" })
+
+
+	<div>
+		Especialidad
+	</div>
+
+	@Html.DropDownListFor(model => model.Especialidad.Especialidades, new SelectList(Model.Especialidad.Especialidades, "Id_esp", "Des_esp"), "-- Seleccione especialidad --", new { @class = "form-control" })
+
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10">
+			<input type="submit" value="Create" class="btn btn-default" />
+		</div>
+	</div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

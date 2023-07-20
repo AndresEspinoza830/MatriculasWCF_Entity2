@@ -1,0 +1,37 @@
+﻿@model SIS_MAT_MVC.Models.AlumnoModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AlumnoModel</h4>
+    <hr />
+		<dl class="dl-horizontal">
+			<dt>
+				@Html.DisplayNameFor(model => model.Alumno.Nom_alum)
+			</dt>
+			<dd>
+				@Html.DisplayFor(model => model.Alumno.Nom_alum)
+			</dd>
+			<dt>
+				@Html.DisplayNameFor(model => model.Alumno.Ape_Alum)
+			</dt>
+			<dd>
+				@Html.DisplayFor(model => model.Alumno.Ape_Alum)
+			</dd>
+			<dt>
+				@Html.DisplayNameFor(model => model.Alumno.Dni_alum)
+			</dt>
+			<dd>
+				@Html.DisplayFor(model => model.Alumno.Dni_alum)
+			</dd>
+
+		</dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Alumno.Id_alum }) |
+    @Html.ActionLink("Back to List", "Alumnos")
+</p>
