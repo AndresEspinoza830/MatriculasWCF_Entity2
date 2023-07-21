@@ -12,7 +12,9 @@
 <body>
 	<aside class="sidebar">
 		<ul class="px-0 pt-4">
-			<li>@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link py-2 px-4" })</li>
+			<li>
+				@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "nav-link py-2 px-4" })
+			</li>
 			<li>@Html.ActionLink("Alumnos", "Alumnos", "Alumno", new { area = "" }, new { @class = "nav-link py-2 px-4" })</li>
 			<li>@Html.ActionLink("Profesores", "Index", "Profesor", new { area = "" }, new { @class = "nav-link py-2 px-4" })</li>
 		</ul>

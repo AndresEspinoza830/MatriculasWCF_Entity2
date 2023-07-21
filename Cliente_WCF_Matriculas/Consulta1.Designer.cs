@@ -57,6 +57,7 @@
             this.txtIdAlumno.Name = "txtIdAlumno";
             this.txtIdAlumno.Size = new System.Drawing.Size(100, 20);
             this.txtIdAlumno.TabIndex = 1;
+            this.txtIdAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdAlumno_KeyPress);
             // 
             // dtgResultados
             // 
@@ -152,6 +153,8 @@
             this.Controls.Add(this.dtgResultados);
             this.Controls.Add(this.txtIdAlumno);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Consulta1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListarCuotasPendientesAlumnos";

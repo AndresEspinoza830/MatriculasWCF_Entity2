@@ -25,7 +25,7 @@ namespace WCF_Matriculas
         Boolean EliminarAlumno(int id);
 
         [OperationContract]
-        Boolean InsertarAlumno(AlumnoDCINSERTS objAlumnoDC);
+        Boolean InsertarAlumno(AlumnoDC objAlumnoDC);
     }
 
     [DataContract]

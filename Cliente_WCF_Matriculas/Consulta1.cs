@@ -12,7 +12,7 @@ namespace Cliente_WCF_Matriculas
 {
     public partial class Consulta1 : Form
     {
-        ProxyConsultas.ServicioConsultasClient  objProxyConsultas = new ProxyConsultas.ServicioConsultasClient();
+        ProxyConsultas.ServicioConsultasClient objProxyConsultas = new ProxyConsultas.ServicioConsultasClient();
 
         public Consulta1()
         {
@@ -31,12 +31,12 @@ namespace Cliente_WCF_Matriculas
                 catch (Exception ex)
                 {
 
-                    MessageBox.Show("Error:"+ex.Message);
+                    MessageBox.Show("Error:" + ex.Message);
                 }
             }
             else
             {
-                throw new Exception("Error: El campo no puede ser vacio");
+                MessageBox.Show("Error: El campo no puede ser vacio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -48,6 +48,15 @@ namespace Cliente_WCF_Matriculas
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtIdAlumno_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

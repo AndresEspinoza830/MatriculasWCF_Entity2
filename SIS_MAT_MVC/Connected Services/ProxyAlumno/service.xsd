@@ -58,7 +58,7 @@
   <xs:element name="InsertarAlumno">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCF_Matriculas" minOccurs="0" name="objAlumnoDC" nillable="true" type="q4:AlumnoDCINSERTS" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCF_Matriculas" minOccurs="0" name="objAlumnoDC" nillable="true" type="q4:AlumnoDC" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

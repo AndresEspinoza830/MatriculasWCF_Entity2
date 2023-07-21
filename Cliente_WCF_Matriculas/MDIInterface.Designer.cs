@@ -36,6 +36,8 @@
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarCuotasPendientesAlumnosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listarMatriculadosFechasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarVacantesBloquesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarAlumnosCarreraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,21 +65,21 @@
             // alumnosToolStripMenuItem
             // 
             this.alumnosToolStripMenuItem.Name = "alumnosToolStripMenuItem";
-            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alumnosToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.alumnosToolStripMenuItem.Text = "Alumnos";
             this.alumnosToolStripMenuItem.Click += new System.EventHandler(this.alumnosToolStripMenuItem_Click);
             // 
             // profesoresToolStripMenuItem
             // 
             this.profesoresToolStripMenuItem.Name = "profesoresToolStripMenuItem";
-            this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.profesoresToolStripMenuItem.Text = "Profesores";
             this.profesoresToolStripMenuItem.Click += new System.EventHandler(this.profesoresToolStripMenuItem_Click);
             // 
             // cursosToolStripMenuItem
             // 
             this.cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
-            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cursosToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.cursosToolStripMenuItem.Text = "Cursos";
             this.cursosToolStripMenuItem.Click += new System.EventHandler(this.cursosToolStripMenuItem_Click);
             // 
@@ -85,7 +87,9 @@
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listarCuotasPendientesAlumnosToolStripMenuItem,
-            this.listarMatriculadosFechasToolStripMenuItem});
+            this.listarMatriculadosFechasToolStripMenuItem,
+            this.listarVacantesBloquesToolStripMenuItem,
+            this.listarAlumnosCarreraToolStripMenuItem});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "Consultas";
@@ -103,6 +107,20 @@
             this.listarMatriculadosFechasToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
             this.listarMatriculadosFechasToolStripMenuItem.Text = "ListarMatriculadosFechas";
             this.listarMatriculadosFechasToolStripMenuItem.Click += new System.EventHandler(this.listarMatriculadosFechasToolStripMenuItem_Click);
+            // 
+            // listarVacantesBloquesToolStripMenuItem
+            // 
+            this.listarVacantesBloquesToolStripMenuItem.Name = "listarVacantesBloquesToolStripMenuItem";
+            this.listarVacantesBloquesToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.listarVacantesBloquesToolStripMenuItem.Text = "ListarVacantesBloques";
+            this.listarVacantesBloquesToolStripMenuItem.Click += new System.EventHandler(this.listarVacantesBloquesToolStripMenuItem_Click);
+            // 
+            // listarAlumnosCarreraToolStripMenuItem
+            // 
+            this.listarAlumnosCarreraToolStripMenuItem.Name = "listarAlumnosCarreraToolStripMenuItem";
+            this.listarAlumnosCarreraToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.listarAlumnosCarreraToolStripMenuItem.Text = "ListarAlumnosCarrera";
+            this.listarAlumnosCarreraToolStripMenuItem.Click += new System.EventHandler(this.listarAlumnosCarreraToolStripMenuItem_Click);
             // 
             // MDIInterface
             // 
@@ -133,5 +151,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarCuotasPendientesAlumnosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listarMatriculadosFechasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarVacantesBloquesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarAlumnosCarreraToolStripMenuItem;
     }
 }

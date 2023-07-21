@@ -16,7 +16,7 @@ namespace Cliente_WCF_Matriculas
     public partial class AgregarAlumno : Form
     {
         ProxyAlumno.ServicioAlumnoClient objServiceAlumno = new ProxyAlumno.ServicioAlumnoClient();
-        ProxyAlumno.AlumnoDCINSERTS objAlumnoDC = new ProxyAlumno.AlumnoDCINSERTS();
+        ProxyAlumno.AlumnoDC objAlumnoDC = new ProxyAlumno.AlumnoDC();
         proxyUbigeo.ServicioUbigeoClient objServiceUbigeo = new proxyUbigeo.ServicioUbigeoClient();
 
 

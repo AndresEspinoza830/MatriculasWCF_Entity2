@@ -1,5 +1,5 @@
-﻿@model SIS_MAT_MVC.Models.ProfesorModel
-
+﻿﻿@model SIS_MAT_MVC.Models.ProfesorModel
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 @{
 	ViewBag.Title = "Edit";
 }
@@ -20,7 +20,7 @@
 			<div class="col-md-10">
 				@if (Model.Profesor.Foto_profe != null)
 				{
-					<img src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Profesor.Foto_profe))" alt="Imagen" />
+					<img src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Profesor.Foto_profe))" alt="Imagen" style="width: 200px; height: 200px;" />
 				}
 				else
 				{
@@ -69,8 +69,8 @@
 				}
 				@Html.DropDownListFor(model => model.Profesor.Est_prof, new SelectList(new[]
 				{
-						new SelectListItem { Text = "Inactivo", Value = "0" },
-						new SelectListItem { Text = "Activo", Value = "1" }
+								new SelectListItem { Text = "Inactivo", Value = "0" },
+								new SelectListItem { Text = "Activo", Value = "1" }
 				}, "Value", "Text", estado), "-- Seleccione --", new { @class = "form-control" })
 			</div>
 		</div>
@@ -83,8 +83,8 @@
 				}
 				@Html.DropDownListFor(model => model.Profesor.Sexo, new SelectList(new[]
 				{
-						new SelectListItem { Text = "Masculino", Value = "M" },
-						new SelectListItem { Text = "Femenino", Value = "F" }
+								new SelectListItem { Text = "Masculino", Value = "M" },
+								new SelectListItem { Text = "Femenino", Value = "F" }
 				}, "Value", "Text", sexoSeleccionado), "-- Seleccione --", new { @class = "form-control" })
 			</div>
 		</div>
@@ -102,6 +102,74 @@
 		@Html.DropDownListFor(model => model.Ubigeo.IdProv, new SelectList(Model.Ubigeo.Provincias, "IdProv", "Provincia", Model.Profesor?.Id_Ubigeo.Substring(2, 2)), "-- Seleccione Provincia --", new { @class = "form-control" })
 
 		@Html.DropDownListFor(model => model.Ubigeo.IdDis, new SelectList(Model.Ubigeo.Distritos, "IdDis", "Distrito", Model.Profesor?.Id_Ubigeo.Substring(4, 2)), "-- Seleccione Distrito --", new { @class = "form-control" })
+
+		<script>
+    $(document).ready(function () {
+        $("#Ubigeo_IdDepa").change(function () {
+            var departamentoId = $(this).val();
+            var provinciaDropdown = $("#Ubigeo_IdProv");
+            var distritoDropdown = $("#Ubigeo_IdDis");
+
+            populateProvincias(departamentoId, provinciaDropdown, distritoDropdown);
+        });
+
+
+        $("#Ubigeo_IdProv").change(function () {
+            var departamentoId = $("#Ubigeo_IdDepa").val();
+            var provinciaId = $(this).val();
+            var distritoDropdown = $("#Ubigeo_IdDis");
+
+            populateDistritos(departamentoId, provinciaId, distritoDropdown);
+        });
+
+        function populateProvincias(departamentoId, provinciaDropdown, distritoDropdown) {
+            $.ajax({
+                url: "@Url.Action("Ubigeo_ProvinciasDepartamento", "Profesor")",
+                data: { strIdDepartamento: departamentoId },
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    provinciaDropdown.empty();
+                    $.each(data, function (index, item) {
+                        provinciaDropdown.append($("<option></option>").val(item.IdProv).html(item.Provincia));
+                    });
+
+                    provinciaDropdown.prepend($("<option></option>").val("").html("-- Seleccione Provincia --"));
+
+                    var provinciaId = provinciaDropdown.val();
+                    populateDistritos(departamentoId, provinciaId, distritoDropdown);
+                },
+                error: function (error) {
+                    console.log("Error: " + error.statusText);
+                }
+            });
+        }
+
+ 
+        function populateDistritos(departamentoId, provinciaId, distritoDropdown) {
+            $.ajax({
+                url: "@Url.Action("Ubigeo_DistritosProvinciaDepartamento", "Profesor")",
+                data: { strIdDepartamento: departamentoId, strIdProvincia: provinciaId },
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    distritoDropdown.empty();
+                    $.each(data, function (index, item) {
+                        distritoDropdown.append($("<option></option>").val(item.IdDis).html(item.Distrito));
+                    });
+
+                    distritoDropdown.prepend($("<option></option>").val("").html("-- Seleccione Distrito --"));
+                },
+                error: function (error) {
+                    console.log("Error: " + error.statusText);
+                }
+            });
+        }
+    });
+		</script>
+
+
+
 
 		<div>
 			Especialidad

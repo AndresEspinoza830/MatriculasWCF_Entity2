@@ -26,6 +26,14 @@
           <Property Name="Fec_Ult_Mod" Type="datetime" />
           <Property Name="Est_alum" Type="int" />
         </EntityType>
+        <EntityType Name="Tb_CARRERA">
+          <Key>
+            <PropertyRef Name="Id_carrera" />
+          </Key>
+          <Property Name="Id_carrera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom_carrera" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Precio_carrera" Type="money" />
+        </EntityType>
         <EntityType Name="Tb_CUOTA">
           <Key>
             <PropertyRef Name="Id_cuota" />
@@ -112,6 +120,14 @@
           <Property Name="Provincia" Type="nvarchar" MaxLength="255" />
           <Property Name="Distrito" Type="nvarchar" MaxLength="255" />
           <Property Name="Cod_Ven" Type="nchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="Tb_USUARIO_SISTEMA">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Est_usuario" Type="int" Nullable="false" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaAlumnos' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -255,6 +271,18 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
             </Principal>
             <Dependent Role="Tb_MATRICULA">
               <PropertyRef Name="Id_alum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_matricula_carrera">
+          <End Role="Tb_CARRERA" Type="Self.Tb_CARRERA" Multiplicity="1" />
+          <End Role="Tb_MATRICULA" Type="Self.Tb_MATRICULA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_CARRERA">
+              <PropertyRef Name="Id_carrera" />
+            </Principal>
+            <Dependent Role="Tb_MATRICULA">
+              <PropertyRef Name="Id_carrera" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -408,6 +436,7 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
         </Function>
         <EntityContainer Name="SISTEMA_MATRICULASModelStoreContainer">
           <EntitySet Name="Tb_ALUMNO" EntityType="Self.Tb_ALUMNO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_CARRERA" EntityType="Self.Tb_CARRERA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_CUOTA" EntityType="Self.Tb_CUOTA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_CURSO" EntityType="Self.Tb_CURSO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_DETMATRICULA" EntityType="Self.Tb_DETMATRICULA" Schema="dbo" store:Type="Tables" />
@@ -415,6 +444,7 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
           <EntitySet Name="Tb_MATRICULA" EntityType="Self.Tb_MATRICULA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_PROFESOR" EntityType="Self.Tb_PROFESOR" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tb_Ubigeo" EntityType="Self.Tb_Ubigeo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tb_USUARIO_SISTEMA" EntityType="Self.Tb_USUARIO_SISTEMA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="vw_VistaAlumnos" EntityType="Self.vw_VistaAlumnos" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [vw_VistaAlumnos].[Id_alum] AS [Id_alum], 
@@ -505,6 +535,10 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
             <End Role="Tb_ALUMNO" EntitySet="Tb_ALUMNO" />
             <End Role="Tb_MATRICULA" EntitySet="Tb_MATRICULA" />
           </AssociationSet>
+          <AssociationSet Name="fk_matricula_carrera" Association="Self.fk_matricula_carrera">
+            <End Role="Tb_CARRERA" EntitySet="Tb_CARRERA" />
+            <End Role="Tb_MATRICULA" EntitySet="Tb_MATRICULA" />
+          </AssociationSet>
           <AssociationSet Name="fk_profesor_especialidad" Association="Self.fk_profesor_especialidad">
             <End Role="Tb_ESPECIALIDAD" EntitySet="Tb_ESPECIALIDAD" />
             <End Role="Tb_PROFESOR" EntitySet="Tb_PROFESOR" />
@@ -566,6 +600,7 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
           <Property Name="Est_matricula" Type="Int32" />
           <NavigationProperty Name="Tb_ALUMNO" Relationship="Self.fk_matricula_alumno" FromRole="Tb_MATRICULA" ToRole="Tb_ALUMNO" />
           <NavigationProperty Name="Tb_DETMATRICULA" Relationship="Self.fk_detmatricula_matricula" FromRole="Tb_MATRICULA" ToRole="Tb_DETMATRICULA" />
+          <NavigationProperty Name="Tb_CARRERA" Relationship="SISTEMA_MATRICULASModel.fk_matricula_carrera" FromRole="Tb_MATRICULA" ToRole="Tb_CARRERA" />
         </EntityType>
         <EntityType Name="Tb_PROFESOR">
           <Key>
@@ -813,6 +848,12 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
             <End Role="Tb_ESPECIALIDAD" EntitySet="Tb_ESPECIALIDAD" />
             <End Role="Tb_PROFESOR" EntitySet="Tb_PROFESOR" />
           </AssociationSet>
+          <EntitySet Name="Tb_CARRERA" EntityType="SISTEMA_MATRICULASModel.Tb_CARRERA" />
+          <AssociationSet Name="fk_matricula_carrera" Association="SISTEMA_MATRICULASModel.fk_matricula_carrera">
+            <End Role="Tb_CARRERA" EntitySet="Tb_CARRERA" />
+            <End Role="Tb_MATRICULA" EntitySet="Tb_MATRICULA" />
+          </AssociationSet>
+          <EntitySet Name="Tb_USUARIO_SISTEMA" EntityType="SISTEMA_MATRICULASModel.Tb_USUARIO_SISTEMA" />
         </EntityContainer>
         <EntityType Name="Tb_CUOTA">
           <Key>
@@ -1076,6 +1117,35 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Tb_CARRERA">
+          <Key>
+            <PropertyRef Name="Id_carrera" />
+          </Key>
+          <Property Name="Id_carrera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom_carrera" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Precio_carrera" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Tb_MATRICULA" Relationship="SISTEMA_MATRICULASModel.fk_matricula_carrera" FromRole="Tb_CARRERA" ToRole="Tb_MATRICULA" />
+        </EntityType>
+        <Association Name="fk_matricula_carrera">
+          <End Type="SISTEMA_MATRICULASModel.Tb_CARRERA" Role="Tb_CARRERA" Multiplicity="1" />
+          <End Type="SISTEMA_MATRICULASModel.Tb_MATRICULA" Role="Tb_MATRICULA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tb_CARRERA">
+              <PropertyRef Name="Id_carrera" />
+            </Principal>
+            <Dependent Role="Tb_MATRICULA">
+              <PropertyRef Name="Id_carrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Tb_USUARIO_SISTEMA">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Est_usuario" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1443,6 +1513,24 @@ advertencia 6002: La tabla o vista 'SISTEMA_MATRICULAS.dbo.vw_VistaProfesores' n
               <MappingFragment StoreEntitySet="Tb_ESPECIALIDAD">
                 <ScalarProperty Name="Des_esp" ColumnName="Des_esp" />
                 <ScalarProperty Name="Id_esp" ColumnName="Id_esp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_CARRERA">
+            <EntityTypeMapping TypeName="SISTEMA_MATRICULASModel.Tb_CARRERA">
+              <MappingFragment StoreEntitySet="Tb_CARRERA">
+                <ScalarProperty Name="Precio_carrera" ColumnName="Precio_carrera" />
+                <ScalarProperty Name="Nom_carrera" ColumnName="Nom_carrera" />
+                <ScalarProperty Name="Id_carrera" ColumnName="Id_carrera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tb_USUARIO_SISTEMA">
+            <EntityTypeMapping TypeName="SISTEMA_MATRICULASModel.Tb_USUARIO_SISTEMA">
+              <MappingFragment StoreEntitySet="Tb_USUARIO_SISTEMA">
+                <ScalarProperty Name="Est_usuario" ColumnName="Est_usuario" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

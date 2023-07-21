@@ -23,6 +23,9 @@
         <EntityTypeShape EntityType="SISTEMA_MATRICULASModel.vw_VistaCursos" Width="1.5" PointX="0.75" PointY="11.75" />
         <EntityTypeShape EntityType="SISTEMA_MATRICULASModel.Tb_ESPECIALIDAD" Width="1.5" PointX="3.375" PointY="11.875" />
         <AssociationConnector Association="SISTEMA_MATRICULASModel.fk_profesor_especialidad" />
+        <EntityTypeShape EntityType="SISTEMA_MATRICULASModel.Tb_CARRERA" Width="1.5" PointX="5.375" PointY="11.875" />
+        <AssociationConnector Association="SISTEMA_MATRICULASModel.fk_matricula_carrera" />
+        <EntityTypeShape EntityType="SISTEMA_MATRICULASModel.Tb_USUARIO_SISTEMA" Width="1.5" PointX="7.375" PointY="11.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

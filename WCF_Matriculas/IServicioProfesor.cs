@@ -30,7 +30,8 @@ namespace WCF_Matriculas
 
     [DataContract]
     [Serializable]
-    public class ProfesorDC {
+    public class ProfesorDC
+    {
         [DataMember]
         public int Id_profe { get; set; }
         [DataMember]
@@ -76,64 +77,5 @@ namespace WCF_Matriculas
         public String Usu_Ult_Mod { get; set; }
         [DataMember]
         public DateTime Fec_Ult_Mod { get; set; }
-    }
-
-    [DataContract]
-    [Serializable]
-    public class ProfesorDCINSERTS
-    {
-        [DataMember]
-        public String Id_Ubigeo { get; set; }
-        [DataMember]
-        public int Id_esp { get; set; }
-        [DataMember]
-        public String Sexo { get; set; }
-        [DataMember]
-        public String Dni_profe { get; set; }
-        [DataMember]
-        public String Nom_profe { get; set; }
-        [DataMember]
-        public String Ape_profe { get; set; }
-        [DataMember]
-        public String Tel_profe { get; set; }
-        [DataMember]
-        public String Email_profe { get; set; }
-        [DataMember]
-        public int Est_prof { get; set; }
-
-        //AUDITORIA
-        [DataMember]
-        public String Usu_Registro { get; set; }
-    }
-
-    [DataContract]
-    [Serializable]
-    public class ProfesorDCUPDATES
-    {
-        [DataMember]
-        public int Id_profe { get; set; }
-        [DataMember]
-        public String Id_Ubigeo { get; set; }
-        [DataMember]
-        public int Id_esp { get; set; }
-        [DataMember]
-        public String Sexo { get; set; }
-        [DataMember]
-        public String Dni_profe { get; set; }
-        [DataMember]
-        public String Nom_profe { get; set; }
-        [DataMember]
-        public String Ape_profe { get; set; }
-        [DataMember]
-        public String Tel_profe { get; set; }
-        [DataMember]
-        public String Email_profe { get; set; }
-        [DataMember]
-        public int Est_prof { get; set; }
-
-        //AUDITORIA
-
-        [DataMember]
-        public String Usu_Ult_Mod { get; set; }
     }
 }

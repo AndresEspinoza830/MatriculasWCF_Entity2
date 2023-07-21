@@ -152,6 +152,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ProxyUsuario\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\AlumnoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfesorController.cs" />
@@ -159,7 +164,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Alumno.cs" />
-    <Compile Include="Models\AlumnoInserts.cs" />
     <Compile Include="Models\Especialidad.cs" />
     <Compile Include="Models\Profesor.cs" />
     <Compile Include="Models\Ubigeo.cs" />
@@ -199,6 +203,12 @@
     <None Include="Connected Services\ProxyUbigeo\configuration91.svcinfo" />
     <None Include="Connected Services\ProxyUbigeo\configuration.svcinfo" />
     <None Include="Connected Services\ProxyUbigeo\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\ProxyUsuario\configuration91.svcinfo" />
+    <None Include="Connected Services\ProxyUsuario\configuration.svcinfo" />
+    <None Include="Connected Services\ProxyUsuario\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
@@ -322,6 +332,13 @@
     <None Include="Connected Services\ProxyUbigeo\WCF_Matriculas.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ProxyUsuario\service.wsdl" />
+    <None Include="Connected Services\ProxyUsuario\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ProxyUsuario\service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -395,6 +412,7 @@
     <WCFMetadataStorage Include="Connected Services\ProxyEspecialidad\" />
     <WCFMetadataStorage Include="Connected Services\ProxyProfesor\" />
     <WCFMetadataStorage Include="Connected Services\ProxyUbigeo\" />
+    <WCFMetadataStorage Include="Connected Services\ProxyUsuario\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
