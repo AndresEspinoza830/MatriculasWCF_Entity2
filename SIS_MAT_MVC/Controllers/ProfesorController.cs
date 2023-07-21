@@ -29,7 +29,9 @@ namespace SIS_MAT_MVC.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+			    ProfesorDC profesor = profesorService.ConsultarProfesor(id);
+
+			    return View(profesor);
         }
 
         public ActionResult Create()
@@ -218,6 +220,9 @@ namespace SIS_MAT_MVC.Controllers
         {
             try
             {
+
+                profesorService.EliminarProfesor(id);
+
                 // TODO: Add delete logic here
 
                 return RedirectToAction("Index");
