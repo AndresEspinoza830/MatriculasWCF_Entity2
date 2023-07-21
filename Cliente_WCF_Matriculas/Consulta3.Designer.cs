@@ -176,7 +176,7 @@
             this.MinimizeBox = false;
             this.Name = "Consulta3";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ListarVacantesBloques";
+            this.Text = "Listar Bloques con vacantes";
             this.Load += new System.EventHandler(this.Consulta3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgResultados)).EndInit();
             this.ResumeLayout(false);

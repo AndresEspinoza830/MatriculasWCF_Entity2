@@ -204,7 +204,7 @@
             this.MinimizeBox = false;
             this.Name = "Consulta2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ListarMatriculadosFechas";
+            this.Text = "Listar Matriculados por Fechas";
             this.Load += new System.EventHandler(this.Consulta2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgResultados)).EndInit();
             this.ResumeLayout(false);

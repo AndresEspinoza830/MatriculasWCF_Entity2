@@ -193,7 +193,7 @@
             this.MinimizeBox = false;
             this.Name = "Consulta4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ListarVacantesBloques";
+            this.Text = "Listar Alumnos Carrera";
             this.Load += new System.EventHandler(this.Consulta4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgResultados)).EndInit();
             this.ResumeLayout(false);
