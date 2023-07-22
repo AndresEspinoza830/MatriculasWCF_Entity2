@@ -1,0 +1,73 @@
+﻿@model IEnumerable<SIS_MAT_MVC.ProxyCurso.CursoDC>
+
+@{
+    ViewBag.Title = "Cursos";
+}
+
+<header class="p-4">
+    <h2>Curso</h2>
+    @Html.ActionLink("Crear nuevo curso", "Create", null, new { @class = "btn btn-primary text-white text-decoration-none" })
+</header>
+<div class="table-container">
+    <div class="table-view px-4">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id_curso)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Des_curso)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fec_reg)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Estado)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id_curso)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Des_curso)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fec_reg)
+                    </td>
+                    <td>
+                        @if (item.Estado == "Activo")
+                        {
+                            <span class="badge text-bg-primary">Activo</span>
+                        }
+                        else
+                        {
+                            <span class="badge text-bg-secondary">@Html.DisplayFor(modelItem => item.Estado)</span>
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id_curso }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.Id_curso }) |
+                        <a href="javascript:void(0);" onclick="deleteCurso('@item.Id_curso')">Delete</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<script>
+    function deleteCurso(id) {
+        if (confirm('¿Estás seguro de que deseas eliminar este curso?')) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '@Url.Action("Delete", "Curso")/' + id;
+            document.body.appendChild(form);
+            form.submit();
+            }
+            }
+</script>

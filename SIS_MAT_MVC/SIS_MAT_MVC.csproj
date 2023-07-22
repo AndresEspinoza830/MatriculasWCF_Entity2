@@ -171,11 +171,13 @@
     </Compile>
     <Compile Include="Controllers\AlumnoController.cs" />
     <Compile Include="Controllers\ConsultasController.cs" />
+    <Compile Include="Controllers\CursoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProfesorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Curso.cs" />
     <Compile Include="Models\Alumno.cs" />
     <Compile Include="Models\Especialidad.cs" />
     <Compile Include="Models\Profesor.cs" />
@@ -408,6 +410,10 @@
     <Content Include="Views\Consultas\Consulta3.cshtml" />
     <Content Include="Views\Consultas\Consulta4.cshtml" />
     <Content Include="Views\Consultas\Matriculados.cshtml" />
+    <Content Include="Views\Curso\Cursos.cshtml" />
+    <Content Include="Views\Curso\Details.cshtml" />
+    <Content Include="Views\Curso\Create.cshtml" />
+    <Content Include="Views\Curso\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

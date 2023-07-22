@@ -1,0 +1,58 @@
+﻿@model SIS_MAT_MVC.Models.CursoModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar</h2>
+
+
+@using (Html.BeginForm("Edit", "Curso", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>CursoDC</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Curso.Id_curso)
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Curso.Des_curso, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Curso.Des_curso, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Curso.Des_curso, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Curso.Est_curso, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @{
+                            var estadoSeleccionado = Model?.Curso?.Est_curso;
+                        }
+                        @Html.DropDownListFor(model => model.Curso.Est_curso, new SelectList(new[]
+                        {
+                                        new SelectListItem { Text = "Activo", Value = "1" },
+                                        new SelectListItem { Text = "Inactivo", Value = "0" }
+                        }, "Value", "Text", estadoSeleccionado), "-- Seleccione --", new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group mt-4">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Editar" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Cursos")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

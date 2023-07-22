@@ -180,6 +180,7 @@ namespace SIS_MAT_MVC.Controllers
                     alumno.Ape_Alum = model.Alumno.Ape_Alum;
                     alumno.Email_alum = model.Alumno.Email_alum;
                     alumno.Tel_alum = model.Alumno.Tel_alum;
+                    alumno.Est_alum = Convert.ToInt16(model.Alumno.Est_alum);
                     alumno.Dni_alum = model.Alumno.Dni_alum;
                     alumno.Fec_nac = Convert.ToDateTime(model.Alumno.Fec_nac);
                     alumno.Id_Ubigeo = model.Ubigeo?.IdDepa + "" + model.Ubigeo?.IdProv + "" + model.Ubigeo?.IdDis;
