@@ -22,7 +22,6 @@ namespace SIS_MAT_MVC.Controllers
         {
             List<ProxyAlumno.AlumnoDC> alumnos = alumnoService.ListarAlumnos().ToList();
 
-
             return View(alumnos);
         }
 
@@ -78,6 +77,7 @@ namespace SIS_MAT_MVC.Controllers
 
 
         // GET: Alumno/Create
+
         public ActionResult Create()
         {
 

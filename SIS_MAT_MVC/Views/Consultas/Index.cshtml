@@ -1,31 +1,65 @@
-﻿@{
-    ViewBag.Title = "Consultas";
+﻿@model SIS_MAT_MVC.ProxyConsultas.CuotaDC
+
+@{
+	ViewBag.Title = "Index";
 }
 
-<h2>Consultas</h2>
-
-<style>
-    .btn-group > .btn {
-        margin: 10px;
-    }
-
-    .btn {
-        height: 90px;
-        width: 150px;
-    }
-</style>
-
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="btn-group">
-            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Consulta1", "Consultas")'">Consulta cuotas pendientes por Alumno</button>
-            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Consulta2", "Consultas")'">Consulta Matriculados por fechas</button>
-        </div>
-    </div>
+<h2 class="mt-3">Consulta las cuotas de un alumno:</h2>
+@using (Html.BeginForm("CuotasPendientes", "Consultas"))
+{
+	<div class="d-flex gap-4 align-items-center mb-4">
+		<div>
+			@Html.DropDownList("Id_alum", (List<SelectListItem>)ViewBag.Alumnos, "-- Seleccione un Alumno", new { @class = "form-control custom-select" })
+		</div>
+		<div>
+			<input type="submit" value="Consultar" class="btn btn-primary" />
+		</div>
     <div class="row d-flex justify-content-center">
         <div class="btn-group">
             <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Consulta3", "Consultas")'">Consulta Bloques con vacantes </button>
             <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Consulta4", "Consultas")'">Consulta Alumnos por Carrera</button>
-        </div>
-    </div>
-</div>
+	</div>
+}
+
+<table class="table">
+	<tr>
+		<th>Tipo de Cuota</th>
+		<th>
+			Numero de Documento
+		</th>
+		<th>
+			Vencimiento
+		</th>
+		<th>
+			Fecha de Pago
+		</th>
+		<th>
+			Precio
+		</th>
+		<th>
+			Estado
+		</th>
+	</tr>
+	@foreach (var item in ViewBag.Cuotas) {
+		<tr>
+			<td>
+				@item.TipoCuota
+			</td>
+			<td>
+				@item.Ndoc_cuota
+			</td>
+			<td>
+				@item.Vencimiento
+			</td>
+			<td>
+				@item.Fecha_pago
+			</td>
+			<td>
+				@item.Precio_cuota
+			</td>
+			<td>
+				@item.EstadoCuota
+			</td>
+		</tr>
+	}
+</table>

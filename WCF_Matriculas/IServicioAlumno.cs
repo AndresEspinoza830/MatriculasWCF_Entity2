@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace WCF_Matriculas
 {
@@ -34,8 +34,8 @@ namespace WCF_Matriculas
     {
         [DataMember]
         public int Id_alum { get; set; }
-        [DataMember]
-        public String Nom_alum { get; set; }
+		    [DataMember]
+		    public String Nom_alum { get; set; }
         [DataMember]
         public String Ape_Alum { get; set; }
         [DataMember]
