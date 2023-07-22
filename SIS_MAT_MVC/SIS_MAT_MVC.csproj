@@ -407,7 +407,6 @@
     <Content Include="Views\Consultas\Index.cshtml" />
     <Content Include="Views\Consultas\Consulta3.cshtml" />
     <Content Include="Views\Consultas\Consulta4.cshtml" />
-    <Content Include="Views\Consultas\Index.cshtml" />
     <Content Include="Views\Consultas\Matriculados.cshtml" />
   </ItemGroup>
   <ItemGroup>

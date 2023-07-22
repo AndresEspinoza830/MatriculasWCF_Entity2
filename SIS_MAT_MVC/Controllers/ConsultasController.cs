@@ -17,32 +17,33 @@ namespace SIS_MAT_MVC.Controllers
         ProxyCarrera.ServicioCarreraClient carreraService = new ProxyCarrera.ServicioCarreraClient();
 
 
-				public ActionResult Index()
+        public ActionResult Index()
         {
 
-			         ViewBag.Alumnos = AlumnosLista();
-               ViewBag.Cuotas = new List<CuotaDC>();
-			      return View();
+            ViewBag.Alumnos = AlumnosLista();
+            ViewBag.Cuotas = new List<CuotaDC>();
+            return View();
         }
 
 
-        private List<SelectListItem> AlumnosLista() {
-			      List<ProxyAlumno.AlumnoDC> alumnosDC = new List<ProxyAlumno.AlumnoDC>();
-			      alumnosDC = alumnoService.ListarAlumnos().ToList();
+        private List<SelectListItem> AlumnosLista()
+        {
+            List<ProxyAlumno.AlumnoDC> alumnosDC = new List<ProxyAlumno.AlumnoDC>();
+            alumnosDC = alumnoService.ListarAlumnos().ToList();
 
-			      List<SelectListItem> listaAlumnos = alumnosDC
-				      .Select(a => new SelectListItem
-				      {
-					      Value = a.Id_alum.ToString(),
-					      Text = a.Nom_alum + " " + a.Ape_Alum
-				      })
-				      .ToList();
+            List<SelectListItem> listaAlumnos = alumnosDC
+                .Select(a => new SelectListItem
+                {
+                    Value = a.Id_alum.ToString(),
+                    Text = a.Nom_alum + " " + a.Ape_Alum
+                })
+                .ToList();
 
-             return listaAlumnos;
-		      }
+            return listaAlumnos;
+        }
 
 
-				public ActionResult CuotasPendientes(CuotaDC model)
+        public ActionResult CuotasPendientes(CuotaDC model)
         {
             ViewBag.Cuotas = consultasService.ListarCuotasPendientesAlumnos(Convert.ToInt16(model.Id_alum)).ToList();
             ViewBag.Alumnos = AlumnosLista();
@@ -50,26 +51,27 @@ namespace SIS_MAT_MVC.Controllers
             return View("Index");
         }
 
-		
 
-     
+
+
         public ActionResult Matriculados()
         {
 
-			      ViewBag.Matriculados = new List<MatriculadoDC>();
-			      return View();
+            ViewBag.Matriculados = new List<MatriculadoDC>();
+            return View();
         }
 
 
-        public ActionResult ConsultaMatriculados(DateTime fechaInicio, DateTime fechaFin) {
+        public ActionResult ConsultaMatriculados(DateTime fechaInicio, DateTime fechaFin)
+        {
 
 
-			    if (fechaInicio != null && fechaFin != null)
-			    {
-				    ViewBag.Matriculados = consultasService.ListarMatriculadosFechas(fechaInicio, fechaFin).ToList();
-			    }
+            if (fechaInicio != null && fechaFin != null)
+            {
+                ViewBag.Matriculados = consultasService.ListarMatriculadosFechas(fechaInicio, fechaFin).ToList();
+            }
 
-          return View("Matriculados");
+            return View("Matriculados");
         }
 
 
@@ -115,32 +117,9 @@ namespace SIS_MAT_MVC.Controllers
             return View("Consulta4", listaResultado);
         }
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
-        }
-
-        // POST: Consultas/Edit/5
-        [HttpPost]
-            {
-                // TODO: Add update logic here
-
-
-
-        // POST: Consultas/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-        }
 
     }
+
 }
+
