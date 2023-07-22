@@ -1,0 +1,25 @@
+﻿@model SIS_MAT_MVC.ProxyAlumno.AlumnoDC
+
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm("CuotasPendientes", "Consultas"))
+{
+	<div class="form-group">
+		@Html.DropDownList("Id_alum", (List<SelectListItem>)ViewBag.Alumnos)
+	</div>
+	<div>
+		<input type="submit" value="Consultar" class="btn btn-primary" />
+	</div>
+}
+
+
+<table class="table">
+	<tr>
+		<th>Nombre</th>
+	</tr>
+</table>
