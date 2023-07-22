@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SIS_MAT_MVC.ProxyConsultas;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,36 +16,61 @@ namespace SIS_MAT_MVC.Controllers
         ProxyAlumno.ServicioAlumnoClient alumnoService = new ProxyAlumno.ServicioAlumnoClient();
 
 
-        // GET: Consultas
-        public ActionResult Index()
+				public ActionResult Index()
         {
-			        List<ProxyAlumno.AlumnoDC> alumnos = alumnoService.ListarAlumnos().ToList();
 
-			        List<SelectListItem> listaAlumnos = alumnos
-                .Select(a => new SelectListItem
-                {
-	                Value = a.Id_alum.ToString(),
-	                Text = a.Nom_alum + " " + a.Ape_Alum
-                })
-                .ToList();
-
-			         ViewBag.Alumnos = listaAlumnos;
+			         ViewBag.Alumnos = AlumnosLista();
+               ViewBag.Cuotas = new List<CuotaDC>();
 			      return View();
         }
 
-        // GET: Consultas/Details/5
-        public ActionResult ConsultarCuotasPendientes(int id)
+
+        private List<SelectListItem> AlumnosLista() {
+			      List<ProxyAlumno.AlumnoDC> alumnosDC = new List<ProxyAlumno.AlumnoDC>();
+			      alumnosDC = alumnoService.ListarAlumnos().ToList();
+
+			      List<SelectListItem> listaAlumnos = alumnosDC
+				      .Select(a => new SelectListItem
+				      {
+					      Value = a.Id_alum.ToString(),
+					      Text = a.Nom_alum + " " + a.Ape_Alum
+				      })
+				      .ToList();
+
+             return listaAlumnos;
+		      }
+
+
+				public ActionResult CuotasPendientes(CuotaDC model)
         {
-            return View();
+
+			      ViewBag.Cuotas = consultasService.ListarCuotasPendientesAlumnos(Convert.ToInt16(model.Id_alum)).ToList();
+            ViewBag.Alumnos =AlumnosLista();
+
+			     return View("Index");
         }
 
-        // GET: Consultas/Create
-        public ActionResult Create()
+     
+        public ActionResult Matriculados()
         {
-            return View();
+
+			      ViewBag.Matriculados = new List<MatriculadoDC>();
+			      return View();
         }
 
-        // POST: Consultas/Create
+
+        public ActionResult ConsultaMatriculados(DateTime fechaInicio, DateTime fechaFin) {
+
+
+			    if (fechaInicio != null && fechaFin != null)
+			    {
+				    ViewBag.Matriculados = consultasService.ListarMatriculadosFechas(fechaInicio, fechaFin).ToList();
+			    }
+
+          return View("Matriculados");
+        }
+
+
         [HttpPost]
         public ActionResult Create(FormCollection collection)
         {
