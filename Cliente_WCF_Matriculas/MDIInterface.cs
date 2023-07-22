@@ -52,5 +52,19 @@ namespace Cliente_WCF_Matriculas
             consulta2.MdiParent = this;
             consulta2.Show();
         }
+
+        private void listarVacantesBloquesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consulta3 consulta3 = new Consulta3();
+            consulta3.MdiParent = this;
+            consulta3.Show();
+        }
+
+        private void listarAlumnosCarreraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consulta4 consulta4 = new Consulta4();
+            consulta4.MdiParent = this;
+            consulta4.Show();
+        }
     }
 }

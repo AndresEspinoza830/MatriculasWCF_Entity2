@@ -31,14 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdAlumno = new System.Windows.Forms.TextBox();
             this.dtgResultados = new System.Windows.Forms.DataGridView();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha_pago = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ndoc_cuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio_cuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoCuota = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Vencimiento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtgResultados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,6 +56,7 @@
             this.txtIdAlumno.Name = "txtIdAlumno";
             this.txtIdAlumno.Size = new System.Drawing.Size(100, 20);
             this.txtIdAlumno.TabIndex = 1;
+            this.txtIdAlumno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdAlumno_KeyPress);
             // 
             // dtgResultados
             // 
@@ -67,7 +67,6 @@
             this.dtgResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NombreCompleto,
-            this.Fecha_pago,
             this.Ndoc_cuota,
             this.Precio_cuota,
             this.TipoCuota,
@@ -80,19 +79,32 @@
             this.dtgResultados.Size = new System.Drawing.Size(947, 327);
             this.dtgResultados.TabIndex = 2;
             // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(839, 36);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(101, 23);
+            this.btnConsultar.TabIndex = 3;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(909, 432);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // NombreCompleto
             // 
             this.NombreCompleto.DataPropertyName = "NombreCompleto";
             this.NombreCompleto.HeaderText = "Nombre";
             this.NombreCompleto.Name = "NombreCompleto";
             this.NombreCompleto.ReadOnly = true;
-            // 
-            // Fecha_pago
-            // 
-            this.Fecha_pago.DataPropertyName = "Fecha_pago";
-            this.Fecha_pago.HeaderText = "Fecha Pago";
-            this.Fecha_pago.Name = "Fecha_pago";
-            this.Fecha_pago.ReadOnly = true;
             // 
             // Ndoc_cuota
             // 
@@ -122,26 +134,6 @@
             this.Vencimiento.Name = "Vencimiento";
             this.Vencimiento.ReadOnly = true;
             // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Location = new System.Drawing.Point(839, 36);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(101, 23);
-            this.btnConsultar.TabIndex = 3;
-            this.btnConsultar.Text = "Consultar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(909, 432);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 4;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // Consulta1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,9 +144,11 @@
             this.Controls.Add(this.dtgResultados);
             this.Controls.Add(this.txtIdAlumno);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Consulta1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ListarCuotasPendientesAlumnos";
+            this.Text = "Listar Cuotas Pendientes de Alumnos";
             this.Load += new System.EventHandler(this.Consulta1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgResultados)).EndInit();
             this.ResumeLayout(false);
@@ -168,12 +162,11 @@
         private System.Windows.Forms.TextBox txtIdAlumno;
         private System.Windows.Forms.DataGridView dtgResultados;
         private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompleto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_pago;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ndoc_cuota;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio_cuota;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoCuota;
         private System.Windows.Forms.DataGridViewTextBoxColumn Vencimiento;
-        private System.Windows.Forms.Button btnCancelar;
     }
 }

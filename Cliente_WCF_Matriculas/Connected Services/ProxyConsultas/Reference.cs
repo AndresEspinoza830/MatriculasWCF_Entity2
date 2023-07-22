@@ -261,6 +261,9 @@ namespace Cliente_WCF_Matriculas.ProxyConsultas {
         private System.DateTime Fec_regField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] Foto_alumField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Id_UbigeoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -436,6 +439,19 @@ namespace Cliente_WCF_Matriculas.ProxyConsultas {
                 if ((this.Fec_regField.Equals(value) != true)) {
                     this.Fec_regField = value;
                     this.RaisePropertyChanged("Fec_reg");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Foto_alum {
+            get {
+                return this.Foto_alumField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Foto_alumField, value) != true)) {
+                    this.Foto_alumField = value;
+                    this.RaisePropertyChanged("Foto_alum");
                 }
             }
         }

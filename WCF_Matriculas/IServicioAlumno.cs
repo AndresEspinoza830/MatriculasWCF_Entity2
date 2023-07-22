@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace WCF_Matriculas
 {
@@ -24,7 +25,7 @@ namespace WCF_Matriculas
         Boolean EliminarAlumno(int id);
 
         [OperationContract]
-        Boolean InsertarAlumno(AlumnoDCINSERTS objAlumnoDC);
+        Boolean InsertarAlumno(AlumnoDC objAlumnoDC);
     }
 
     [DataContract]
@@ -33,8 +34,8 @@ namespace WCF_Matriculas
     {
         [DataMember]
         public int Id_alum { get; set; }
-        [DataMember]
-        public String Nom_alum { get; set; }
+		    [DataMember]
+		    public String Nom_alum { get; set; }
         [DataMember]
         public String Ape_Alum { get; set; }
         [DataMember]
@@ -86,26 +87,44 @@ namespace WCF_Matriculas
     [Serializable]
     public class AlumnoDCINSERTS
     {
-        [DataMember]
+		    [DataMember]
         public String Id_Ubigeo { get; set; }
 
-        [DataMember]
+		    [DisplayName("Nombres")]
+		    [DataMember]
         public String Nom_alum { get; set; }
-        [DataMember]
+
+		    [DisplayName("Apellidos")]
+		    [DataMember]
         public String Ape_Alum { get; set; }
-        [DataMember]
+		  
+        [DisplayName("DNI")]
+				[DataMember]
         public String Dni_alum { get; set; }
-        [DataMember]
+
+		    [DisplayName("Direccion")]
+		    [DataMember]
         public String Dir_alum { get; set; }
-        [DataMember]
+
+		    [DisplayName("Fecha de Nacimiento")]
+		    [DataMember]
         public DateTime Fec_nac { get; set; }
-        [DataMember]
+
+		    [DisplayName("Email")]
+		    [DataMember]
         public String Email_alum { get; set; }
-        [DataMember]
+
+		    [DisplayName("Sexo")]
+		    [DataMember]
         public String Sexo { get; set; }
-        [DataMember]
+
+		    [DisplayName("Telefono")]
+		    [DataMember]
         public String Tel_alum { get; set; }
-        [DataMember]
+
+
+		    [DisplayName("Estado")]
+		    [DataMember]
         public int Est_alum { get; set; }
 
         //IMG

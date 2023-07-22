@@ -1,0 +1,200 @@
+﻿﻿@model SIS_MAT_MVC.Models.ProfesorModel
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@{
+	ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Create", "Profesor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+	@Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+	<hr />
+	@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				@Html.LabelFor(model => model.Profesor.Ape_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Profesor.Ape_profe, new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.Profesor.Ape_profe, "", new { @class = "text-danger" })
+				</div>
+			</div>
+			<div class="form-group">
+				@Html.LabelFor(model => model.Profesor.Nom_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Profesor.Nom_profe, new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.Profesor.Nom_profe, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.Profesor.Foto_profe, htmlAttributes: new { @class = "control-label" })
+
+				<div class="custom-file">
+					<input type="file" name="foto" id="foto" accept="image/*" capture class="custom-file-input form-control">
+				</div>
+
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.Profesor.Dni_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Profesor.Dni_profe, new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.Profesor.Dni_profe, "", new { @class = "text-danger" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.Profesor.Email_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Profesor.Email_profe, new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.Profesor.Email_profe, "", new { @class = "text-danger" })
+				</div>
+			</div>
+			<div class="form-group">
+				@Html.LabelFor(model => model.Especialidad.Id_esp, htmlAttributes: new { @class = "control-label" })
+				@Html.DropDownListFor(model => model.Especialidad.Especialidades, new SelectList(Model.Especialidad.Especialidades, "Id_esp", "Des_esp"), "-- Seleccione especialidad --", new { @class = "form-control" })
+			</div>
+
+
+		</div>
+		<div class="col-md-6">
+			<div class="form-group">
+				@Html.LabelFor(model => model.Profesor.Est_prof, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.DropDownListFor(model => model.Profesor.Est_prof, new SelectList(new[]
+					{
+									new SelectListItem { Text = "Inactivo", Value = "0" },
+									new SelectListItem { Text = "Activo", Value = "1" }
+					}, "Value", "Text"), "-- Seleccione --", new { @class = "form-control" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.Profesor.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.DropDownListFor(model => model.Profesor.Sexo, new SelectList(new[]
+					{
+									new SelectListItem { Text = "Masculino", Value = "M" },
+									new SelectListItem { Text = "Femenino", Value = "F" }
+					}, "Value", "Text"), "-- Seleccione --", new { @class = "form-control" })
+				</div>
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.Profesor.Tel_profe, htmlAttributes: new { @class = "control-label col-md-2" })
+				<div class="col-md-10">
+					@Html.EditorFor(model => model.Profesor.Tel_profe, new { htmlAttributes = new { @class = "form-control" } })
+					@Html.ValidationMessageFor(model => model.Profesor.Tel_profe, "", new { @class = "text-danger" })
+				</div>
+			</div>
+			<div class="form-group">
+				@Html.LabelFor(model => model.Ubigeo.Departamentos, htmlAttributes: new { @class = "control-label" })
+				@Html.DropDownListFor(model => model.Ubigeo.IdDepa, new SelectList(Model.Ubigeo.Departamentos, "IdDepa", "Departamento"), "-- Seleccione Departamento --", new { @class = "form-control" })
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.Ubigeo.Provincias, htmlAttributes: new { @class = "control-label" })
+				@Html.DropDownListFor(model => model.Ubigeo.IdProv, new SelectList(Model.Ubigeo.Provincias, "IdProv", "Provincia"), "-- Seleccione Provincia --", new { @class = "form-control" })
+			</div>
+
+			<div class="form-group">
+				@Html.LabelFor(model => model.Ubigeo.Distritos, htmlAttributes: new { @class = "control-label" })
+				@Html.DropDownListFor(model => model.Ubigeo.IdDis, new SelectList(Model.Ubigeo.Distritos, "IdDis", "Distrito"), "-- Seleccione Distrito --", new { @class = "form-control" })
+			</div>
+		</div>
+	</div>
+	<script>
+    $(document).ready(function () {
+        // Handle the change event for the Departamentos dropdown
+        $("#Ubigeo_IdDepa").change(function () {
+            var departamentoId = $(this).val();
+            var provinciaDropdown = $("#Ubigeo_IdProv");
+            var distritoDropdown = $("#Ubigeo_IdDis");
+
+            // Call a function to populate the Provincias dropdown based on the selected Departamento
+            populateProvincias(departamentoId, provinciaDropdown, distritoDropdown);
+        });
+
+        // Handle the change event for the Provincias dropdown
+        $("#Ubigeo_IdProv").change(function () {
+            var departamentoId = $("#Ubigeo_IdDepa").val();
+            var provinciaId = $(this).val();
+            var distritoDropdown = $("#Ubigeo_IdDis");
+
+            // Call a function to populate the Distritos dropdown based on the selected Departamento and Provincia
+            populateDistritos(departamentoId, provinciaId, distritoDropdown);
+        });
+
+        // Function to populate the Provincias dropdown based on the selected Departamento
+        function populateProvincias(departamentoId, provinciaDropdown, distritoDropdown) {
+            $.ajax({
+                url: "@Url.Action("Ubigeo_ProvinciasDepartamento", "Profesor")",
+                data: { strIdDepartamento: departamentoId },
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    // Populate the Provincias dropdown with the retrieved data
+                    provinciaDropdown.empty();
+                    $.each(data, function (index, item) {
+                        provinciaDropdown.append($("<option></option>").val(item.IdProv).html(item.Provincia));
+                    });
+
+                    // Add a default option
+                    provinciaDropdown.prepend($("<option></option>").val("").html("-- Seleccione Provincia --"));
+
+                    // Update the Distritos dropdown when the Provincias dropdown changes
+                    var provinciaId = provinciaDropdown.val();
+                    populateDistritos(departamentoId, provinciaId, distritoDropdown);
+                },
+                error: function (error) {
+                    console.log("Error: " + error.statusText);
+                }
+            });
+        }
+
+        // Function to populate the Distritos dropdown based on the selected Departamento and Provincia
+        function populateDistritos(departamentoId, provinciaId, distritoDropdown) {
+            $.ajax({
+                url: "@Url.Action("Ubigeo_DistritosProvinciaDepartamento", "Profesor")",
+                data: { strIdDepartamento: departamentoId, strIdProvincia: provinciaId },
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    // Populate the Distritos dropdown with the retrieved data
+                    distritoDropdown.empty();
+                    $.each(data, function (index, item) {
+                        distritoDropdown.append($("<option></option>").val(item.IdDis).html(item.Distrito));
+                    });
+
+                    // Add a default option
+                    distritoDropdown.prepend($("<option></option>").val("").html("-- Seleccione Distrito --"));
+                },
+                error: function (error) {
+                    console.log("Error: " + error.statusText);
+                }
+            });
+        }
+    });
+	</script>
+
+	<div class="form-group">
+		<div class="col-md-offset-2 col-md-10 mt-4">
+			<input type="submit" value="Crear" class="btn btn-primary text-white" />
+		</div>
+	</div>
+
+</div>
+		}
+
+		<div class="mt-3">
+			@Html.ActionLink("Back to List", "Index")
+		</div>
+
+		@section Scripts {
+			@Scripts.Render("~/bundles/jqueryval")
+		}

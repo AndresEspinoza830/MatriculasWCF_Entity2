@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCF_Matriculas" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCF_Matriculas" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfUbigeoDepartamentoDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UbigeoDepartamentoDC" nillable="true" type="tns:UbigeoDepartamentoDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUbigeoDepartamentoDC" nillable="true" type="tns:ArrayOfUbigeoDepartamentoDC" />
+  <xs:complexType name="UbigeoDepartamentoDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Departamento" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdDepa" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UbigeoDepartamentoDC" nillable="true" type="tns:UbigeoDepartamentoDC" />
+  <xs:complexType name="ArrayOfUbigeo_ProvinciasDepartamentoDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ubigeo_ProvinciasDepartamentoDC" nillable="true" type="tns:Ubigeo_ProvinciasDepartamentoDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUbigeo_ProvinciasDepartamentoDC" nillable="true" type="tns:ArrayOfUbigeo_ProvinciasDepartamentoDC" />
+  <xs:complexType name="Ubigeo_ProvinciasDepartamentoDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IdProv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Provincia" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ubigeo_ProvinciasDepartamentoDC" nillable="true" type="tns:Ubigeo_ProvinciasDepartamentoDC" />
+  <xs:complexType name="ArrayOfUbigeo_DistritosProvinciaDepartamentoDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ubigeo_DistritosProvinciaDepartamentoDC" nillable="true" type="tns:Ubigeo_DistritosProvinciaDepartamentoDC" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUbigeo_DistritosProvinciaDepartamentoDC" nillable="true" type="tns:ArrayOfUbigeo_DistritosProvinciaDepartamentoDC" />
+  <xs:complexType name="Ubigeo_DistritosProvinciaDepartamentoDC">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Distrito" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IdDis" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ubigeo_DistritosProvinciaDepartamentoDC" nillable="true" type="tns:Ubigeo_DistritosProvinciaDepartamentoDC" />
+</xs:schema>

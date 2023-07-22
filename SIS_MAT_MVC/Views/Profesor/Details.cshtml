@@ -1,0 +1,82 @@
+﻿@model SIS_MAT_MVC.ProxyProfesor.ProfesorDC
+
+@{
+	ViewBag.Title = "Details";
+}
+
+<h2 class="mt-3">Detalle de Profesor</h2>
+<div>
+	<hr />
+	<div class="col-md-10">
+		@if (Model.Foto_profe != null)
+		{
+			<img src="data:image/jpeg;base64,@(Convert.ToBase64String(Model.Foto_profe))" alt="Imagen" style="width: 200px; height: 200px;" />
+		}
+		else
+		{
+			<span></span>
+		}
+	</div>
+	<div class="row mt-3">
+		<div class="col-md-6">
+			<dl class="dl-horizontal">
+				<dt>
+					@Html.DisplayNameFor(model => model.Nom_profe)
+				</dt>
+				<dd>
+					@Html.DisplayFor(model => model.Nom_profe)
+				</dd>
+				<dt>
+					@Html.DisplayNameFor(model => model.Ape_profe)
+				</dt>
+				<dd>
+					@Html.DisplayFor(model => model.Ape_profe)
+				</dd>
+				<dt>
+					@Html.DisplayNameFor(model => model.Dni_profe)
+				</dt>
+				<dd>
+					@Html.DisplayFor(model => model.Dni_profe)
+				</dd>
+				<dt>
+					@Html.DisplayNameFor(model => model.Tel_profe)
+				</dt>
+				<dd>
+					@Html.DisplayFor(model => model.Tel_profe)
+				</dd>
+			</dl>
+		</div>
+		<div class="col-md-6">
+			<dl class="dl-horizontal">
+				<dt>
+					@Html.DisplayNameFor(model => model.Departamento)
+				</dt>
+				<dd>
+					@Html.DisplayFor(model => model.Departamento)
+				</dd>
+				<dt>
+					@Html.DisplayNameFor(model => model.Distrito)
+				</dt>
+				<dd>
+					@Html.DisplayFor(model => model.Distrito)
+				</dd>
+				<dt>
+					@Html.DisplayNameFor(model => model.Estado)
+				</dt>
+				<dd>
+					@Html.DisplayFor(model => model.Estado)
+				</dd>
+				<dt>
+					@Html.DisplayNameFor(model => model.Des_esp)
+				</dt>
+				<dd>
+					@Html.DisplayFor(model => model.Des_esp)
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = Model.Id_profe }) |
+	@Html.ActionLink("Back to List", "Index")
+</p>

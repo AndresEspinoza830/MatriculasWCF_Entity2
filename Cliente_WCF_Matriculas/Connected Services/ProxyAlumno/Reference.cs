@@ -362,227 +362,6 @@ namespace Cliente_WCF_Matriculas.ProxyAlumno {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="AlumnoDCINSERTS", Namespace="http://schemas.datacontract.org/2004/07/WCF_Matriculas")]
-    [System.SerializableAttribute()]
-    public partial class AlumnoDCINSERTS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Ape_AlumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Dir_alumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Dni_alumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Email_alumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Est_alumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime Fec_nacField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] Foto_alumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Id_UbigeoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Nom_alumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SexoField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Tel_alumField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string Usu_RegistroField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ape_Alum {
-            get {
-                return this.Ape_AlumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Ape_AlumField, value) != true)) {
-                    this.Ape_AlumField = value;
-                    this.RaisePropertyChanged("Ape_Alum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Dir_alum {
-            get {
-                return this.Dir_alumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Dir_alumField, value) != true)) {
-                    this.Dir_alumField = value;
-                    this.RaisePropertyChanged("Dir_alum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Dni_alum {
-            get {
-                return this.Dni_alumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Dni_alumField, value) != true)) {
-                    this.Dni_alumField = value;
-                    this.RaisePropertyChanged("Dni_alum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email_alum {
-            get {
-                return this.Email_alumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Email_alumField, value) != true)) {
-                    this.Email_alumField = value;
-                    this.RaisePropertyChanged("Email_alum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Est_alum {
-            get {
-                return this.Est_alumField;
-            }
-            set {
-                if ((this.Est_alumField.Equals(value) != true)) {
-                    this.Est_alumField = value;
-                    this.RaisePropertyChanged("Est_alum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime Fec_nac {
-            get {
-                return this.Fec_nacField;
-            }
-            set {
-                if ((this.Fec_nacField.Equals(value) != true)) {
-                    this.Fec_nacField = value;
-                    this.RaisePropertyChanged("Fec_nac");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] Foto_alum {
-            get {
-                return this.Foto_alumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Foto_alumField, value) != true)) {
-                    this.Foto_alumField = value;
-                    this.RaisePropertyChanged("Foto_alum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id_Ubigeo {
-            get {
-                return this.Id_UbigeoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Id_UbigeoField, value) != true)) {
-                    this.Id_UbigeoField = value;
-                    this.RaisePropertyChanged("Id_Ubigeo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nom_alum {
-            get {
-                return this.Nom_alumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Nom_alumField, value) != true)) {
-                    this.Nom_alumField = value;
-                    this.RaisePropertyChanged("Nom_alum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Sexo {
-            get {
-                return this.SexoField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SexoField, value) != true)) {
-                    this.SexoField = value;
-                    this.RaisePropertyChanged("Sexo");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Tel_alum {
-            get {
-                return this.Tel_alumField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Tel_alumField, value) != true)) {
-                    this.Tel_alumField = value;
-                    this.RaisePropertyChanged("Tel_alum");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Usu_Registro {
-            get {
-                return this.Usu_RegistroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.Usu_RegistroField, value) != true)) {
-                    this.Usu_RegistroField = value;
-                    this.RaisePropertyChanged("Usu_Registro");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ProxyAlumno.IServicioAlumno")]
     public interface IServicioAlumno {
@@ -612,10 +391,10 @@ namespace Cliente_WCF_Matriculas.ProxyAlumno {
         System.Threading.Tasks.Task<bool> EliminarAlumnoAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAlumno/InsertarAlumno", ReplyAction="http://tempuri.org/IServicioAlumno/InsertarAlumnoResponse")]
-        bool InsertarAlumno(Cliente_WCF_Matriculas.ProxyAlumno.AlumnoDCINSERTS objAlumnoDC);
+        bool InsertarAlumno(Cliente_WCF_Matriculas.ProxyAlumno.AlumnoDC objAlumnoDC);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioAlumno/InsertarAlumno", ReplyAction="http://tempuri.org/IServicioAlumno/InsertarAlumnoResponse")]
-        System.Threading.Tasks.Task<bool> InsertarAlumnoAsync(Cliente_WCF_Matriculas.ProxyAlumno.AlumnoDCINSERTS objAlumnoDC);
+        System.Threading.Tasks.Task<bool> InsertarAlumnoAsync(Cliente_WCF_Matriculas.ProxyAlumno.AlumnoDC objAlumnoDC);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -677,11 +456,11 @@ namespace Cliente_WCF_Matriculas.ProxyAlumno {
             return base.Channel.EliminarAlumnoAsync(id);
         }
         
-        public bool InsertarAlumno(Cliente_WCF_Matriculas.ProxyAlumno.AlumnoDCINSERTS objAlumnoDC) {
+        public bool InsertarAlumno(Cliente_WCF_Matriculas.ProxyAlumno.AlumnoDC objAlumnoDC) {
             return base.Channel.InsertarAlumno(objAlumnoDC);
         }
         
-        public System.Threading.Tasks.Task<bool> InsertarAlumnoAsync(Cliente_WCF_Matriculas.ProxyAlumno.AlumnoDCINSERTS objAlumnoDC) {
+        public System.Threading.Tasks.Task<bool> InsertarAlumnoAsync(Cliente_WCF_Matriculas.ProxyAlumno.AlumnoDC objAlumnoDC) {
             return base.Channel.InsertarAlumnoAsync(objAlumnoDC);
         }
     }

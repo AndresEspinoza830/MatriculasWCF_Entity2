@@ -84,7 +84,8 @@ namespace WCF_Matriculas
         public String Estado { get; set; }
 
 
-
+        [DataMember]
+        public byte[] Foto_alum { get; set; }
 
         //UBIGEO
         [DataMember]

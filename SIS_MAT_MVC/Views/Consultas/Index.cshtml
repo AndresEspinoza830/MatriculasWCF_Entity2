@@ -1,0 +1,62 @@
+﻿@model SIS_MAT_MVC.ProxyConsultas.CuotaDC
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+@using (Html.BeginForm("CuotasPendientes", "Consultas"))
+{
+<div class="form-group">
+    @Html.DropDownList("Id_alum", (List<SelectListItem>)ViewBag.Alumnos)
+</div>
+<div>
+    <input type="submit" value="Consultar" class="btn btn-primary" />
+</div>
+}
+
+<table class="table">
+    <tr>
+        <th>Tipo de Cuota</th>
+        <th>
+            Numero de Documento
+        </th>
+        <th>
+            Vencimiento
+        </th>
+        <th>
+            Fecha de Pago
+        </th>
+        <th>
+            Precio
+        </th>
+        <th>
+            Estado
+        </th>
+    </tr>
+    @foreach (var item in ViewBag.Cuotas)
+    {
+    <tr>
+        <td>
+            @item.TipoCuota
+        </td>
+        <td>
+            @item.Ndoc_cuota
+        </td>
+        <td>
+            @item.Vencimiento
+        </td>
+        <td>
+            @item.Fecha_pago
+        </td>
+        <td>
+            @item.Precio_cuota
+        </td>
+        <td>
+            @item.EstadoCuota
+        </td>
+    </tr>
+    }
+</table>

@@ -7,8 +7,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 using System.Drawing;
-
-
+using System.Diagnostics;
 
 namespace WCF_Matriculas
 {
@@ -113,12 +112,13 @@ namespace WCF_Matriculas
             }
         }
 
-        public Boolean InsertarAlumno(AlumnoDCINSERTS objAlumnoDC)
+        public Boolean InsertarAlumno(AlumnoDC objAlumnoDC)
         {
             try
             {
                 SISTEMA_MATRICULASEntities MisMatriculas = new SISTEMA_MATRICULASEntities();
-                MisMatriculas.usp_insert_alumno(objAlumnoDC.Id_Ubigeo, objAlumnoDC.Dni_alum, objAlumnoDC.Foto_alum, objAlumnoDC.Fec_nac, objAlumnoDC.Sexo,
+
+				        MisMatriculas.usp_insert_alumno(objAlumnoDC.Id_Ubigeo, objAlumnoDC.Dni_alum, objAlumnoDC.Foto_alum, objAlumnoDC.Fec_nac, objAlumnoDC.Sexo,
                     objAlumnoDC.Nom_alum, objAlumnoDC.Ape_Alum, objAlumnoDC.Dir_alum, objAlumnoDC.Tel_alum, objAlumnoDC.Email_alum,
                     objAlumnoDC.Usu_Registro, objAlumnoDC.Est_alum);
                 MisMatriculas.SaveChanges();

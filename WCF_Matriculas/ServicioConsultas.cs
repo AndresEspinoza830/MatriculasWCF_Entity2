@@ -43,7 +43,7 @@ namespace WCF_Matriculas
                 }
 
 
-                    return objLista;
+                return objLista;
             }
             catch (EntityException ex)
             {
@@ -58,8 +58,9 @@ namespace WCF_Matriculas
                 SISTEMA_MATRICULASEntities MisMatriculas = new SISTEMA_MATRICULASEntities();
                 List<MatriculadoDC> objLista = new List<MatriculadoDC>();
 
-                var query = MisMatriculas.usp_ConsultarMatriculadosEntreFechas(fecIni,fecFin);
-                foreach (var resultado in query) {
+                var query = MisMatriculas.usp_ConsultarMatriculadosEntreFechas(fecIni, fecFin);
+                foreach (var resultado in query)
+                {
                     MatriculadoDC objMatriculadoDC = new MatriculadoDC();
 
                     objMatriculadoDC.Id_alum = resultado.Id_alum;
@@ -124,6 +125,8 @@ namespace WCF_Matriculas
                     objMatriculadoDC.Tel_alum = resultado.Tel_alum;
                     //objMatriculadoDC.Est_alum = Convert.ToInt32(resultado.Est_alum);
                     objMatriculadoDC.Estado = resultado.Estado;
+
+                    objMatriculadoDC.Foto_alum = resultado.Foto_alum;
 
                     objMatriculadoDC.Id_Ubigeo = resultado.Id_Ubigeo;
                     objMatriculadoDC.Provincia = resultado.Provincia;
