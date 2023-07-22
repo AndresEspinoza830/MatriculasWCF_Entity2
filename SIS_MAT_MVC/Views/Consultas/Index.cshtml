@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Consultas";
+}
+
+<h2>Consultas</h2>
+
+<style>
+    .btn-group > .btn {
+        margin: 10px;
+    }
+
+    .btn {
+        height: 90px;
+        width: 150px;
+    }
+</style>
+
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Consulta1", "Consultas")'">Consulta cuotas pendientes por Alumno</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Consulta2", "Consultas")'">Consulta Matriculados por fechas</button>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Consulta3", "Consultas")'">Consulta Bloques con vacantes </button>
+            <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Consulta4", "Consultas")'">Consulta Alumnos por Carrera</button>
+        </div>
+    </div>
+</div>

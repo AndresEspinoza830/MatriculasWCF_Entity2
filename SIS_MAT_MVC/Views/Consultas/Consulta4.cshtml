@@ -1,0 +1,77 @@
+﻿@model IEnumerable<SIS_MAT_MVC.ProxyConsultas.MatriculadoDC>
+
+@{
+    ViewBag.Title = "Consulta4";
+}
+
+<h2>Consulta4</h2>
+
+@using (Html.BeginForm("Consulta4", "Consultas", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.DropDownList("Id_carrera", new SelectList(ViewBag.Carreras, "Id_carrera", "Nom_carrera"), "Selecciona una carrera", new { @class = "form-control" })
+    </div>
+    <input type="submit" value="Buscar" class="btn btn-primary" />
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_alum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom_carrera)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Des_semestre)
+        </th>
+        @*foto*@
+        <th>
+            @Html.DisplayNameFor(model => model.Nom_alum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ape_Alum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distrito)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email_alum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+    </tr>
+    @if (Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id_alum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_carrera)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Des_semestre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom_alum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ape_Alum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Distrito)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email_alum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+            </tr>
+        }
+    }
+</table>

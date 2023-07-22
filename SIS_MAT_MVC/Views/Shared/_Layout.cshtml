@@ -1,43 +1,49 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-	@Styles.Render("~/Content/css")
-	@Styles.Render("~/index.css")
-	@Scripts.Render("~/bundles/modernizr")
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/index.css")
+    @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-	<aside class="sidebar">
-		<ul class="d-flex flex-column gap-1 px-0 pt-4">
-			<li>
-				<a href="@Url.Action("Index", "Home")" class="nav-link py-2 px-4 d-flex align-items-center gap-4 w-100">
-					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><g fill="none" stroke="#888888" stroke-width="1.5"><path d="M2 12.204c0-2.289 0-3.433.52-4.381c.518-.949 1.467-1.537 3.364-2.715l2-1.241C9.889 2.622 10.892 2 12 2c1.108 0 2.11.622 4.116 1.867l2 1.241c1.897 1.178 2.846 1.766 3.365 2.715c.519.948.519 2.092.519 4.38v1.522c0 3.9 0 5.851-1.172 7.063C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.212C2 19.576 2 17.626 2 13.725v-1.521Z" opacity=".5" /><path stroke-linecap="round" d="M12 15v3" /></g></svg>
-					Inicio
-				</a>
-			</li>
+    <aside class="sidebar">
+        <ul class="d-flex flex-column gap-1 px-0 pt-4">
+            <li>
+                <a href="@Url.Action("Index", "Home")" class="nav-link py-2 px-4 d-flex align-items-center gap-4 w-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><g fill="none" stroke="#888888" stroke-width="1.5"><path d="M2 12.204c0-2.289 0-3.433.52-4.381c.518-.949 1.467-1.537 3.364-2.715l2-1.241C9.889 2.622 10.892 2 12 2c1.108 0 2.11.622 4.116 1.867l2 1.241c1.897 1.178 2.846 1.766 3.365 2.715c.519.948.519 2.092.519 4.38v1.522c0 3.9 0 5.851-1.172 7.063C19.657 22 17.771 22 14 22h-4c-3.771 0-5.657 0-6.828-1.212C2 19.576 2 17.626 2 13.725v-1.521Z" opacity=".5" /><path stroke-linecap="round" d="M12 15v3" /></g></svg>
+                    Inicio
+                </a>
+            </li>
 
-			<li>
-				<a href="@Url.Action("Alumnos", "Alumno")" class="nav-link py-2 px-4 d-flex align-items-center gap-4 w-100">
-					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><g fill="none" stroke="#888888" stroke-width="1.5"><circle cx="12" cy="6" r="4" /><path d="M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5Z" /></g></svg>
-					Alumnos
-				</a>
-			</li>
-			<li>
-				<a href="@Url.Action("Index", "Profesor")" class="nav-link py-2 px-4 d-flex align-items-center gap-4 w-100">
-					<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><g fill="none" stroke="#888888" stroke-width="1.5"><circle cx="12" cy="6" r="4" /><path stroke-linecap="round" d="M18 9c1.657 0 3-1.12 3-2.5S19.657 4 18 4M6 9C4.343 9 3 7.88 3 6.5S4.343 4 6 4" opacity=".5" /><ellipse cx="12" cy="17" rx="6" ry="4" /><path stroke-linecap="round" d="M20 19c1.754-.385 3-1.359 3-2.5s-1.246-2.115-3-2.5M4 19c-1.754-.385-3-1.359-3-2.5s1.246-2.115 3-2.5" opacity=".5" /></g></svg>
-					Profesores
-				</a>
-			</li>
-		</ul>
-	</aside>
-	<div class="flex-grow-1 px-4">
-		@RenderBody()
-	</div>
-  @Scripts.Render("~/bundles/jquery")
-  @Scripts.Render("~/bundles/bootstrap")
-  @RenderSection("scripts", required: false)
+            <li>
+                <a href="@Url.Action("Alumnos", "Alumno")" class="nav-link py-2 px-4 d-flex align-items-center gap-4 w-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><g fill="none" stroke="#888888" stroke-width="1.5"><circle cx="12" cy="6" r="4" /><path d="M20 17.5c0 2.485 0 4.5-8 4.5s-8-2.015-8-4.5S7.582 13 12 13s8 2.015 8 4.5Z" /></g></svg>
+                    Alumnos
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Profesor")" class="nav-link py-2 px-4 d-flex align-items-center gap-4 w-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><g fill="none" stroke="#888888" stroke-width="1.5"><circle cx="12" cy="6" r="4" /><path stroke-linecap="round" d="M18 9c1.657 0 3-1.12 3-2.5S19.657 4 18 4M6 9C4.343 9 3 7.88 3 6.5S4.343 4 6 4" opacity=".5" /><ellipse cx="12" cy="17" rx="6" ry="4" /><path stroke-linecap="round" d="M20 19c1.754-.385 3-1.359 3-2.5s-1.246-2.115-3-2.5M4 19c-1.754-.385-3-1.359-3-2.5s1.246-2.115 3-2.5" opacity=".5" /></g></svg>
+                    Profesores
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Index", "Consultas")" class="nav-link py-2 px-4 d-flex align-items-center gap-4 w-100">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><g fill="none" stroke="#888888" stroke-width="1.5"><circle cx="12" cy="6" r="4" /><path stroke-linecap="round" d="M18 9c1.657 0 3-1.12 3-2.5S19.657 4 18 4M6 9C4.343 9 3 7.88 3 6.5S4.343 4 6 4" opacity=".5" /><ellipse cx="12" cy="17" rx="6" ry="4" /><path stroke-linecap="round" d="M20 19c1.754-.385 3-1.359 3-2.5s-1.246-2.115-3-2.5M4 19c-1.754-.385-3-1.359-3-2.5s1.246-2.115 3-2.5" opacity=".5" /></g></svg>
+                    Consultas
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <div class="flex-grow-1 px-4">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
